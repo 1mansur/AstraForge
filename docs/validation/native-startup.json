@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-09-30T16:34:27.5721457+05:00",
+  "executableSha256": "03144cd38340a7c5ede9687f2b2d4750549e822fb368a0ecd79cab18bed2378c",
+  "observationSeconds": 8,
+  "processStayedAlive": true,
+  "earlyExitCode": null,
+  "childProcesses": [
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 32088
+    }
+  ],
+  "databaseInitialized": true,
+  "forcedStopRequired": false,
+  "standardError": null,
+  "standardOutput": null,
+  "scope": "Process startup and database initialization only; native UI interactions and live AI provider were not exercised."
+}

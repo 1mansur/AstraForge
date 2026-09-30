@@ -1,0 +1,118 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.17s
+     Running unittests src\lib.rs (target\debug\deps\astraforge_core-97995a72af34aa1a.exe)
+
+running 11 tests
+test service::tests::requests_reject_unknown_privilege_fields ... ok
+test provider::tests::endpoints_enforce_transport_and_credential_policy ... ok
+test agent::tests::malicious_tool_approval_fields_are_rejected ... ok
+test vector::tests::similarity_is_bounded_and_rejects_malformed_vectors ... ok
+test service::tests::agent_diffs_remove_sensitive_and_ambiguous_sections ... ok
+test service::tests::agent_sensitive_path_policy_is_portable_and_specific ... ok
+test vector::tests::cosine_identity ... ok
+test agent::tests::malformed_exports_fail_without_creating_sessions ... ok
+test service::tests::settings_persist_and_no_repository_is_explicit ... ok
+test service::tests::agent_sensitive_reads_are_blocked_while_local_editor_access_remains ... ok
+test service::tests::applied_file_selection_requires_verification_after_original_rejection ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.51s
+
+     Running tests\archive.rs (target\debug\deps\archive-cfde3b90c0e24c1c.exe)
+
+running 1 test
+test session_exports_actual_artifacts_and_import_retains_them_without_execution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.40s
+
+     Running tests\end_to_end.rs (target\debug\deps\end_to_end-f67600f829cbf1fe.exe)
+
+running 2 tests
+test repository_test_helper ... ignored, Invoked as a real subprocess by the repository workflow test
+test repository_edit_patch_test_git_and_restart_work_together ... ok
+
+test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.04s
+
+     Running tests\engines.rs (target\debug\deps\engines-e879e59ed009cf53.exe)
+
+running 16 tests
+test process_helper ... ignored, Subprocess helper invoked only by process integration tests
+test malformed_source_preserves_partial_ast_and_reports_errors ... ok
+test extracts_ast_symbols_across_supported_languages ... ok
+test policy_rejects_argument_injection_env_bypass_and_unapproved_shells ... ok
+test untrusted_arguments_never_make_shell_safe ... ok
+test process_can_be_cancelled ... ok
+test process_streams_real_output_and_persists_completion ... ok
+test process_output_is_bounded_and_stdin_is_real ... ok
+test search_is_paginated_literal_and_regex_validated ... ok
+test graph_cycles_terminate_and_cancelled_index_preserves_previous_data ... ok
+test trigram_search_is_literal_transactional_and_rebuildable ... ok
+test index_persists_search_and_updates_only_changed_files ... ok
+test parser_handles_arbitrary_unicode_without_panicking ... ok
+test directory_changes_and_gitignore_are_reconciled_incrementally ... ok
+test stopping_a_process_terminates_its_descendants ... ok
+test git_actions_use_real_index_history_branches_and_literal_paths ... ok
+
+test result: ok. 15 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 3.16s
+
+     Running tests\orchestration.rs (target\debug\deps\orchestration-f4c8161b44c24f40.exe)
+
+running 12 tests
+test bounded_steps_and_trace_edges_are_persisted ... ok
+test restart_marks_interrupted_sessions_and_imports_are_nonexecutable ... ok
+test cancellation_reaches_provider_and_persists_final_state ... ok
+test malformed_actions_and_forged_approval_fields_never_execute ... ok
+test tool_failures_are_logged_and_returned_as_context_for_repair ... ok
+test agent_capacity_rejection_does_not_persist_a_phantom_running_session ... ok
+test commands_wait_for_explicit_approval_and_log_both_attempts ... ok
+test a_rejected_patch_does_not_require_verification ... ok
+test approving_a_test_uses_the_frozen_invocation_after_settings_change ... ok
+test patch_resume_requires_a_recorded_user_decision ... ok
+test failed_verification_cannot_finish_and_successful_retry_clears_the_gate ... ok
+test review_mode_blocks_all_mutating_tools_before_host_execution ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running tests\provider.rs (target\debug\deps\provider-46b510df41743e8b.exe)
+
+running 3 tests
+test cancelled_provider_request_never_connects ... ok
+test actual_http_stream_decodes_tokens_and_usage ... ok
+test embedding_protocol_reorders_and_validates_actual_http_response ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests\storage.rs (target\debug\deps\storage-85067d6fa55ca925.exe)
+
+running 16 tests
+test patch_benchmark_100_files ... ignored, performance measurement
+test normalized_paths_cannot_traverse ... ok
+test database_rejects_a_future_schema ... ok
+test database_migrations_and_state_survive_reopening ... ok
+test database_exclusive_instance_lock_releases_on_close ... ok
+test interrupted_patch_is_recovered_from_durable_journal ... ok
+test patches_create_modify_delete_and_revert_with_persisted_diffs ... ok
+test stale_multifile_patches_leave_every_file_untouched ... ok
+test failed_later_write_rolls_back_previous_files ... ok
+test recovery_never_overwrites_external_changes ... ok
+test text_limits_binary_and_encoding_are_enforced ... ok
+test traversal_git_metadata_and_windows_aliases_are_rejected ... ok
+test workspace_mutations_are_real_and_optimistic ... ok
+test reject_and_repository_isolation_enforce_patch_states ... ok
+test windows_junctions_are_rejected ... ok
+test applying_then_reverting_is_identity ... ok
+
+test result: ok. 15 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 7.72s
+
+     Running tests\vectors.rs (target\debug\deps\vectors-54b9ad415630e6d3.exe)
+
+running 1 test
+test vector_cache_rejects_stale_deleted_cross_repository_and_sensitive_documents ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+   Doc-tests astraforge_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

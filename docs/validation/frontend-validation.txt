@@ -1,0 +1,25 @@
+AstraForge frontend validation record
+Recorded from command outputs on 2026-09-30; final runtime dependencies use React 18.3.1.
+Validation runtime: bundled Node.js 24.19.0. Declared application development requirement: Node.js >=22.12.0.
+TypeScript: node node_modules/typescript/bin/tsc --noEmit
+Result: exit 0; no diagnostics. Dependency declarations are checked; skipLibCheck is not enabled.
+ESLint: node node_modules/eslint/bin/eslint.js src
+Result: exit 0; no errors or warnings.
+Source style: node scripts/check-style.mjs
+Result: exit 0; Source formatting constraints passed.
+Tests: node node_modules/vitest/vitest.mjs run
+Vitest 3.2.7; jsdom environment; maximum 2 workers, minimum 1.
+Final React 18 run after navigation, rescan and semantic-result regressions:
+  src/state/workbench.test.ts       12 tests passed
+  src/ui/workbench.test.tsx         11 tests passed
+  src/services/commands.test.ts     6 tests passed
+  src/services/shortcuts.test.ts    3 tests passed
+  Test Files: 4 passed (4)
+  Tests: 32 passed (32)
+  Start at: 16:29:05
+  Duration: 3.33 seconds
+Production build: Vite build completed successfully; final packaging build output is recorded separately in windows-package.txt.
+Monaco is a lazy local module with bundled workers and no CDN dependency. The retained large-chunk warning concerns the Monaco bundle and is not suppressed.
+Source audit: no empty source lines, explicit TypeScript any types, TypeScript error-suppression directives or ESLint-disabling directives found.
+Visual/native scope: browser automation could not load the localhost preview reliably (timeouts and ERR_CONNECTION_RESET). Its generated error page then blocked subsequent browser operations under the URL policy. No verified UI screenshot or completed native GUI end-to-end test is claimed.
+The React tests use a test-only bridge and an editor component stub. They validate component/controller behavior, not actual native IPC, Monaco worker startup, layout, accessibility or a live authenticated provider.

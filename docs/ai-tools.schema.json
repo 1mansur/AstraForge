@@ -1,0 +1,485 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ToolCall",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "repository_tree"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "read_file"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "query"
+          ],
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "search_text"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "query"
+          ],
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "search_symbol"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "find_definition"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "find_references"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "get_dependencies"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "get_dependents"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "get_git_status"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "get_git_diff"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "get_file_history"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "args",
+            "program"
+          ],
+          "properties": {
+            "args": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "program": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "run_command"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "run_test"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expected_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "create_patch"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "apply_patch"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "revert_patch"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object",
+          "required": [
+            "fact"
+          ],
+          "properties": {
+            "fact": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "remember"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

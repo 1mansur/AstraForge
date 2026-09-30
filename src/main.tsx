@@ -1,0 +1,10 @@
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
+import { Workbench } from './state/workbench';
+import { desktopBridge } from './services/bridge';
+import { ErrorBoundary } from './ui/ErrorBoundary';
+import './styles.css';
+const element = document.getElementById('root');
+if (!element) throw new Error('Application root element is missing.');
+const workbench = new Workbench(desktopBridge);
+createRoot(element).render(<ErrorBoundary onError={error => workbench.report(error)}><App workbench={workbench} /></ErrorBoundary>);

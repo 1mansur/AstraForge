@@ -1,0 +1,49 @@
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `pnpm build`
+$ tsc -b && vite build
+vite v6.4.3 building for production...
+transforming...
+✓ 2529 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.47 kB │ gzip:   0.31 kB
+dist/assets/codicon-DCmgc-ay.ttf          80.34 kB
+dist/assets/editor.worker-BctYAlYZ.js    231.34 kB
+dist/assets/json.worker-BVAlfHYs.js      363.00 kB
+dist/assets/html.worker-DrRG4jbz.js      673.03 kB
+dist/assets/css.worker-jvGfRG6F.js     1,010.32 kB
+dist/assets/ts.worker-BPrOvWwc.js      6,015.07 kB
+dist/assets/index-CmxrXCe1.css            33.63 kB │ gzip:   7.24 kB
+dist/assets/editor-core-_DrISHSH.css     130.52 kB │ gzip:  21.18 kB
+dist/assets/javascript-C2NsOcdT.js         1.27 kB │ gzip:   0.68 kB │ map:      2.70 kB
+dist/assets/ini-Drc7WvVn.js                1.39 kB │ gzip:   0.71 kB │ map:      3.55 kB
+dist/assets/shell-CX-rkNHf.js              3.36 kB │ gzip:   1.38 kB │ map:      8.36 kB
+dist/assets/powershell-Dd3NCNK9.js         3.56 kB │ gzip:   1.57 kB │ map:      9.36 kB
+dist/assets/markdown-DSZPf7rp.js           4.08 kB │ gzip:   1.57 kB │ map:     11.00 kB
+dist/assets/yaml-Wu6JrXjk.js               4.35 kB │ gzip:   1.72 kB │ map:     11.49 kB
+dist/assets/rust-D5C2fndG.js               4.45 kB │ gzip:   2.00 kB │ map:     11.08 kB
+dist/assets/python-COL1C3EN.js             4.53 kB │ gzip:   1.89 kB │ map:     12.73 kB
+dist/assets/css-D3h14YRZ.js                4.80 kB │ gzip:   1.57 kB │ map:     11.31 kB
+dist/assets/html-BCdr-15X.js               5.35 kB │ gzip:   1.60 kB │ map:     14.53 kB
+dist/assets/typescript-D0q2DxIX.js         5.75 kB │ gzip:   2.38 kB │ map:     14.89 kB
+dist/assets/sql-CCSDG5nI.js               10.58 kB │ gzip:   4.05 kB │ map:     24.57 kB
+dist/assets/tsMode-BhtArx7-.js            23.18 kB │ gzip:   6.56 kB │ map:     71.73 kB
+dist/assets/cssMode-jNkIR8MG.js           32.44 kB │ gzip:   8.85 kB │ map:    121.60 kB
+dist/assets/htmlMode-C7lLt3fs.js          32.99 kB │ gzip:   8.97 kB │ map:    123.25 kB
+dist/assets/jsonMode-doykZ07t.js          41.86 kB │ gzip:  12.18 kB │ map:    161.37 kB
+dist/assets/index-CbOOxGMY.js            268.00 kB │ gzip:  80.67 kB │ map:    779.53 kB
+dist/assets/editor-core-4poHEIdz.js    3,294.04 kB │ gzip: 843.75 kB │ map: 12,634.63 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 29.18s
+   Compiling astraforge v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\src-tauri)
+    Finished `release` profile [optimized] target(s) in 2m 32s
+       Built application at: C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\work\benchmark-target\release\astraforge.exe
+        Info Patching C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\work\benchmark-target\release\astraforge.exe with bundle type information: nsis
+        Info Target: x64
+     Running makensis to produce C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\work\benchmark-target\release\bundle\nsis\AstraForge_0.1.0_x64-setup.exe
+    Finished 1 bundle at:
+        C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\work\benchmark-target\release\bundle\nsis\AstraForge_0.1.0_x64-setup.exe (13.67 MiB)

@@ -1,0 +1,129 @@
+{
+  "architecture": "x86_64",
+  "methodology": "Generated TypeScript modules; 20 warm search/query samples; process resident memory, not peak; fixture generation excluded from index duration; SQLite FULL synchronous WAL; local filesystem and Git CLI",
+  "platform": "windows",
+  "profile": "release",
+  "results": [
+    {
+      "databaseBytes": 4308992,
+      "dependencies": 1000,
+      "directGraphTraversal": {
+        "medianMs": 0.0687,
+        "p95Ms": 0.07100000000000001,
+        "samples": 20
+      },
+      "files": 1000,
+      "fixtureGenerationMs": 243.9762,
+      "incrementalFiles": 1,
+      "incrementalUpdateMs": 174.785,
+      "indexMs": 1543.8029,
+      "indexedFiles": 1000,
+      "patchApplicationMs": 18.9304,
+      "patchGenerationMs": 1.2654,
+      "residentBytesAfter": 11386880,
+      "residentBytesBefore": 7581696,
+      "residentGrowthBytes": 3805184,
+      "sqliteCountQuery": {
+        "medianMs": 0.0477,
+        "p95Ms": 0.048600000000000004,
+        "samples": 20
+      },
+      "symbolSearch": {
+        "medianMs": 0.3062,
+        "p95Ms": 0.7066,
+        "samples": 20
+      },
+      "symbols": 2000,
+      "terminalCommandMs": 182.13209999999998,
+      "terminalGeneratedBytes": 8388608,
+      "terminalPolledBytes": 917504,
+      "terminalTruncated": true,
+      "textSearch": {
+        "medianMs": 0.6011000000000001,
+        "p95Ms": 1.7185,
+        "samples": 20
+      }
+    },
+    {
+      "databaseBytes": 42172416,
+      "dependencies": 10000,
+      "directGraphTraversal": {
+        "medianMs": 0.545,
+        "p95Ms": 1.0956,
+        "samples": 20
+      },
+      "files": 10000,
+      "fixtureGenerationMs": 48554.789300000004,
+      "incrementalFiles": 1,
+      "incrementalUpdateMs": 123.9751,
+      "indexMs": 11053.553000000002,
+      "indexedFiles": 10000,
+      "patchApplicationMs": 17.4179,
+      "patchGenerationMs": 0.7353000000000001,
+      "residentBytesAfter": 12734464,
+      "residentBytesBefore": 10166272,
+      "residentGrowthBytes": 2568192,
+      "sqliteCountQuery": {
+        "medianMs": 0.4301,
+        "p95Ms": 0.7244,
+        "samples": 20
+      },
+      "symbolSearch": {
+        "medianMs": 6.7200999999999995,
+        "p95Ms": 11.1491,
+        "samples": 20
+      },
+      "symbols": 20000,
+      "terminalCommandMs": 110.7978,
+      "terminalGeneratedBytes": 8388608,
+      "terminalPolledBytes": 917504,
+      "terminalTruncated": true,
+      "textSearch": {
+        "medianMs": 1.779,
+        "p95Ms": 2.6498,
+        "samples": 20
+      }
+    },
+    {
+      "databaseBytes": 212381696,
+      "dependencies": 50000,
+      "directGraphTraversal": {
+        "medianMs": 13.4209,
+        "p95Ms": 28.2318,
+        "samples": 20
+      },
+      "files": 50000,
+      "fixtureGenerationMs": 283633.6582,
+      "incrementalFiles": 1,
+      "incrementalUpdateMs": 447.5725,
+      "indexMs": 59324.081399999995,
+      "indexedFiles": 50000,
+      "patchApplicationMs": 51.7769,
+      "patchGenerationMs": 1.1097,
+      "residentBytesAfter": 12701696,
+      "residentBytesBefore": 10248192,
+      "residentGrowthBytes": 2453504,
+      "sqliteCountQuery": {
+        "medianMs": 23.308100000000003,
+        "p95Ms": 40.4167,
+        "samples": 20
+      },
+      "symbolSearch": {
+        "medianMs": 78.4387,
+        "p95Ms": 109.5278,
+        "samples": 20
+      },
+      "symbols": 100000,
+      "terminalCommandMs": 475.2593,
+      "terminalGeneratedBytes": 8388608,
+      "terminalPolledBytes": 524288,
+      "terminalTruncated": true,
+      "textSearch": {
+        "medianMs": 1.8831,
+        "p95Ms": 2.4158999999999997,
+        "samples": 20
+      }
+    }
+  ],
+  "schemaVersion": 1
+}
