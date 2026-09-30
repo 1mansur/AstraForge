@@ -1,0 +1,15 @@
+
+running 1 test
+
+thread 'workspace_discovery_helper' (7884) panicked at crates\core\tests\storage_adversarial.rs:266:20:
+repository PATH binary must be skipped: AppError { code: "NOT_GIT_REPOSITORY", message: "The selected directory is not a Git working tree", category: "operation", recoverable: true, cause: None, context: Null }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test workspace_discovery_helper ... FAILED
+
+failures:
+
+failures:
+    workspace_discovery_helper
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out; finished in 1.95s
+

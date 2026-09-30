@@ -65,7 +65,7 @@ describe('filesystem invalidation', () => {
     const workbench = new Workbench(bridge); await workbench.initialize();
     workbench.repository.patch({ current: { id: 'repo', root: 'C:\\repo', name: 'repo' }, expanded: ['', 'src'], folders: { '': [], src: [], closed: [] } });
     workbench.editor.set({ active: 'src/clean.ts', documents: [{ path: 'src/clean.ts', content: 'base', draft: 'base', hash: 'base-hash', encoding: 'utf-8', conflict: false }, { path: 'src/dirty.ts', content: 'base', draft: 'my edits', hash: 'base-hash', encoding: 'utf-8', conflict: false }] });
-    bridge.calls.length = 0; bridge.events.get('workspace_changed')?.({ paths: [], rescan: true });
+    bridge.calls.length = 0; bridge.events.get('workspace_changed')?.({ version: 1, repositoryId: 'repo', sequence: 1, payload: { paths: [], rescan: true } });
     await vi.waitFor(() => expect(workbench.editor.get().documents[0]?.content).toBe('disk update'));
     expect(bridge.calls.filter(call => call.method === 'tree').map(call => call.params)).toEqual([{ path: '' }, { path: 'src' }]);
     expect(workbench.editor.get().documents[1]).toMatchObject({ draft: 'my edits', hash: 'base-hash', conflict: false });
@@ -75,7 +75,7 @@ describe('filesystem invalidation', () => {
     const disk = deferred<FileContent>();
     const bridge = new TestBridge({ repositories: () => [], settings: () => new Workbench(new TestBridge()).settings.get(), tree: () => [], read_file: () => disk.promise, git_status: () => ({ branch: 'main', entries: [] }), git_branches: () => ['main'], health: () => null });
     const workbench = new Workbench(bridge); await workbench.initialize(); workbench.repository.patch({ current: { id: 'repo', root: 'C:\\repo', name: 'repo' }, expanded: [''] }); workbench.editor.set({ active: original.path, documents: [{ ...original, draft: original.content, conflict: false }] });
-    bridge.events.get('workspace_changed')?.({ rescan: true }); workbench.editFile(original.path, 'draft made during refresh'); disk.resolve({ ...original, content: 'external', hash: 'external-hash' });
+    bridge.events.get('workspace_changed')?.({ version: 1, repositoryId: 'repo', sequence: 1, payload: { paths: [], rescan: true } }); workbench.editFile(original.path, 'draft made during refresh'); disk.resolve({ ...original, content: 'external', hash: 'external-hash' });
     await vi.waitFor(() => expect(workbench.editor.get().documents[0]?.conflict).toBe(true));
     expect(workbench.editor.get().documents[0]).toMatchObject({ draft: 'draft made during refresh', content: original.content, hash: original.hash }); workbench.dispose();
   });

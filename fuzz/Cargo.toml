@@ -28,3 +28,9 @@ path = "fuzz_targets/commands.rs"
 test = false
 doc = false
 bench = false
+[[bin]]
+name = "stream"
+path = "fuzz_targets/stream.rs"
+test = false
+doc = false
+bench = false

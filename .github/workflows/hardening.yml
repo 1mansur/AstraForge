@@ -1,0 +1,49 @@
+name: Phase 2 hardening
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CARGO_BUILD_JOBS: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache fuzz dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin/cargo-fuzz
+            fuzz/target
+          key: ${{ runner.os }}-fuzz-${{ hashFiles('fuzz/Cargo.lock') }}
+      - name: Install nightly fuzz tooling
+        run: |
+          rustup toolchain install nightly --profile minimal
+          cargo +nightly install cargo-fuzz --locked
+      - name: Prepare seed corpora
+        run: |
+          mkdir -p fuzz/corpus
+          cp -r fuzz/seeds/* fuzz/corpus/
+      - name: Fuzz protocol and session input
+        run: cargo +nightly fuzz run protocol -- -max_total_time=30 -rss_limit_mb=2048 -seed=20260930
+      - name: Fuzz capability path normalization
+        run: cargo +nightly fuzz run paths -- -max_total_time=30 -rss_limit_mb=2048 -seed=20260930
+      - name: Fuzz command classification
+        run: cargo +nightly fuzz run commands -- -max_total_time=30 -rss_limit_mb=2048 -seed=20260930
+      - name: Fuzz streaming decoder
+        run: cargo +nightly fuzz run stream -- -max_total_time=30 -rss_limit_mb=2048 -seed=20260930
+      - name: Preserve fuzz failures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-failures
+          path: fuzz/artifacts
+          if-no-files-found: ignore

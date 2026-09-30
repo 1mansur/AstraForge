@@ -1,13 +1,16 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use astraforge_core::error::AppError;
-use astraforge_core::service::{Engine, Request};
+use astraforge_core::service::{Engine, RequestEnvelope};
 use serde_json::Value;
 use std::sync::Arc;
 use tauri::{Emitter, Manager, State};
 #[tauri::command]
-async fn request(request: Request, state: State<'_, Arc<Engine>>) -> Result<Value, AppError> {
+async fn request(
+    envelope: RequestEnvelope,
+    state: State<'_, Arc<Engine>>,
+) -> Result<Value, AppError> {
     let engine = state.inner().clone();
-    tauri::async_runtime::spawn_blocking(move || engine.handle(request))
+    tauri::async_runtime::spawn_blocking(move || engine.handle_envelope(envelope))
         .await
         .map_err(|_| AppError::new("worker_failed", "The background operation failed"))?
 }

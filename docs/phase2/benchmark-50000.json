@@ -1,0 +1,85 @@
+{
+  "architecture": "x86_64",
+  "method": "Six language fixtures, malformed ASTs, Unicode/space paths, deep directories, ignored and oversized files; 20 warm query samples; OS process peak RSS; local deterministic 16-dimensional embedding fixture, no network/provider quality measurement; SQLite FULL WAL including WAL and shared-memory sizes",
+  "platform": "windows",
+  "profile": "release",
+  "result": {
+    "cancelIndexMs": 109.4455,
+    "cancelSearchMs": 0.0418,
+    "cancelledIndexReported": true,
+    "databaseAfterIndex": {
+      "mainBytes": 175534080,
+      "sharedMemoryBytes": 32768,
+      "totalBytes": 184663840,
+      "walBytes": 9096992
+    },
+    "databaseFinal": {
+      "mainBytes": 202280960,
+      "sharedMemoryBytes": 32768,
+      "totalBytes": 211410720,
+      "walBytes": 9096992
+    },
+    "dependencies": 16667,
+    "embeddedDocuments": 50002,
+    "embeddingDimensions": 16,
+    "embeddingFixtureMs": 6840.8776,
+    "fixtureGenerationMs": 187596.1788,
+    "ignoredSourceFiles": 1,
+    "incrementalParsedFiles": 1,
+    "incrementalUpdateMs": 312.9157,
+    "indexMs": 54115.317500000005,
+    "indexedFiles": 50002,
+    "languages": [
+      "TypeScript",
+      "Python",
+      "Rust",
+      "JSON",
+      "Markdown",
+      "JavaScript"
+    ],
+    "largeTextBytes": 983040,
+    "malformedSourceFiles": 258,
+    "oversizedFiles": 1,
+    "peakResidentBytes": 31322112,
+    "processGeneratedBytes": 16777216,
+    "processMs": 101.9338,
+    "processPolledBytes": 1179648,
+    "processTruncated": true,
+    "regexSearch": {
+      "medianMs": 0.6703,
+      "p95Ms": 1.1035000000000001,
+      "samples": 20
+    },
+    "residentAfterBytes": 21495808,
+    "residentBeforeBytes": 11264000,
+    "searchCancellationObserved": true,
+    "sourceFiles": 50000,
+    "startupMs": 202.4469,
+    "symbolSearch": {
+      "medianMs": 19.5737,
+      "p95Ms": 25.6106,
+      "samples": 20
+    },
+    "symbols": 66666,
+    "textSearch": {
+      "medianMs": 0.4678,
+      "p95Ms": 0.6083,
+      "samples": 20
+    },
+    "transitiveGraph": {
+      "medianMs": 0.2532,
+      "p95Ms": 0.2825,
+      "samples": 20
+    },
+    "vectorSearch": {
+      "medianMs": 122.07339999999999,
+      "p95Ms": 190.914,
+      "samples": 20
+    },
+    "watcherCallbacks": 5,
+    "watcherChangedFiles": 100,
+    "watcherProducerMs": 1577.9071,
+    "watcherStormMs": 1935.1598999999999
+  },
+  "schemaVersion": 2
+}

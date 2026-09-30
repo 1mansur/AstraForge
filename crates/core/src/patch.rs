@@ -4,7 +4,6 @@ use crate::workspace::{content_hash, mutation_guard, normalize_path, Workspace, 
 use rusqlite::{params, OptionalExtension};
 use serde::{Deserialize, Serialize};
 use similar::TextDiff;
-use std::collections::HashSet;
 use std::sync::Arc;
 use uuid::Uuid;
 const MAX_PATCH_BYTES: usize = 16 * 1024 * 1024;
@@ -63,23 +62,21 @@ impl PatchService {
                 "A patch needs 1–100 files and a source label of at most 1024 bytes",
             ));
         }
-        let mut seen = HashSet::new();
+        let mut seen: Vec<String> = Vec::with_capacity(proposals.len());
         let mut total = 0usize;
         let mut changes = Vec::with_capacity(proposals.len());
         for proposal in proposals {
             let path = normalize_path(&proposal.path)?;
             workspace.resolve(&path)?;
-            let identity = if cfg!(windows) {
-                path.to_lowercase()
-            } else {
-                path.clone()
-            };
-            if !seen.insert(identity) {
-                return Err(AppError::new(
-                    "PATCH_DUPLICATE",
-                    "A patch cannot contain the same path more than once",
-                ));
+            for previous in &seen {
+                if path_alias(previous, &path)? {
+                    return Err(AppError::new(
+                        "PATCH_DUPLICATE",
+                        "A patch cannot contain the same path more than once",
+                    ));
+                }
             }
+            seen.push(path.clone());
             if proposal
                 .content
                 .as_ref()
@@ -410,4 +407,30 @@ impl PatchService {
         AppError::new("PATCH_STALE", "The patch conflicts with current file content; propose it again using the current file")
             .context(serde_json::json!({"path": path, "expectedHash": expected, "actualHash": actual}))
     }
+}
+fn path_alias(left: &str, right: &str) -> Result<bool> {
+    #[cfg(windows)]
+    {
+        use windows_sys::Win32::Globalization::{CompareStringOrdinal, CSTR_EQUAL};
+        let left: Vec<u16> = left.encode_utf16().collect();
+        let right: Vec<u16> = right.encode_utf16().collect();
+        let compared = unsafe {
+            CompareStringOrdinal(
+                left.as_ptr(),
+                left.len() as i32,
+                right.as_ptr(),
+                right.len() as i32,
+                1,
+            )
+        };
+        if compared == 0 {
+            return Err(AppError::new(
+                "PATH_COMPARISON",
+                "Windows could not compare the proposed file paths",
+            ));
+        }
+        Ok(compared == CSTR_EQUAL)
+    }
+    #[cfg(not(windows))]
+    Ok(left == right)
 }

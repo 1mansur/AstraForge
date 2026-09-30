@@ -1,0 +1,16 @@
+{
+  "completedAtUtc": "2026-09-30T16:58:58.486Z",
+  "integration": "23 passed, 2 subprocess helpers intentionally ignored, 25.62 seconds",
+  "clippy": "cargo clippy -p astraforge-core --tests --examples -- -D warnings: passed",
+  "denseMarkdown50000HeadingsMs": 341.901,
+  "denseMarkdown50001HeadingCapMs": 380.717,
+  "watcherRegressions": "Both failed before the final watcher fixes and pass in the final owned suite",
+  "incrementalSqlWork": {
+    "persistedPaths": 50000,
+    "persistedCandidates": 50000,
+    "changedFiles": 100,
+    "approxVmStepsAfter": 757000,
+    "vmStepBudget": 5000000,
+    "before": "Both old-scope and old-candidate stages exhausted the budget"
+  }
+}

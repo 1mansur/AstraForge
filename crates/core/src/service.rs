@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::BTreeMap;
 use std::path::Path;
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex, RwLock};
 use std::time::{Duration, Instant};
 #[derive(Clone, Serialize, Deserialize)]
@@ -165,6 +165,102 @@ pub enum Request {
     Diagnostics {},
     ToolSchema {},
 }
+pub const PROTOCOL_VERSION: u32 = 1;
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct RequestEnvelope {
+    pub version: u32,
+    pub repository_id: Option<String>,
+    pub request: Request,
+}
+impl Request {
+    fn global(&self) -> bool {
+        matches!(
+            self,
+            Self::Repositories { .. }
+                | Self::OpenRepository { .. }
+                | Self::Settings { .. }
+                | Self::SaveSettings { .. }
+                | Self::Diagnostics { .. }
+                | Self::ToolSchema { .. }
+        )
+    }
+    fn mutates_workspace(&self) -> bool {
+        matches!(
+            self,
+            Self::WriteFile { .. }
+                | Self::CreateFile { .. }
+                | Self::RemoveFile { .. }
+                | Self::RenameFile { .. }
+                | Self::GitAction { .. }
+                | Self::ProposePatch { .. }
+                | Self::ApplyPatch { .. }
+                | Self::RevertPatch { .. }
+                | Self::StartCommand { .. }
+                | Self::StartAgent { .. }
+                | Self::ContinueAgent { .. }
+                | Self::ApproveAgentCommand { .. }
+        )
+    }
+    fn name(&self) -> &'static str {
+        match self {
+            Self::Repositories { .. } => "repositories",
+            Self::OpenRepository { .. } => "open_repository",
+            Self::Tree { .. } => "tree",
+            Self::ReadFile { .. } => "read_file",
+            Self::WriteFile { .. } => "write_file",
+            Self::CreateFile { .. } => "create_file",
+            Self::RemoveFile { .. } => "remove_file",
+            Self::RenameFile { .. } => "rename_file",
+            Self::IndexRepository { .. } => "index_repository",
+            Self::CancelIndex { .. } => "cancel_index",
+            Self::CancelSearch { .. } => "cancel_search",
+            Self::Search { .. } => "search",
+            Self::Graph { .. } => "graph",
+            Self::Health { .. } => "health",
+            Self::GitStatus { .. } => "git_status",
+            Self::GitDiff { .. } => "git_diff",
+            Self::GitHistory { .. } => "git_history",
+            Self::GitBranches { .. } => "git_branches",
+            Self::GitAction { .. } => "git_action",
+            Self::ProposePatch { .. } => "propose_patch",
+            Self::Patches { .. } => "patches",
+            Self::ApplyPatch { .. } => "apply_patch",
+            Self::RevertPatch { .. } => "revert_patch",
+            Self::RejectPatch { .. } => "reject_patch",
+            Self::ClassifyCommand { .. } => "classify_command",
+            Self::StartCommand { .. } => "start_command",
+            Self::PollCommand { .. } => "poll_command",
+            Self::CommandInput { .. } => "command_input",
+            Self::StopCommand { .. } => "stop_command",
+            Self::Settings { .. } => "settings",
+            Self::SaveSettings { .. } => "save_settings",
+            Self::StartAgent { .. } => "start_agent",
+            Self::AgentSession { .. } => "agent_session",
+            Self::AgentSessions { .. } => "agent_sessions",
+            Self::StopAgent { .. } => "stop_agent",
+            Self::ContinueAgent { .. } => "continue_agent",
+            Self::ApproveAgentCommand { .. } => "approve_agent_command",
+            Self::ExportSession { .. } => "export_session",
+            Self::ImportSession { .. } => "import_session",
+            Self::Diagnostics { .. } => "diagnostics",
+            Self::ToolSchema { .. } => "tool_schema",
+        }
+    }
+}
+struct ActiveOperation {
+    repository_id: String,
+    method: &'static str,
+    cancel: std::sync::Weak<AtomicBool>,
+}
+struct RunningIndex<'a> {
+    running: &'a AtomicBool,
+}
+impl Drop for RunningIndex<'_> {
+    fn drop(&mut self) {
+        self.running.store(false, Ordering::SeqCst);
+    }
+}
 type EventSink = Arc<dyn Fn(&str, Value) + Send + Sync>;
 pub use crate::trust::agent_path_allowed;
 fn require_agent_path(path: &str) -> Result<()> {
@@ -236,13 +332,20 @@ pub struct Engine {
     vectors: Arc<VectorStore>,
     workspace: RwLock<Option<Workspace>>,
     watcher: Mutex<Option<WatchHandle>>,
-    index_cancel: Arc<AtomicBool>,
+    operation_cancels: Mutex<Vec<ActiveOperation>>,
+    lifecycle: Mutex<()>,
+    generation: AtomicU64,
+    event_sequence: AtomicU64,
     index_running: AtomicBool,
     on_event: EventSink,
 }
 impl Engine {
     pub fn new(path: &Path, on_event: EventSink) -> Result<Self> {
         let db = Arc::new(Database::open(path)?);
+        db.with(|connection| {
+            connection.execute_batch("CREATE TABLE IF NOT EXISTS operation_log(id TEXT PRIMARY KEY,repository_id TEXT,method TEXT NOT NULL,started_at INTEGER NOT NULL,duration_ms INTEGER NOT NULL DEFAULT 0,status TEXT NOT NULL,error_code TEXT);CREATE INDEX IF NOT EXISTS operation_time ON operation_log(started_at);UPDATE operation_log SET status='interrupted' WHERE status='running';")?;
+            Ok(())
+        })?;
         Ok(Self {
             index: Arc::new(IndexService::new(db.clone())?),
             patches: Arc::new(PatchService::new(db.clone())),
@@ -252,7 +355,10 @@ impl Engine {
             db,
             workspace: RwLock::new(None),
             watcher: Mutex::new(None),
-            index_cancel: Arc::new(AtomicBool::new(false)),
+            operation_cancels: Mutex::new(Vec::new()),
+            lifecycle: Mutex::new(()),
+            generation: AtomicU64::new(0),
+            event_sequence: AtomicU64::new(0),
             index_running: AtomicBool::new(false),
             on_event,
         })
@@ -292,8 +398,15 @@ impl Engine {
             settings: self.settings()?,
         }))
     }
-    fn ensure_session(&self, id: &str) -> Result<()> {
-        if self.agents.get(id)?.repository_id != self.workspace()?.id {
+    fn emit(&self, name: &str, repository_id: Option<&str>, payload: Value) {
+        let sequence = self.event_sequence.fetch_add(1, Ordering::SeqCst) + 1;
+        (self.on_event)(
+            name,
+            json!({"version":PROTOCOL_VERSION,"repositoryId":repository_id,"sequence":sequence,"payload":payload}),
+        );
+    }
+    fn ensure_session(&self, workspace: &Workspace, id: &str) -> Result<()> {
+        if self.agents.get(id)?.repository_id != workspace.id {
             return Err(AppError::new(
                 "session_repository",
                 "Session belongs to another repository",
@@ -301,105 +414,307 @@ impl Engine {
         }
         Ok(())
     }
+    fn ensure_command(&self, workspace: &Workspace, id: &str) -> Result<()> {
+        self.db.with(|connection| {
+            let owner: Option<String> = connection
+                .query_row(
+                    "SELECT repository_id FROM command_runs WHERE id=?1",
+                    [id],
+                    |row| row.get(0),
+                )
+                .optional()?;
+            if owner.as_deref() != Some(&workspace.id) {
+                return Err(AppError::new(
+                    "command_repository",
+                    "Command belongs to another repository or is unavailable",
+                ));
+            }
+            Ok(())
+        })
+    }
+    fn ensure_writable(&self, workspace: &Workspace) -> Result<()> {
+        self.db.with(|connection| {
+            let pending: bool = connection.query_row("SELECT EXISTS(SELECT 1 FROM patch_journal WHERE repository_id=?1)", [&workspace.id], |row| row.get(0))?;
+            if pending {
+                return Err(AppError::new("PATCH_RECOVERY_REQUIRED", "This repository is open for inspection; resolve interrupted patch conflicts and reopen it before making changes"));
+            }
+            Ok(())
+        })
+    }
+    pub fn handle_envelope(self: &Arc<Self>, envelope: RequestEnvelope) -> Result<Value> {
+        if envelope.version != PROTOCOL_VERSION {
+            return Err(AppError::new(
+                "protocol_version",
+                "Unsupported desktop protocol version; restart or update AstraForge",
+            ));
+        }
+        let workspace = self
+            .workspace
+            .read()
+            .map_err(|_| AppError::new("workspace_lock", "Workspace is unavailable"))?
+            .clone();
+        if !envelope.request.global() {
+            let expected = envelope.repository_id.as_deref().ok_or_else(|| {
+                AppError::new(
+                    "protocol_repository",
+                    "Repository identity is required for this operation",
+                )
+            })?;
+            if workspace.as_ref().map(|workspace| workspace.id.as_str()) != Some(expected) {
+                return Err(AppError::new(
+                    "stale_repository",
+                    "The repository changed before this operation started",
+                ));
+            }
+        }
+        self.handle_captured(envelope.request, workspace)
+    }
     pub fn handle(self: &Arc<Self>, request: Request) -> Result<Value> {
+        let workspace = self
+            .workspace
+            .read()
+            .map_err(|_| AppError::new("workspace_lock", "Workspace is unavailable"))?
+            .clone();
+        self.handle_captured(request, workspace)
+    }
+    fn handle_captured(
+        self: &Arc<Self>,
+        request: Request,
+        workspace: Option<Workspace>,
+    ) -> Result<Value> {
+        let cancel = Arc::new(AtomicBool::new(false));
+        if matches!(
+            request,
+            Request::IndexRepository { .. } | Request::Search { .. }
+        ) {
+            let repository_id = workspace
+                .as_ref()
+                .ok_or_else(|| AppError::new("no_repository", "Open a Git repository first"))?
+                .id
+                .clone();
+            let mut active = self.operation_cancels.lock().map_err(|_| {
+                AppError::new("operation_lock", "Operation cancellation is unavailable")
+            })?;
+            active.retain(|operation| operation.cancel.strong_count() > 0);
+            if active.len() >= 32 {
+                return Err(AppError::new(
+                    "operation_limit",
+                    "Too many index or search operations are pending",
+                ));
+            }
+            active.push(ActiveOperation {
+                repository_id,
+                method: request.name(),
+                cancel: Arc::downgrade(&cancel),
+            });
+        }
+        if matches!(
+            request,
+            Request::CancelIndex { .. }
+                | Request::CancelSearch { .. }
+                | Request::StopCommand { .. }
+                | Request::StopAgent { .. }
+        ) {
+            return self.dispatch(request, workspace, cancel);
+        }
         let start = Instant::now();
-        let output = self.dispatch(request);
+        let id = uuid::Uuid::new_v4().to_string();
+        let repository_id = if request.global() {
+            None
+        } else {
+            workspace.as_ref().map(|workspace| workspace.id.clone())
+        };
+        let method = request.name();
+        self.db.with(|connection| {
+            connection.execute("INSERT INTO operation_log(id,repository_id,method,started_at,status) VALUES(?1,?2,?3,?4,'running')", params![id,repository_id,method,timestamp()])?;
+            Ok(())
+        })?;
+        let output = self.dispatch(request, workspace, cancel);
+        let repository_id = if method == "open_repository" {
+            output
+                .as_ref()
+                .ok()
+                .and_then(|value| value.get("id"))
+                .and_then(Value::as_str)
+                .map(str::to_owned)
+        } else {
+            repository_id
+        };
+        let error_code = output.as_ref().err().map(|error| error.code.as_str());
+        let status = match error_code {
+            None if output
+                .as_ref()
+                .ok()
+                .and_then(|value| value.get("cancelled"))
+                .and_then(Value::as_bool)
+                == Some(true) =>
+            {
+                "cancelled"
+            }
+            None => "completed",
+            Some("cancelled" | "CANCELLED" | "SEARCH_CANCELLED") => "cancelled",
+            Some(_) => "failed",
+        };
+        let persisted = self.db.with(|connection| {
+            connection.execute("UPDATE operation_log SET duration_ms=?2,status=?3,error_code=?4,repository_id=?5 WHERE id=?1", params![id,start.elapsed().as_millis() as u64,status,error_code,repository_id])?;
+            connection.execute("DELETE FROM operation_log WHERE status!='running' AND id NOT IN (SELECT id FROM operation_log ORDER BY started_at DESC,rowid DESC LIMIT 10000)", [])?;
+            Ok(())
+        });
+        if let Err(error) = persisted {
+            self.emit(
+                "diagnostic",
+                repository_id.as_deref(),
+                json!({"message":error.message,"operationId":id}),
+            );
+        }
         if let Err(error) = &output {
             if let Err(persistence) = self.diagnostic(
                 "error",
                 start.elapsed().as_millis() as u64,
-                &format!("{}: {}", error.code, error.message),
+                &format!("{} {}: {}", id, error.code, error.message),
             ) {
-                eprintln!("Diagnostic persistence failed: {}", persistence.message);
+                self.emit(
+                    "diagnostic",
+                    repository_id.as_deref(),
+                    json!({"message":persistence.message,"operationId":id}),
+                );
             }
         }
         output
     }
-    fn dispatch(self: &Arc<Self>, request: Request) -> Result<Value> {
+    fn cancel_requests(&self, workspace: &Workspace, method: &str) -> Result<()> {
+        let mut active = self.operation_cancels.lock().map_err(|_| {
+            AppError::new("operation_lock", "Operation cancellation is unavailable")
+        })?;
+        active.retain(|operation| {
+            if let Some(cancel) = operation.cancel.upgrade() {
+                if operation.repository_id == workspace.id && operation.method == method {
+                    cancel.store(true, Ordering::SeqCst);
+                }
+                true
+            } else {
+                false
+            }
+        });
+        Ok(())
+    }
+    fn dispatch(
+        self: &Arc<Self>,
+        request: Request,
+        captured: Option<Workspace>,
+        cancel: Arc<AtomicBool>,
+    ) -> Result<Value> {
+        if cancel.load(Ordering::SeqCst) {
+            return Err(AppError::new(
+                "CANCELLED",
+                "Operation cancelled before dispatch",
+            ));
+        }
+        let workspace = || {
+            captured
+                .clone()
+                .ok_or_else(|| AppError::new("no_repository", "Open a Git repository first"))
+        };
+        if request.mutates_workspace() {
+            self.ensure_writable(&workspace()?)?;
+        }
         match request {
             Request::Repositories{}=>self.db.with(|connection| { let mut statement=connection.prepare("SELECT id,root,name FROM repositories ORDER BY opened_at DESC LIMIT 50")?;let rows=statement.query_map([],|row|Ok(json!({"id":row.get::<_,String>(0)?,"root":row.get::<_,String>(1)?,"name":row.get::<_,String>(2)?})))?.collect::<std::result::Result<Vec<_>,_>>()?;Ok(json!(rows)) }),
             Request::OpenRepository{path}=>{
-                if self.index_running.load(Ordering::Relaxed) { return Err(AppError::new("index_running","Cancel indexing before switching repositories")); }
+                let _lifecycle=self.lifecycle.lock().map_err(|_|AppError::new("workspace_lock","Workspace lifecycle is unavailable"))?;
+                if self.index_running.load(Ordering::SeqCst) { return Err(AppError::new("index_running","Cancel indexing before switching repositories")); }
                 let workspace=Workspace::open(&path,&self.db)?;
-                let recovery=self.patches.recover(&workspace)?;
-                for message in recovery { (self.on_event)("diagnostic",json!({"message":message})); }
+                let recovery=match self.patches.recover(&workspace) {
+                    Ok(messages)=>{for message in messages {self.emit("diagnostic",Some(&workspace.id),json!({"message":message}));} None},
+                    Err(error) if error.code=="PATCH_RECOVERY_REQUIRED"=>{self.emit("diagnostic",Some(&workspace.id),json!({"message":error.message}));Some(error)},
+                    Err(error)=>return Err(error),
+                };
+                let generation=self.generation.load(Ordering::SeqCst)+1;
                 let weak=Arc::downgrade(self);
                 let watched=workspace.clone();
-                let watch=watcher::watch(&workspace.root,Arc::new(move |paths,overflow| {
+                let watch=watcher::watch(&workspace.root,Arc::new(move |paths,overflow,cancel| {
                     if let Some(engine)=weak.upgrade() {
-                        let active=engine.workspace().map(|current|current.id==watched.id).unwrap_or(false);
-                        if !active { return; }
-                        let result=if overflow { engine.index.index(&watched,&AtomicBool::new(false)) } else { engine.index.update(&watched,&paths,&AtomicBool::new(false)) };
-                        if let Err(error)=result { (engine.on_event)("diagnostic",json!({"message":error.message})); }
-                        for path in &paths { if let Err(error)=engine.vectors.delete(&watched.id,path) { (engine.on_event)("diagnostic",json!({"message":error.message})); } }
-                        (engine.on_event)("workspace_changed",json!({"paths":paths,"rescan":overflow}));
+                        if engine.generation.load(Ordering::SeqCst)!=generation||cancel.load(Ordering::SeqCst) {return;}
+                        let result=if overflow {engine.index.index(&watched,cancel)} else {engine.index.update(&watched,&paths,cancel)};
+                        if engine.generation.load(Ordering::SeqCst)!=generation||cancel.load(Ordering::SeqCst) {return;}
+                        if let Err(error)=result {engine.emit("diagnostic",Some(&watched.id),json!({"message":error.message}));}
+                        for path in &paths {if let Err(error)=engine.vectors.delete(&watched.id,path) {engine.emit("diagnostic",Some(&watched.id),json!({"message":error.message}));}}
+                        engine.emit("workspace_changed",Some(&watched.id),json!({"paths":paths,"rescan":overflow}));
                     }
                 }))?;
-                *self.watcher.lock().map_err(|_|AppError::new("watcher_lock","Watcher lock unavailable"))?=Some(watch);
                 let name=workspace.root.file_name().map(|name|name.to_string_lossy().into_owned()).unwrap_or_else(||workspace.root.display().to_string());
-                let value=json!({"id":workspace.id,"root":workspace.root,"name":name});
+                let value=json!({"id":workspace.id,"root":workspace.root,"name":name,"recoveryRequired":recovery});
+                self.generation.store(generation,Ordering::SeqCst);
                 *self.workspace.write().map_err(|_|AppError::new("workspace_lock","Workspace lock unavailable"))?=Some(workspace);
+                *self.watcher.lock().map_err(|_|AppError::new("watcher_lock","Watcher lock unavailable"))?=Some(watch);
                 Ok(value)
             }
-            Request::Tree{path}=>Ok(serde_json::to_value(self.workspace()?.tree(&path)?)?),
-            Request::ReadFile{path}=>Ok(serde_json::to_value(self.workspace()?.read(&path)?)?),
-            Request::WriteFile{path,content,expected_hash}=>Ok(serde_json::to_value(self.workspace()?.write(&path,&content,&expected_hash)?)?),
-            Request::CreateFile{path,directory}=>{self.workspace()?.create(&path,directory)?;Ok(Value::Null)},
-            Request::RemoveFile{path,expected_hash}=>{self.workspace()?.remove(&path,expected_hash.as_deref())?;Ok(Value::Null)},
-            Request::RenameFile{from,to}=>{self.workspace()?.rename(&from,&to)?;Ok(Value::Null)},
+            Request::Tree{path}=>Ok(serde_json::to_value(workspace()?.tree(&path)?)?),
+            Request::ReadFile{path}=>Ok(serde_json::to_value(workspace()?.read(&path)?)?),
+            Request::WriteFile{path,content,expected_hash}=>Ok(serde_json::to_value(workspace()?.write(&path,&content,&expected_hash)?)?),
+            Request::CreateFile{path,directory}=>{workspace()?.create(&path,directory)?;Ok(Value::Null)},
+            Request::RemoveFile{path,expected_hash}=>{workspace()?.remove(&path,expected_hash.as_deref())?;Ok(Value::Null)},
+            Request::RenameFile{from,to}=>{workspace()?.rename(&from,&to)?;Ok(Value::Null)},
             Request::IndexRepository{}=>{
-                if self.index_running.swap(true,Ordering::SeqCst) { return Err(AppError::new("index_running","Indexing is already running")); }
-                self.index_cancel.store(false,Ordering::SeqCst);
-                let result=self.full_index();
-                self.index_running.store(false,Ordering::SeqCst);
-                result
+                let workspace=workspace()?;
+                {
+                    let _lifecycle=self.lifecycle.lock().map_err(|_|AppError::new("workspace_lock","Workspace lifecycle is unavailable"))?;
+                    if self.workspace()?.id!=workspace.id {return Err(AppError::new("stale_repository","The repository changed before indexing started"));}
+                    if cancel.load(Ordering::SeqCst) {return Err(AppError::new("CANCELLED","Index operation cancelled before starting"));}
+                    if self.index_running.swap(true,Ordering::SeqCst) {return Err(AppError::new("index_running","Indexing is already running"));}
+                }
+                let _running=RunningIndex{running:&self.index_running};
+                self.full_index(&workspace,&cancel)
             }
-            Request::CancelIndex{}=>{self.index_cancel.store(true,Ordering::SeqCst);Ok(Value::Null)},
-            Request::CancelSearch{}=>{self.index.cancel_search();Ok(Value::Null)},
+            Request::CancelIndex{}=>{self.cancel_requests(&workspace()?,"index_repository")?;Ok(Value::Null)},
+            Request::CancelSearch{}=>{self.cancel_requests(&workspace()?,"search")?;Ok(Value::Null)},
             Request::Search{query,mode,offset,limit}=>{
                 let start=Instant::now();
-                let workspace=self.workspace()?;
-                let hits=if mode=="semantic" { self.semantic(&workspace,&query,offset,limit)? } else { self.index.search(&workspace,&query,&mode,offset,limit)? };
+                let workspace=workspace()?;
+                let hits=if mode=="semantic" { self.semantic(&workspace,&query,offset,limit,cancel)? } else { self.index.search_cancellable(&workspace,&query,&mode,offset,limit,cancel)? };
                 self.diagnostic("search",start.elapsed().as_millis() as u64,&mode)?;
                 Ok(serde_json::to_value(hits)?)
             }
-            Request::Graph{path,direction}=>Ok(serde_json::to_value(self.index.graph(&self.workspace()?,&path,&direction)?)?),
-            Request::Health{}=>self.index.health(&self.workspace()?),
-            Request::GitStatus{}=>GitService::status(&self.workspace()?),
-            Request::GitDiff{path,staged}=>Ok(json!(GitService::diff(&self.workspace()?,path.as_deref(),staged)?)),
-            Request::GitHistory{path}=>GitService::history(&self.workspace()?,path.as_deref()),
-            Request::GitBranches{}=>Ok(json!(GitService::branches(&self.workspace()?)?)),
-            Request::GitAction{action,value}=>Ok(json!(GitService::action(&self.workspace()?,&action,&value)?)),
-            Request::ProposePatch{proposals,source}=>Ok(serde_json::to_value(self.patches.propose(&self.workspace()?,proposals,&source)?)?),
-            Request::Patches{}=>Ok(serde_json::to_value(self.patches.list(&self.workspace()?)?)?),
-            Request::ApplyPatch{id}=>Ok(serde_json::to_value(self.patches.apply(&self.workspace()?,&id)?)?),
-            Request::RevertPatch{id}=>Ok(serde_json::to_value(self.patches.revert(&self.workspace()?,&id)?)?),
-            Request::RejectPatch{id}=>Ok(serde_json::to_value(self.patches.reject(&self.workspace()?,&id)?)?),
+            Request::Graph{path,direction}=>Ok(serde_json::to_value(self.index.graph(&workspace()?,&path,&direction)?)?),
+            Request::Health{}=>self.index.health(&workspace()?),
+            Request::GitStatus{}=>GitService::status(&workspace()?),
+            Request::GitDiff{path,staged}=>Ok(json!(GitService::diff(&workspace()?,path.as_deref(),staged)?)),
+            Request::GitHistory{path}=>GitService::history(&workspace()?,path.as_deref()),
+            Request::GitBranches{}=>Ok(json!(GitService::branches(&workspace()?)?)),
+            Request::GitAction{action,value}=>Ok(json!(GitService::action(&workspace()?,&action,&value)?)),
+            Request::ProposePatch{proposals,source}=>Ok(serde_json::to_value(self.patches.propose(&workspace()?,proposals,&source)?)?),
+            Request::Patches{}=>Ok(serde_json::to_value(self.patches.list(&workspace()?)?)?),
+            Request::ApplyPatch{id}=>Ok(serde_json::to_value(self.patches.apply(&workspace()?,&id)?)?),
+            Request::RevertPatch{id}=>Ok(serde_json::to_value(self.patches.revert(&workspace()?,&id)?)?),
+            Request::RejectPatch{id}=>Ok(serde_json::to_value(self.patches.reject(&workspace()?,&id)?)?),
             Request::ClassifyCommand{spec}=>Ok(serde_json::to_value(classify(&spec))?),
-            Request::StartCommand{spec}=>Ok(json!(self.processes.start(&self.workspace()?,spec)?)),
-            Request::PollCommand{id,cursor}=>Ok(serde_json::to_value(self.processes.poll(&id,cursor)?)?),
-            Request::CommandInput{id,text}=>{self.processes.input(&id,&text)?;Ok(Value::Null)},
-            Request::StopCommand{id}=>{self.processes.stop(&id)?;Ok(Value::Null)},
+            Request::StartCommand{spec}=>Ok(json!(self.processes.start(&workspace()?,spec)?)),
+            Request::PollCommand{id,cursor}=>{self.ensure_command(&workspace()?,&id)?;Ok(serde_json::to_value(self.processes.poll(&id,cursor)?)?)},
+            Request::CommandInput{id,text}=>{self.ensure_command(&workspace()?,&id)?;self.processes.input(&id,&text)?;Ok(Value::Null)},
+            Request::StopCommand{id}=>{self.ensure_command(&workspace()?,&id)?;self.processes.stop(&id)?;Ok(Value::Null)},
             Request::Settings{}=>Ok(serde_json::to_value(self.settings()?)?),
             Request::SaveSettings{settings}=>{
                 if !matches!(settings.theme.as_str(),"dark"|"light"|"system")||!(1..=100).contains(&settings.max_agent_steps)||!(2048..=64000).contains(&settings.context_budget)||settings.test_args.len()>128||settings.test_program.len()>4096 { return Err(AppError::new("settings_invalid","Settings exceed allowed values")); }
                 if !settings.provider.endpoint.is_empty() { crate::provider::validate_endpoint(&settings.provider.endpoint)?; }
                 self.db.with(|connection| { connection.execute("INSERT OR REPLACE INTO settings(key,value) VALUES('application',?1)",params![serde_json::to_string(&settings)?])?;Ok(()) })?;Ok(Value::Null)
             }
-            Request::StartAgent{task,mode}=>{let settings=self.settings()?;let workspace=self.workspace()?;let provider=Arc::new(CompatibleProvider::new(settings.provider)?);Ok(serde_json::to_value(self.agents.start(&workspace.id,task,mode,provider,self.host(workspace.clone())?,AgentLimits{max_steps:settings.max_agent_steps,context_budget:settings.context_budget})?)?)},
-            Request::AgentSession{id}=>{self.ensure_session(&id)?;Ok(serde_json::to_value(self.agents.get(&id)?)?)},
-            Request::AgentSessions{}=>Ok(serde_json::to_value(self.agents.list(&self.workspace()?.id)?)?),
-            Request::StopAgent{id}=>{self.ensure_session(&id)?;self.agents.stop(&id)?;Ok(Value::Null)},
-            Request::ContinueAgent{id}=>self.resume(&id,false),
-            Request::ApproveAgentCommand{id}=>self.resume(&id,true),
-            Request::ExportSession{id}=>{self.ensure_session(&id)?;Ok(json!(self.agents.export(&id)?))},
-            Request::ImportSession{json:text}=>Ok(serde_json::to_value(self.agents.import(&self.workspace()?.id,&text)?)?),
-            Request::Diagnostics{}=>self.db.with(|connection| { let mut statement=connection.prepare("SELECT at,category,duration_ms,message FROM diagnostics ORDER BY id DESC LIMIT 100")?;let rows=statement.query_map([],|row|Ok(json!({"at":row.get::<_,u64>(0)?,"category":row.get::<_,String>(1)?,"durationMs":row.get::<_,u64>(2)?,"message":row.get::<_,String>(3)?})))?.collect::<std::result::Result<Vec<_>,_>>()?;Ok(json!(rows)) }),
+            Request::StartAgent{task,mode}=>{let settings=self.settings()?;let workspace=workspace()?;let provider=Arc::new(CompatibleProvider::new(settings.provider)?);Ok(serde_json::to_value(self.agents.start(&workspace.id,task,mode,provider,self.host(workspace.clone())?,AgentLimits{max_steps:settings.max_agent_steps,context_budget:settings.context_budget})?)?)},
+            Request::AgentSession{id}=>{self.ensure_session(&workspace()?,&id)?;Ok(serde_json::to_value(self.agents.get(&id)?)?)},
+            Request::AgentSessions{}=>Ok(serde_json::to_value(self.agents.list(&workspace()?.id)?)?),
+            Request::StopAgent{id}=>{self.ensure_session(&workspace()?,&id)?;self.agents.stop(&id)?;Ok(Value::Null)},
+            Request::ContinueAgent{id}=>self.resume(workspace()?,&id,false),
+            Request::ApproveAgentCommand{id}=>self.resume(workspace()?,&id,true),
+            Request::ExportSession{id}=>{self.ensure_session(&workspace()?,&id)?;Ok(json!(self.agents.export(&id)?))},
+            Request::ImportSession{json:text}=>Ok(serde_json::to_value(self.agents.import(&workspace()?.id,&text)?)?),
+            Request::Diagnostics{}=>self.db.with(|connection| {
+                let mut statement=connection.prepare("SELECT at,category,duration_ms,message,operation_id,repository_id,status,error_code FROM (SELECT at,category,duration_ms,message,NULL AS operation_id,NULL AS repository_id,NULL AS status,NULL AS error_code FROM diagnostics UNION ALL SELECT started_at,method,duration_ms,method||': '||status||coalesce(' ('||error_code||')',''),id,repository_id,status,error_code FROM operation_log WHERE method!='diagnostics') ORDER BY at DESC LIMIT 100")?;
+                let rows=statement.query_map([],|row|Ok(json!({"at":row.get::<_,u64>(0)?,"category":row.get::<_,String>(1)?,"durationMs":row.get::<_,u64>(2)?,"message":row.get::<_,String>(3)?,"operationId":row.get::<_,Option<String>>(4)?,"repositoryId":row.get::<_,Option<String>>(5)?,"status":row.get::<_,Option<String>>(6)?,"errorCode":row.get::<_,Option<String>>(7)?})))?.collect::<std::result::Result<Vec<_>,_>>()?;
+                Ok(json!(rows))
+            }),
             Request::ToolSchema{}=>Ok(serde_json::to_value(schemars::schema_for!(ToolCall))?),
         }
     }
-    fn resume(&self, id: &str, approved: bool) -> Result<Value> {
-        let workspace = self.workspace()?;
+    fn resume(&self, workspace: Workspace, id: &str, approved: bool) -> Result<Value> {
         if self.agents.get(id)?.repository_id != workspace.id {
             return Err(AppError::new(
                 "session_repository",
@@ -418,25 +733,24 @@ impl Engine {
             approved,
         )?)?)
     }
-    fn full_index(&self) -> Result<Value> {
-        let workspace = self.workspace()?;
-        let stats = self.index.index(&workspace, &self.index_cancel)?;
+    fn full_index(&self, workspace: &Workspace, cancel: &AtomicBool) -> Result<Value> {
+        let mut stats = self.index.index(workspace, cancel)?;
         self.diagnostic("index", stats.duration_ms, "Repository index")?;
         let settings = self.settings()?;
         if !stats.cancelled && !settings.provider.embedding_model.is_empty() {
             let provider = CompatibleProvider::new(settings.provider)?;
             let mut offset = 0;
             loop {
-                let documents = self.index.documents(&workspace, offset, 32)?;
-                if documents.is_empty() || self.index_cancel.load(Ordering::Relaxed) {
+                let documents = self.index.documents(workspace, offset, 32)?;
+                if documents.is_empty() || cancel.load(Ordering::SeqCst) {
                     break;
                 }
                 if let Err(error) =
                     self.vectors
-                        .update(&workspace.id, &documents, &provider, &self.index_cancel)
+                        .update(&workspace.id, &documents, &provider, cancel)
                 {
-                    (self.on_event)(
-                        "diagnostic",
+                    self.emit(
+                        "diagnostic", Some(&workspace.id),
                         json!({"message":format!("Embeddings unavailable; lexical search remains available: {}",error.message)}),
                     );
                     break;
@@ -444,6 +758,7 @@ impl Engine {
                 offset += documents.len();
             }
         }
+        stats.cancelled |= cancel.load(Ordering::SeqCst);
         Ok(serde_json::to_value(stats)?)
     }
     fn semantic(
@@ -452,20 +767,31 @@ impl Engine {
         query: &str,
         offset: usize,
         limit: usize,
+        cancel: Arc<AtomicBool>,
     ) -> Result<Vec<SearchHit>> {
+        if query.len() > 4096 || query.trim().is_empty() || limit == 0 {
+            return Err(AppError::new(
+                "SEARCH_QUERY",
+                "Search requires a nonempty query of at most 4096 bytes and a positive limit",
+            ));
+        }
         let settings = self.settings()?;
         if !settings.provider.embedding_model.is_empty() {
             let result = (|| {
                 let provider = CompatibleProvider::new(settings.provider)?;
-                let vectors = provider.embed(&[query.to_string()], &AtomicBool::new(false))?;
-                self.vectors.search(
+                let vectors = provider.embed(&[query.to_string()], &cancel)?;
+                self.vectors.search_cancellable(
                     &workspace.id,
                     &provider.identity(),
                     &vectors[0],
                     None,
                     offset.saturating_add(limit).min(100),
+                    &cancel,
                 )
             })();
+            if cancel.load(Ordering::SeqCst) {
+                return Err(AppError::new("cancelled", "Search cancelled"));
+            }
             match result {
                 Ok(hits) if !hits.is_empty() => {
                     return Ok(hits
@@ -481,14 +807,15 @@ impl Engine {
                         })
                         .collect())
                 }
-                Err(error) => (self.on_event)(
-                    "diagnostic",
+                Err(error) => self.emit(
+                    "diagnostic", Some(&workspace.id),
                     json!({"message":format!("Semantic search fell back to text search: {}",error.message)}),
                 ),
                 _ => (),
             }
         }
-        self.index.search(workspace, query, "text", offset, limit)
+        self.index
+            .search_cancellable(workspace, query, "text", offset, limit, cancel)
     }
 }
 struct RepositoryTools {

@@ -8,6 +8,7 @@ use std::collections::{BTreeMap, HashMap, VecDeque};
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use std::process::{Child, ChildStdin, Command, Stdio};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
@@ -264,7 +265,8 @@ impl OutputBuffer {
 }
 struct RunningProcess {
     child: Mutex<Child>,
-    stdin: Mutex<Option<ChildStdin>>,
+    stdin: Mutex<Option<std::sync::mpsc::SyncSender<Vec<u8>>>>,
+    terminated: AtomicBool,
     output: Mutex<OutputBuffer>,
     tree: ProcessTree,
 }
@@ -285,6 +287,9 @@ impl RunningProcess {
         {
             return Ok(());
         }
+        if self.terminated.swap(true, Ordering::AcqRel) {
+            return Ok(());
+        }
         let mut child = self
             .child
             .lock()
@@ -296,6 +301,7 @@ pub struct ProcessManager {
     db: Arc<Database>,
     sessions: Mutex<HashMap<String, Arc<RunningProcess>>>,
     start_gate: Mutex<()>,
+    workers: Mutex<Vec<thread::JoinHandle<()>>>,
     initialization_error: Option<String>,
 }
 impl ProcessManager {
@@ -308,6 +314,7 @@ impl ProcessManager {
             db,
             sessions: Mutex::new(HashMap::new()),
             start_gate: Mutex::new(()),
+            workers: Mutex::new(Vec::new()),
             initialization_error,
         }
     }
@@ -337,6 +344,9 @@ impl ProcessManager {
             ));
         }
         let program = resolve_program(&spec.program, &workspace.root)?;
+        if policy.level == "SAFE" {
+            validate_automatic_executable(&program)?;
+        }
         let mut sessions = self
             .sessions
             .lock()
@@ -374,30 +384,7 @@ impl ProcessManager {
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .stderr(Stdio::piped());
-        for name in [
-            "PATH",
-            "PATHEXT",
-            "SystemRoot",
-            "SYSTEMROOT",
-            "WINDIR",
-            "COMSPEC",
-            "TEMP",
-            "TMP",
-            "TMPDIR",
-            "HOME",
-            "USERPROFILE",
-            "APPDATA",
-            "LOCALAPPDATA",
-            "LANG",
-            "LC_ALL",
-            "TERM",
-            "NUMBER_OF_PROCESSORS",
-            "PROCESSOR_ARCHITECTURE",
-        ] {
-            if let Some(value) = std::env::var_os(name) {
-                command.env(name, value);
-            }
-        }
+        minimal_environment(&mut command);
         for (name, value) in &spec.env {
             if name.contains(['=', '\0']) || name.is_empty() || value.contains('\0') {
                 return Err(AppError::new(
@@ -412,22 +399,7 @@ impl ProcessManager {
             .and_then(|name| name.to_str())
             .unwrap_or("");
         if basename.eq_ignore_ascii_case("git") {
-            command.args([
-                "--no-pager",
-                "-c",
-                "core.fsmonitor=false",
-                "-c",
-                "core.hooksPath=/dev/null",
-                "-c",
-                "diff.external=",
-                "-c",
-                "core.pager=cat",
-                "-c",
-                "interactive.diffFilter=",
-            ]);
-            command
-                .env("GIT_TERMINAL_PROMPT", "0")
-                .env("GIT_OPTIONAL_LOCKS", "0");
+            crate::git::configure(&mut command, workspace)?;
         }
         command.args(&spec.args);
         if basename.eq_ignore_ascii_case("git")
@@ -485,9 +457,11 @@ impl ProcessManager {
             .take()
             .ok_or_else(|| AppError::new("PROCESS_PIPE", "Command stderr is unavailable"))?;
         let stdin = child.stdin.take();
+        let (input_sender, input_receiver) = std::sync::mpsc::sync_channel::<Vec<u8>>(4);
         let process = Arc::new(RunningProcess {
             child: Mutex::new(child),
-            stdin: Mutex::new(stdin),
+            stdin: Mutex::new(Some(input_sender)),
+            terminated: AtomicBool::new(false),
             output: Mutex::new(OutputBuffer::new()),
             tree,
         });
@@ -497,11 +471,14 @@ impl ProcessManager {
         let err_process = process.clone();
         let stdout_worker = thread::spawn(move || read_stream(stdout, &out_process, "stdout"));
         let stderr_worker = thread::spawn(move || read_stream(stderr, &err_process, "stderr"));
+        let input_process = process.clone();
+        let stdin_worker =
+            thread::spawn(move || write_input(stdin, input_receiver, &input_process));
         let worker_id = id.clone();
         let db = self.db.clone();
-        thread::spawn(move || {
+        let worker = thread::spawn(move || {
             let started = Instant::now();
-            let outcome = monitor(&process, stdout_worker, stderr_worker);
+            let outcome = monitor(&process, stdout_worker, stderr_worker, stdin_worker);
             let exit_code = match outcome {
                 Ok(code) => code,
                 Err(error) => {
@@ -514,16 +491,21 @@ impl ProcessManager {
                 }
             };
             let persisted = (|| -> Result<()> {
+                let (chunks, dropped) = {
+                    let output = process.output.lock().map_err(|_| {
+                        AppError::new("PROCESS_LOCK", "Process output lock was poisoned")
+                    })?;
+                    (serde_json::to_string(&output.chunks)?, output.dropped)
+                };
+                let persisted=db.with(|connection| {
+                    connection.execute("UPDATE command_runs SET status='completed',duration_ms=?2,exit_code=?3,output_json=?4,truncated=?5 WHERE id=?1",params![worker_id,started.elapsed().as_millis() as i64,exit_code,chunks,dropped])?;Ok(())
+                });
                 let mut output = process.output.lock().map_err(|_| {
                     AppError::new("PROCESS_LOCK", "Process output lock was poisoned")
                 })?;
                 output.exit_code = Some(exit_code);
                 output.running = false;
-                let chunks = serde_json::to_string(&output.chunks)?;
-                db.with(|connection| {
-                    connection.execute("UPDATE command_runs SET status='completed',duration_ms=?2,exit_code=?3,output_json=?4,truncated=?5 WHERE id=?1", params![worker_id, started.elapsed().as_millis() as i64, exit_code, chunks, output.dropped])?;
-                    Ok(())
-                })
+                persisted
             })();
             if let Err(error) = persisted {
                 if let Err(push_error) = process.push(
@@ -534,6 +516,22 @@ impl ProcessManager {
                 }
             }
         });
+        let mut workers = self
+            .workers
+            .lock()
+            .map_err(|_| AppError::new("PROCESS_LOCK", "Process worker lock was poisoned"))?;
+        let mut active = Vec::new();
+        for completed in workers.drain(..) {
+            if completed.is_finished() {
+                if completed.join().is_err() {
+                    eprintln!("Command monitor panicked");
+                }
+            } else {
+                active.push(completed);
+            }
+        }
+        active.push(worker);
+        *workers = active;
         Ok(id)
     }
     fn get(&self, id: &str) -> Result<Arc<RunningProcess>> {
@@ -597,15 +595,24 @@ impl ProcessManager {
             return Err(AppError::new("STDIN_LIMIT", "Input exceeds 16 KiB"));
         }
         let process = self.get(id)?;
-        let mut guard = process
+        let guard = process
             .stdin
             .lock()
             .map_err(|_| AppError::new("PROCESS_LOCK", "Command input lock was poisoned"))?;
         let stdin = guard
-            .as_mut()
+            .as_ref()
             .ok_or_else(|| AppError::new("STDIN_CLOSED", "Command input is closed"))?;
-        stdin.write_all(text.as_bytes())?;
-        stdin.flush()?;
+        stdin
+            .try_send(text.as_bytes().to_vec())
+            .map_err(|error| match error {
+                std::sync::mpsc::TrySendError::Full(_) => AppError::new(
+                    "STDIN_BUSY",
+                    "Command input buffer is full; wait for the child to consume input",
+                ),
+                std::sync::mpsc::TrySendError::Disconnected(_) => {
+                    AppError::new("STDIN_CLOSED", "Command input is closed")
+                }
+            })?;
         Ok(())
     }
     pub fn stop(&self, id: &str) -> Result<()> {
@@ -638,12 +645,23 @@ impl Drop for ProcessManager {
             }
             Err(error) => eprintln!("Process shutdown lock failed: {error}"),
         }
+        match self.workers.lock() {
+            Ok(mut workers) => {
+                for worker in workers.drain(..) {
+                    if worker.thread().id() != thread::current().id() && worker.join().is_err() {
+                        eprintln!("Command monitor panicked during shutdown");
+                    }
+                }
+            }
+            Err(error) => eprintln!("Process worker shutdown lock failed: {error}"),
+        }
     }
 }
 fn monitor(
     process: &Arc<RunningProcess>,
     stdout: thread::JoinHandle<Result<()>>,
     stderr: thread::JoinHandle<Result<()>>,
+    stdin: thread::JoinHandle<()>,
 ) -> Result<i32> {
     let exit_code = loop {
         let status = process
@@ -662,6 +680,9 @@ fn monitor(
         .lock()
         .map_err(|_| AppError::new("PROCESS_LOCK", "Command input lock was poisoned"))?
         .take();
+    stdin
+        .join()
+        .map_err(|_| AppError::new("STREAM_WORKER", "Command input writer failed"))?;
     stdout
         .join()
         .map_err(|_| AppError::new("STREAM_WORKER", "Command output reader failed"))??;
@@ -903,4 +924,86 @@ fn resume_initial_thread(process_id: u32) -> Result<()> {
         return Err(std::io::Error::last_os_error().into());
     }
     outcome
+}
+pub(crate) fn minimal_environment(command: &mut Command) {
+    command.env_clear();
+    for name in [
+        "PATH",
+        "PATHEXT",
+        "SystemRoot",
+        "SYSTEMROOT",
+        "WINDIR",
+        "COMSPEC",
+        "TEMP",
+        "TMP",
+        "TMPDIR",
+        "HOME",
+        "USERPROFILE",
+        "APPDATA",
+        "LOCALAPPDATA",
+        "LANG",
+        "LC_ALL",
+        "TERM",
+        "NUMBER_OF_PROCESSORS",
+        "PROCESSOR_ARCHITECTURE",
+    ] {
+        if let Some(value) = std::env::var_os(name) {
+            command.env(name, value);
+        }
+    }
+}
+pub(crate) fn validate_automatic_executable(path: &Path) -> Result<()> {
+    use std::io::Read;
+    let mut signature = [0_u8; 4];
+    let mut file = std::fs::File::open(path)?;
+    if file.read_exact(&mut signature).is_err() {
+        return Err(AppError::new(
+            "COMMAND_APPROVAL",
+            "Automatic commands require a native executable",
+        ));
+    }
+    let native = if cfg!(windows) {
+        path.extension()
+            .is_some_and(|value| value.eq_ignore_ascii_case("exe"))
+            && signature[..2] == *b"MZ"
+    } else {
+        signature == *b"\x7fELF"
+            || matches!(
+                signature,
+                [0xfe, 0xed, 0xfa, 0xce]
+                    | [0xce, 0xfa, 0xed, 0xfe]
+                    | [0xfe, 0xed, 0xfa, 0xcf]
+                    | [0xcf, 0xfa, 0xed, 0xfe]
+                    | [0xca, 0xfe, 0xba, 0xbe]
+                    | [0xbe, 0xba, 0xfe, 0xca]
+            )
+    };
+    if !native {
+        return Err(AppError::new(
+            "COMMAND_APPROVAL",
+            "Resolved command is a script or unsupported executable; explicit approval is required",
+        ));
+    }
+    Ok(())
+}
+fn write_input(
+    stdin: Option<ChildStdin>,
+    receiver: std::sync::mpsc::Receiver<Vec<u8>>,
+    process: &RunningProcess,
+) {
+    let Some(mut stdin) = stdin else {
+        return;
+    };
+    while let Ok(bytes) = receiver.recv() {
+        if let Err(error) = stdin.write_all(&bytes).and_then(|_| stdin.flush()) {
+            if error.kind() != std::io::ErrorKind::BrokenPipe {
+                if let Err(push_error) =
+                    process.push("diagnostic", format!("Command input failed: {error}\n"))
+                {
+                    eprintln!("{}", push_error.message);
+                }
+            }
+            break;
+        }
+    }
 }

@@ -25,9 +25,36 @@ fn collect_output(mut stream: impl Read, overflow: Arc<AtomicBool>) -> std::io::
     }
 }
 pub(crate) fn run(workspace: &Workspace, args: &[&str]) -> Result<Vec<u8>> {
-    let mut command = Command::new(crate::process::resolve_program("git", &workspace.root)?);
+    run_cancellable(workspace, args, &AtomicBool::new(false))
+}
+pub(crate) fn run_cancellable(
+    workspace: &Workspace,
+    args: &[&str],
+    cancel: &AtomicBool,
+) -> Result<Vec<u8>> {
+    run_inner(workspace, args, true, false, cancel)
+}
+fn run_inner(
+    workspace: &Workspace,
+    args: &[&str],
+    helpers: bool,
+    allow_empty_config: bool,
+    cancel: &AtomicBool,
+) -> Result<Vec<u8>> {
+    if cancel.load(Ordering::Acquire) {
+        return Err(AppError::new("CANCELLED", "Git operation cancelled"));
+    }
+    let program = crate::process::resolve_program("git", &workspace.root)?;
+    crate::process::validate_automatic_executable(&program)?;
+    let mut command = Command::new(program);
+    crate::process::minimal_environment(&mut command);
+    if helpers {
+        configure(&mut command, workspace)?;
+    }
     command
         .current_dir(&workspace.root)
+        .arg("--work-tree")
+        .arg(&workspace.root)
         .args([
             "--no-pager",
             "-c",
@@ -82,7 +109,10 @@ pub(crate) fn run(workspace: &Workspace, args: &[&str]) -> Result<Vec<u8>> {
         if let Some(status) = child.try_wait()? {
             break status;
         }
-        if overflow.load(Ordering::Acquire) || started.elapsed() > Duration::from_secs(30) {
+        if cancel.load(Ordering::Acquire)
+            || overflow.load(Ordering::Acquire)
+            || started.elapsed() > Duration::from_secs(30)
+        {
             tree.terminate(&mut child)?;
             child.wait()?;
             out_thread
@@ -91,6 +121,9 @@ pub(crate) fn run(workspace: &Workspace, args: &[&str]) -> Result<Vec<u8>> {
             err_thread
                 .join()
                 .map_err(|_| AppError::new("GIT_READER", "Git error reader failed"))??;
+            if cancel.load(Ordering::Acquire) {
+                return Err(AppError::new("CANCELLED", "Git operation cancelled"));
+            }
             return Err(AppError::new(
                 "GIT_LIMIT",
                 "Git exceeded the 30 second or 8 MiB output limit; narrow the request",
@@ -111,7 +144,7 @@ pub(crate) fn run(workspace: &Workspace, args: &[&str]) -> Result<Vec<u8>> {
             "Git output exceeded 8 MiB; narrow the request",
         ));
     }
-    if !status.success() {
+    if !status.success() && !(allow_empty_config && status.code() == Some(1)) {
         let detail: String = String::from_utf8_lossy(&stderr)
             .chars()
             .take(2000)
@@ -263,4 +296,57 @@ impl GitService {
         run(workspace, &["check-ref-format", "--branch", value])?;
         Ok(())
     }
+}
+pub(crate) fn configure(command: &mut Command, workspace: &Workspace) -> Result<()> {
+    command.arg("--work-tree").arg(&workspace.root);
+    command.args([
+        "--no-pager",
+        "-c",
+        "core.fsmonitor=false",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "diff.external=",
+        "-c",
+        "core.pager=cat",
+        "-c",
+        "interactive.diffFilter=",
+    ]);
+    command
+        .env("GIT_TERMINAL_PROMPT", "0")
+        .env("GIT_OPTIONAL_LOCKS", "0");
+    let config = run_inner(
+        workspace,
+        &[
+            "config",
+            "--includes",
+            "--null",
+            "--name-only",
+            "--get-regexp",
+            r"^filter\..*\.(clean|smudge|process|required)$",
+        ],
+        false,
+        true,
+        &AtomicBool::new(false),
+    )?;
+    let mut drivers = std::collections::BTreeSet::new();
+    for key in config
+        .split(|byte| *byte == 0)
+        .filter(|key| !key.is_empty())
+    {
+        let key = std::str::from_utf8(key)
+            .map_err(|_| AppError::new("GIT_CONFIG", "Git filter configuration is not UTF-8"))?;
+        if let Some((driver, _)) = key.rsplit_once('.') {
+            drivers.insert(driver.to_owned());
+        }
+    }
+    for driver in drivers {
+        for field in ["clean", "smudge", "process", "required"] {
+            command.arg("-c").arg(format!(
+                "{driver}.{field}={}",
+                if field == "required" { "false" } else { "" }
+            ));
+        }
+    }
+    Ok(())
 }

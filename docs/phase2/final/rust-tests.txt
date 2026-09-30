@@ -1,0 +1,246 @@
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 52.18s
+     Running unittests src\lib.rs (target\debug\deps\astraforge_core-2e8cdb67dfb75394.exe)
+
+running 18 tests
+test agent::tests::malicious_tool_approval_fields_are_rejected ... ok
+test service::tests::agent_diffs_remove_sensitive_and_ambiguous_sections ... ok
+test provider_stream::tests::null_and_empty_tool_fields_do_not_reject_plain_text_streams ... ok
+test provider_stream::tests::actual_or_malformed_tool_invocations_are_rejected_before_emitting_text ... ok
+test service::tests::agent_sensitive_path_policy_is_portable_and_specific ... ok
+test provider::tests::endpoints_enforce_transport_and_credential_policy ... ok
+test service::tests::requests_reject_unknown_privilege_fields ... ok
+test vector::tests::similarity_is_bounded_and_rejects_malformed_vectors ... ok
+test provider::dns_tests::cancelled_waiters_keep_slots_until_blocking_resolution_really_finishes ... ok
+test provider::dns_tests::completed_and_failed_lookups_release_reservations ... ok
+test provider::dns_tests::provider_runtime_and_resolver_are_shared_and_bounded ... ok
+test provider::dns_tests::dropping_unpolled_resolution_releases_its_slot_without_starting_work ... ok
+test vector::tests::cosine_identity ... ok
+test agent::tests::malformed_exports_fail_without_creating_sessions ... ok
+test service::tests::settings_persist_and_no_repository_is_explicit ... ok
+test index::lifecycle_tests::cancelled_waiter_leaves_gate_without_acquiring_it ... ok
+test service::tests::agent_sensitive_reads_are_blocked_while_local_editor_access_remains ... ok
+test service::tests::applied_file_selection_requires_verification_after_original_rejection ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s
+
+     Running tests\agent_adversarial.rs (target\debug\deps\agent_adversarial-5d9abb7fbf973161.exe)
+
+running 7 tests
+test startup_quarantines_bad_rows_and_recovers_other_sessions ... ok
+test failed_archive_import_does_not_leave_an_orphan_session ... ok
+test quarantine_preserves_the_original_row_if_diagnostic_persistence_fails ... ok
+test stop_does_not_rewrite_terminal_or_imported_sessions ... ok
+test cancelled_session_never_transiently_resurrects_after_late_tool_result ... ok
+test worker_panics_fail_sessions_and_release_all_running_slots ... ok
+test oversized_and_identity_mismatched_sessions_are_quarantined ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.19s
+
+     Running tests\archive.rs (target\debug\deps\archive-1e4bc671e1282f68.exe)
+
+running 1 test
+test session_exports_actual_artifacts_and_import_retains_them_without_execution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+     Running tests\end_to_end.rs (target\debug\deps\end_to_end-c7205668383831b5.exe)
+
+running 2 tests
+test repository_test_helper ... ignored, Invoked as a real subprocess by the repository workflow test
+test repository_edit_patch_test_git_and_restart_work_together ... ok
+
+test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.23s
+
+     Running tests\engines.rs (target\debug\deps\engines-32386eef14800cfd.exe)
+
+running 16 tests
+test process_helper ... ignored, Subprocess helper invoked only by process integration tests
+test malformed_source_preserves_partial_ast_and_reports_errors ... ok
+test extracts_ast_symbols_across_supported_languages ... ok
+test policy_rejects_argument_injection_env_bypass_and_unapproved_shells ... ok
+test untrusted_arguments_never_make_shell_safe ... ok
+test process_can_be_cancelled ... ok
+test parser_handles_arbitrary_unicode_without_panicking ... ok
+test process_streams_real_output_and_persists_completion ... ok
+test process_output_is_bounded_and_stdin_is_real ... ok
+test graph_cycles_terminate_and_cancelled_index_preserves_previous_data ... ok
+test search_is_paginated_literal_and_regex_validated ... ok
+test trigram_search_is_literal_transactional_and_rebuildable ... ok
+test directory_changes_and_gitignore_are_reconciled_incrementally ... ok
+test stopping_a_process_terminates_its_descendants ... ok
+test index_persists_search_and_updates_only_changed_files ... ok
+test git_actions_use_real_index_history_branches_and_literal_paths ... ok
+
+test result: ok. 15 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 4.25s
+
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-70b4a9bf61fce7a8.exe)
+
+running 25 tests
+test dense_markdown_locations_and_complexity_are_bounded ... ok
+test external_search_token_remembers_cancellation_before_dispatch ... ok
+test candidate_covering_index_migrates_without_rebuilding_on_reopen ... ok
+test embedding_cancellation_after_provider_return_does_not_commit ... ok
+test inconsistent_embedding_dimensions_roll_back_the_batch ... ok
+test process_stress_helper ... ignored, Isolated subprocess fixture invoked by lifecycle regression tests
+test git_filters_cannot_run_during_automatic_diff ... ok
+test process_stdin_backpressure_is_bounded_and_stoppable ... ok
+test ignored_atomic_write_events_do_not_force_full_rescans ... ok
+test safe_git_cannot_resolve_to_batch_script ... ok
+test subprocess_security_probe ... ignored, Isolated environment fixture invoked by security regression tests
+test git_worktree_stays_bound_after_configuration_changes ... ok
+test full_index_refreshes_legacy_ast_positions_without_content_changes ... ok
+test simultaneous_stdout_stderr_remain_bounded ... ok
+test watcher_delivers_supported_paths_and_cancels_its_callback ... ok
+test unicode_positions_use_utf16_columns ... ok
+test incremental_directory_ranges_preserve_adjacent_and_unicode_paths ... ok
+test queued_search_cancellation_applies_to_every_mode ... ok
+test dependency_targets_follow_creation_deletion_and_recreation ... ok
+test stale_embedding_response_cannot_overwrite_a_newer_document ... ok
+test atomic_file_updates_do_not_rescan_unchanged_parent_directories ... ok
+test windows_dependency_targets_use_ordinal_case_and_actual_paths ... ok
+test incremental_file_scopes_do_not_scan_every_repository_row ... ok
+test process_capacity_and_rapid_exits_release_slots ... ok
+test deterministic_mutations_match_a_clean_index ... ok
+
+test result: ok. 23 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 26.94s
+
+     Running tests\hostile_workflow.rs (target\debug\deps\hostile_workflow-0c33850ab1631ee4.exe)
+
+running 2 tests
+test hostile_repository_test_helper ... ignored, Invoked as a real command by hostile_engine_workflow_recovers_consistently
+test hostile_engine_workflow_recovers_consistently ... ok
+
+test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 11.87s
+
+     Running tests\index_crash.rs (target\debug\deps\index_crash-03c0fa6e3b98348e.exe)
+
+running 2 tests
+test index_transaction_crash_helper ... ignored, Invoked by active_index_transaction_crash_preserves_snapshot_and_reindexes
+test active_index_transaction_crash_preserves_snapshot_and_reindexes ... ok
+
+test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.62s
+
+     Running tests\orchestration.rs (target\debug\deps\orchestration-ef24402f342b9193.exe)
+
+running 12 tests
+test cancellation_reaches_provider_and_persists_final_state ... ok
+test restart_marks_interrupted_sessions_and_imports_are_nonexecutable ... ok
+test bounded_steps_and_trace_edges_are_persisted ... ok
+test commands_wait_for_explicit_approval_and_log_both_attempts ... ok
+test tool_failures_are_logged_and_returned_as_context_for_repair ... ok
+test agent_capacity_rejection_does_not_persist_a_phantom_running_session ... ok
+test a_rejected_patch_does_not_require_verification ... ok
+test malformed_actions_and_forged_approval_fields_never_execute ... ok
+test approving_a_test_uses_the_frozen_invocation_after_settings_change ... ok
+test patch_resume_requires_a_recorded_user_decision ... ok
+test failed_verification_cannot_finish_and_successful_retry_clears_the_gate ... ok
+test review_mode_blocks_all_mutating_tools_before_host_execution ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running tests\protocol_properties.rs (target\debug\deps\protocol_properties-e0e3e1f506c7b5e3.exe)
+
+running 5 tests
+test shared_desktop_envelope_fixtures_match_rust_boundary ... ok
+test reused_event_identifiers_cannot_replace_already_emitted_content ... ok
+test generated_invalid_envelopes_never_reach_repository_dispatch ... ok
+test bounded_arbitrary_bytes_fail_consistently_across_chunk_boundaries ... ok
+test fragmented_utf8_streams_preserve_completion_and_usage ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests\provider.rs (target\debug\deps\provider-d12ea0d7eb4cd762.exe)
+
+running 3 tests
+test cancelled_provider_request_never_connects ... ok
+test embedding_protocol_reorders_and_validates_actual_http_response ... ok
+test actual_http_stream_decodes_tokens_and_usage ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\provider_adversarial.rs (target\debug\deps\provider_adversarial-c4e8f324e2142f05.exe)
+
+running 7 tests
+test incomplete_stream_cannot_complete_an_agent_action ... ok
+test length_truncation_is_not_success_even_with_done_marker ... ok
+test embedding_batch_rejects_mixed_dimensions ... ok
+test duplicated_sse_event_ids_do_not_duplicate_generated_content ... ok
+test http_failures_and_malformed_frames_are_bounded_and_redacted ... ok
+test cancelled_stalled_stream_releases_transport_promptly ... ok
+test stalled_response_headers_are_cancellable_and_connection_failure_is_redacted ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.08s
+
+     Running tests\service_adversarial.rs (target\debug\deps\service_adversarial-821352f613c53270.exe)
+
+running 8 tests
+test operation_log_stop_helper ... ignored, Invoked as a real process by process_stop_survives_operation_log_failure
+test process_stop_survives_operation_log_failure ... ok
+test operation_log_records_failures_without_file_content_and_recovers_interrupted_records ... ok
+test desktop_contract_requires_version_and_matching_repository_before_mutation ... ok
+test queued_index_cancellation_survives_database_admission_wait ... ok
+test recovery_conflict_allows_inspection_and_blocks_mutations_until_resolved ... ok
+test queued_search_cancellation_survives_database_admission_wait ... ok
+test watcher_events_are_versioned_scoped_and_ordered_across_repository_switches ... ok
+
+test result: ok. 7 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.47s
+
+     Running tests\storage.rs (target\debug\deps\storage-8e68a840e8a38443.exe)
+
+running 16 tests
+test patch_benchmark_100_files ... ignored, performance measurement
+test database_rejects_a_future_schema ... ok
+test normalized_paths_cannot_traverse ... ok
+test database_migrations_and_state_survive_reopening ... ok
+test database_exclusive_instance_lock_releases_on_close ... ok
+test failed_later_write_rolls_back_previous_files ... ok
+test text_limits_binary_and_encoding_are_enforced ... ok
+test stale_multifile_patches_leave_every_file_untouched ... ok
+test patches_create_modify_delete_and_revert_with_persisted_diffs ... ok
+test recovery_never_overwrites_external_changes ... ok
+test traversal_git_metadata_and_windows_aliases_are_rejected ... ok
+test interrupted_patch_is_recovered_from_durable_journal ... ok
+test workspace_mutations_are_real_and_optimistic ... ok
+test reject_and_repository_isolation_enforce_patch_states ... ok
+test windows_junctions_are_rejected ... ok
+test applying_then_reverting_is_identity ... ok
+
+test result: ok. 15 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 4.10s
+
+     Running tests\storage_adversarial.rs (target\debug\deps\storage_adversarial-757b533b887d944f.exe)
+
+running 17 tests
+test patch_crash_helper ... ignored, Invoked in real subprocesses by patch_process_crashes_recover_committed_journals
+test workspace_discovery_helper ... ignored, Invoked in isolated processes by workspace_discovery_rejects_wrappers_and_repository_path_binaries
+test rejecting_a_future_database_preserves_its_journal_mode ... ok
+test accepted_arbitrary_unicode_paths_stay_relative ... ok
+test workspace_scope_rejects_bare_layouts ... ok
+test simultaneous_duplicate_patch_applications_have_one_winner ... ok
+test simultaneous_optimistic_saves_never_lose_a_successful_update ... ok
+test windows_distinct_unicode_paths_can_share_a_patch_but_ascii_aliases_cannot ... ok
+test rollback_preserves_external_change_and_retains_recovery_until_resolved ... ok
+test files_from_one_to_five_hundred_mebibytes_are_bounded_before_reading ... ok
+test concurrent_database_transactions_rollback_failures_without_orphans ... ok
+test workspace_scope_rejects_git_redirect_to_ancestor ... ok
+test workspace_scope_rejects_git_redirect_to_sibling ... ok
+test workspace_discovery_rejects_wrappers_and_repository_path_binaries ... ok
+test patch_sql_failures_preserve_recoverable_journals_and_file_contents ... ok
+test workspace_scope_accepts_repository_subdirectories_and_linked_worktrees ... ok
+test patch_process_crashes_recover_committed_journals ... ok
+
+test result: ok. 15 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 2.28s
+
+     Running tests\vectors.rs (target\debug\deps\vectors-0c5ea207fffcae07.exe)
+
+running 1 test
+test vector_cache_rejects_stale_deleted_cross_repository_and_sensitive_documents ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests astraforge_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

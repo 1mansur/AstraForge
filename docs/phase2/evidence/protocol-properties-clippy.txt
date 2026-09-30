@@ -1,0 +1,3 @@
+warn: could not canonicalize path C:\Users\User
+    Checking astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.93s

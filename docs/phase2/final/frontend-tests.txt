@@ -1,0 +1,30 @@
+$ vitest run
+
+ RUN  v3.2.7 C:/Users/User/Documents/Codex/2026-09-30/files-pasted-by-the-user-you/outputs/AstraForge
+
+{"profile":"diff-mount","lines":10000,"mountedRows":36,"mountMs":514.3568000000014}
+ ✓ src/ui/responsiveness.test.tsx (4 tests) 2402ms
+   ✓ bounds mounted diff rows independently of repository line count  599ms
+   ✓ keeps very large diffs navigable while displaying repository content as text  690ms
+   ✓ bounds mounted Git change rows for a ten-thousand-file worktree  878ms
+{"profile":"event-storm","events":1000,"immediateReads":1,"immediateRequests":3,"dispatchMs":2.5679000000000087}
+ ✓ src/state/adversarial.test.ts (13 tests) 283ms
+ ✓ src/state/workbench.test.ts (12 tests) 148ms
+ ✓ src/ui/workbench.test.tsx (12 tests) 6358ms
+   ✓ desktop boundary > shows an honest browser-only state and never fabricates repositories  2470ms
+   ✓ command confirmation UI > shows actual command intent and dispatches only after explicit approval  415ms
+   ✓ search result bounds > offers further pages only when supported in 'semantic' mode  776ms
+   ✓ search result bounds > offers further pages only when supported in 'text' mode  797ms
+   ✓ preserves the configured argument vector when saving an unrelated appearance setting  583ms
+{"profile":"fragmented-output","polls":500,"receivedChunks":500000,"retainedChunks":2048,"processingMs":95.48530000000028}
+ ✓ src/services/output.test.ts (3 tests) 104ms
+ ✓ src/services/commands.test.ts (9 tests) 55ms
+ ✓ src/services/events.test.ts (15 tests) 55ms
+ ✓ src/services/bridge.test.ts (3 tests) 7ms
+ ✓ src/services/shortcuts.test.ts (3 tests) 9ms
+
+ Test Files  9 passed (9)
+      Tests  74 passed (74)
+   Start at  21:18:06
+   Duration  54.70s (transform 6.57s, setup 26.78s, collect 10.86s, tests 9.42s, environment 50.57s, prepare 3.55s)
+

@@ -1,0 +1,8 @@
+{
+  "command": "pnpm.cmd package",
+  "name": "windows-package",
+  "startedAt": "2026-09-30T22:07:59.7640752+05:00",
+  "durationMs": 328938.521,
+  "exitCode": 0,
+  "log": "windows-package.txt"
+}

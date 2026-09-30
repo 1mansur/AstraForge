@@ -1,0 +1,16 @@
+warn: could not canonicalize path C:\Users\User
+    Blocking waiting for file lock on build directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.02s
+     Running unittests src\lib.rs (target\debug\deps\astraforge_core-1384d0de9787b68b.exe)
+
+running 7 tests
+test provider::tests::endpoints_enforce_transport_and_credential_policy ... ok
+test provider_stream::tests::null_and_empty_tool_fields_do_not_reject_plain_text_streams ... ok
+test provider_stream::tests::actual_or_malformed_tool_invocations_are_rejected_before_emitting_text ... ok
+test provider::dns_tests::cancelled_waiters_keep_slots_until_blocking_resolution_really_finishes ... ok
+test provider::dns_tests::provider_runtime_and_resolver_are_shared_and_bounded ... ok
+test provider::dns_tests::completed_and_failed_lookups_release_reservations ... ok
+test provider::dns_tests::dropping_unpolled_resolution_releases_its_slot_without_starting_work ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.01s
+

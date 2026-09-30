@@ -7,6 +7,8 @@ import { WorkbenchContext } from './context';
 import { TerminalPanel } from './TerminalPanel';
 import { CommandPalette } from './CommandPalette';
 import { GraphPanel, SearchPanel } from './SearchPanel';
+import { SettingsDialog } from './SettingsDialog';
+import { defaultShortcuts } from '../services/shortcuts';
 vi.mock('@monaco-editor/react', () => ({ default: () => <div aria-label="Test editor" /> }));
 describe('desktop boundary', () => {
   it('shows an honest browser-only state and never fabricates repositories', async () => { const bridge = new TestBridge(); bridge.available = false; render(<App workbench={new Workbench(bridge)} />); expect(await screen.findByText('Desktop application required')).toBeInTheDocument(); expect(screen.getByRole('button', { name: /^Open repository$/ })).toBeDisabled(); expect(screen.getByText('No repository open')).toBeInTheDocument(); expect(bridge.calls).toEqual([]); });
@@ -53,4 +55,9 @@ describe('search result bounds', () => {
     if (more) expect(screen.getByRole('button', { name: 'Load next 100 results' })).toBeInTheDocument();
     else { expect(screen.queryByRole('button', { name: 'Load next 100 results' })).not.toBeInTheDocument(); expect(screen.getByText('Up to 100 ranked results · 100 shown')).toBeInTheDocument(); }
   });
+});
+it('preserves the configured argument vector when saving an unrelated appearance setting', async () => {
+  const bridge = new TestBridge({ save_settings: () => null }); const workbench = new Workbench(bridge); const args = ['', 'C:\\project files\\suite.ts', '"literal"', "can't", 'line\nbreak']; workbench.settings.set({ ...workbench.settings.get(), testArgs: args });
+  render(<WorkbenchContext.Provider value={workbench}><SettingsDialog bindings={defaultShortcuts} onBindings={() => undefined} onClose={() => undefined} /></WorkbenchContext.Provider>);
+  fireEvent.change(screen.getByLabelText('Appearance'), { target: { value: 'light' } }); fireEvent.click(screen.getByRole('button', { name: 'Save settings' })); await waitFor(() => expect(workbench.settings.get().theme).toBe('light')); expect(workbench.settings.get().testArgs).toEqual(args); expect(screen.getByLabelText('Context budget')).toHaveAttribute('min', '2048'); expect(screen.getByLabelText('Context budget')).toHaveAttribute('max', '64000');
 });

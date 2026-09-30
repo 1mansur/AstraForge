@@ -1,0 +1,42 @@
+[
+  {
+    "command": "pnpm.cmd typecheck",
+    "name": "typecheck",
+    "startedAt": "2026-09-30T20:19:15.2232580+05:00",
+    "durationMs": 7772.242,
+    "exitCode": 0,
+    "log": "baseline-typecheck.txt"
+  },
+  {
+    "command": "pnpm.cmd lint",
+    "name": "eslint",
+    "startedAt": "2026-09-30T20:19:23.0208526+05:00",
+    "durationMs": 3103.935,
+    "exitCode": 0,
+    "log": "baseline-eslint.txt"
+  },
+  {
+    "command": "pnpm.cmd test",
+    "name": "frontend-tests",
+    "startedAt": "2026-09-30T20:19:26.1278713+05:00",
+    "durationMs": 41747.55,
+    "exitCode": 0,
+    "log": "baseline-frontend-tests.txt"
+  },
+  {
+    "command": "pnpm.cmd build",
+    "name": "web-build",
+    "startedAt": "2026-09-30T20:20:07.8765073+05:00",
+    "durationMs": 85766.789,
+    "exitCode": 0,
+    "log": "baseline-web-build.txt"
+  },
+  {
+    "command": "node.exe scripts/check-style.mjs",
+    "name": "source-style",
+    "startedAt": "2026-09-30T20:21:33.6452190+05:00",
+    "durationMs": 161.05,
+    "exitCode": 0,
+    "log": "baseline-source-style.txt"
+  }
+]

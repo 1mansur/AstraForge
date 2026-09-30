@@ -6,6 +6,7 @@ pub mod index;
 pub mod patch;
 pub mod process;
 pub mod provider;
+pub mod provider_stream;
 pub mod service;
 pub mod trust;
 pub mod vector;

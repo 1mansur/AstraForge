@@ -1,0 +1,2027 @@
+    Updating crates.io index
+     Locking 214 packages to latest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+ Downloading crates ...
+  Downloaded arbitrary v1.4.2
+  Downloaded jobserver v0.1.35
+  Downloaded yoke-derive v0.8.4
+  Downloaded libfuzzer-sys v0.4.13
+  Downloaded quinn-proto v0.11.19
+  Downloaded quinn-udp v0.5.16
+   Compiling cfg-if v1.0.5
+   Compiling getrandom v0.4.3
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling stable_deref_trait v1.2.1
+   Compiling windows-link v0.2.1
+   Compiling tree-sitter-language v0.1.8
+   Compiling version_check v0.9.5
+   Compiling itoa v1.0.18
+   Compiling once_cell v1.21.4
+   Compiling windows-sys v0.61.2
+   Compiling pin-project-lite v0.2.17
+   Compiling bytes v1.12.1
+   Compiling bitflags v2.13.2
+   Compiling windows_x86_64_gnu v0.52.6
+   Compiling futures-core v0.3.34
+   Compiling smallvec v1.16.2
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling memchr v2.8.3
+   Compiling utf8_iter v1.0.4
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling http v1.5.0
+   Compiling percent-encoding v2.3.2
+   Compiling zeroize v1.9.0
+   Compiling serde_core v1.0.229
+   Compiling io-lifetimes v2.0.4
+   Compiling windows-targets v0.52.6
+   Compiling jobserver v0.1.35
+   Compiling rustls-pki-types v1.15.1
+   Compiling windows-sys v0.59.0
+   Compiling cc v1.5.1
+   Compiling generic-array v0.14.7
+   Compiling getrandom v0.2.17
+   Compiling httparse v1.10.1
+   Compiling syn v3.0.6
+   Compiling http-body v1.1.0
+   Compiling libc v0.2.189
+   Compiling futures-task v0.3.34
+   Compiling slab v0.4.12
+   Compiling untrusted v0.9.0
+   Compiling ipnet v2.12.2
+   Compiling zerocopy v0.8.59
+   Compiling futures-util v0.3.34
+   Compiling ahash v0.8.12
+   Compiling serde v1.0.229
+   Compiling zmij v1.0.23
+   Compiling windows_x86_64_gnu v0.53.1
+   Compiling rustls v0.23.45
+   Compiling typenum v1.20.1
+   Compiling io-extras v0.18.4
+   Compiling tower-service v0.3.3
+   Compiling try-lock v0.2.5
+   Compiling want v0.3.1
+   Compiling form_urlencoded v1.2.2
+   Compiling futures-channel v0.3.34
+   Compiling tracing-core v0.1.36
+   Compiling serde_json v1.0.151
+   Compiling atomic-waker v1.1.2
+   Compiling vcpkg v0.2.15
+   Compiling pkg-config v0.3.34
+   Compiling winapi-x86_64-pc-windows-gnu v0.4.0
+   Compiling cap-primitives v3.4.6
+   Compiling subtle v2.6.1
+   Compiling tracing v0.1.44
+   Compiling syn v2.0.119
+   Compiling aho-corasick v1.1.5
+   Compiling sync_wrapper v1.0.2
+   Compiling regex-syntax v0.8.11
+   Compiling ambient-authority v0.0.2
+   Compiling maybe-owned v0.3.4
+   Compiling cap-std v3.4.6
+   Compiling winapi v0.3.9
+   Compiling ring v0.17.14
+   Compiling libsqlite3-sys v0.30.1
+   Compiling tower-layer v0.3.3
+   Compiling base64 v0.23.1
+   Compiling tree-sitter-python v0.23.6
+   Compiling tree-sitter-rust v0.23.3
+   Compiling tree-sitter-typescript v0.23.2
+   Compiling tree-sitter v0.24.7
+   Compiling socket2 v0.6.5
+   Compiling synstructure v0.14.0
+   Compiling mio v1.2.3
+   Compiling winapi-util v0.1.11
+   Compiling same-file v1.0.6
+   Compiling tree-sitter-json v0.24.8
+   Compiling tokio v1.53.1
+   Compiling fs-set-times v0.20.3
+   Compiling winx v0.36.4
+   Compiling regex-automata v0.4.18
+   Compiling serde_derive_internals v0.29.1
+   Compiling tree-sitter-javascript v0.23.1
+   Compiling windows-targets v0.53.5
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling webpki-roots v1.0.9
+   Compiling ryu v1.0.23
+   Compiling log v0.4.34
+   Compiling pulldown-cmark v0.12.2
+   Compiling schemars v0.8.22
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling serde_derive v1.0.229
+   Compiling zerofrom v0.1.8
+   Compiling unicode-width v0.2.2
+   Compiling cap-fs-ext v3.4.6
+   Compiling getopts v0.2.24
+   Compiling yoke v0.8.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling digest v0.10.7
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling icu_locale_core v2.3.0
+   Compiling rustls-webpki v0.103.15
+   Compiling schemars_derive v0.8.22
+   Compiling windows-sys v0.60.2
+   Compiling icu_provider v2.3.1
+   Compiling hashbrown v0.14.5
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling hashlink v0.9.1
+   Compiling regex v1.13.1
+   Compiling walkdir v2.5.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling libfuzzer-sys v0.4.13
+   Compiling http-body-util v0.1.5
+   Compiling notify-types v2.1.0
+   Compiling pulldown-cmark-escape v0.11.0
+   Compiling fallible-iterator v0.3.0
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling base64 v0.22.1
+   Compiling streaming-iterator v0.1.9
+   Compiling unicase v2.9.0
+   Compiling dyn-clone v1.0.20
+   Compiling cpufeatures v0.2.17
+   Compiling sha2 v0.10.9
+   Compiling notify v8.2.0
+   Compiling uuid v1.26.1
+   Compiling fs2 v0.4.3
+   Compiling similar v2.7.0
+   Compiling arbitrary v1.4.2
+   Compiling serde_urlencoded v0.7.1
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling hyper-util v0.1.21
+   Compiling tower-http v0.6.11
+   Compiling rusqlite v0.32.1
+   Compiling tokio-rustls v0.26.6
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:18:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:21:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:28:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    28 | EXT_FUNC(__lsan_enable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:29:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    29 | EXT_FUNC(__lsan_disable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:30:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:31:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:32:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:36:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:37:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:38:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:40:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:42:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:45:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:46:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:47:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:48:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:49:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+warning: libfuzzer-sys@0.4.13:    41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+warning: libfuzzer-sys@0.4.13:       |           ^
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+warning: libfuzzer-sys@0.4.13:       |   ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:50:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def: In constructor 'fuzzer::ExternalFunctions::ExternalFunctions()':
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+warning: libfuzzer-sys@0.4.13:    17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+warning: libfuzzer-sys@0.4.13:    17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:34: error: '__builtin_function_start' was not declared in this scope; did you mean '__builtin_va_start'?
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                  ^~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:43: note: in expansion of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                           ^~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+warning: libfuzzer-sys@0.4.13:    18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+warning: libfuzzer-sys@0.4.13:    18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:18:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+warning: libfuzzer-sys@0.4.13:    21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+warning: libfuzzer-sys@0.4.13:    21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:21:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+warning: libfuzzer-sys@0.4.13:    28 | EXT_FUNC(__lsan_enable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+warning: libfuzzer-sys@0.4.13:    28 | EXT_FUNC(__lsan_enable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:43: note: in expansion of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                           ^~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:28:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    28 | EXT_FUNC(__lsan_enable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+warning: libfuzzer-sys@0.4.13:    29 | EXT_FUNC(__lsan_disable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+warning: libfuzzer-sys@0.4.13:    29 | EXT_FUNC(__lsan_disable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:29:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    29 | EXT_FUNC(__lsan_disable, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+warning: libfuzzer-sys@0.4.13:    30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+warning: libfuzzer-sys@0.4.13:    30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:30:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+warning: libfuzzer-sys@0.4.13:    31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+warning: libfuzzer-sys@0.4.13:    31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:31:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+warning: libfuzzer-sys@0.4.13:    32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+warning: libfuzzer-sys@0.4.13:    32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:32:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+warning: libfuzzer-sys@0.4.13:    36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+warning: libfuzzer-sys@0.4.13:    36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:36:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+warning: libfuzzer-sys@0.4.13:    37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+warning: libfuzzer-sys@0.4.13:    37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:37:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+warning: libfuzzer-sys@0.4.13:    38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+warning: libfuzzer-sys@0.4.13:    38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:38:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+warning: libfuzzer-sys@0.4.13:    39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+warning: libfuzzer-sys@0.4.13:    39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+warning: libfuzzer-sys@0.4.13:    40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+warning: libfuzzer-sys@0.4.13:    40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:40:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+warning: libfuzzer-sys@0.4.13:    42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+warning: libfuzzer-sys@0.4.13:    42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:42:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+warning: libfuzzer-sys@0.4.13:    45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+warning: libfuzzer-sys@0.4.13:    45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:45:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+warning: libfuzzer-sys@0.4.13:    46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+warning: libfuzzer-sys@0.4.13:    46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:46:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13:    47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13:    47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:47:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13:    48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+warning: libfuzzer-sys@0.4.13:    48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:48:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+warning: libfuzzer-sys@0.4.13:    49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+warning: libfuzzer-sys@0.4.13:    49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:49:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+warning: libfuzzer-sys@0.4.13:    50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+warning: libfuzzer-sys@0.4.13:       |                                    ^~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+warning: libfuzzer-sys@0.4.13:    50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+warning: libfuzzer-sys@0.4.13:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+warning: libfuzzer-sys@0.4.13:    28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+warning: libfuzzer-sys@0.4.13:       |                                                           ^~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:50:1: note: in expansion of macro 'EXT_FUNC'
+warning: libfuzzer-sys@0.4.13:    50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+warning: libfuzzer-sys@0.4.13:       | ^~~~~~~~
+warning: libfuzzer-sys@0.4.13: libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+warning: libfuzzer-sys@0.4.13: ToolExecError: command did not execute successfully (status code exit code: 1): "g++.exe" "-O0" "-ffunction-sections" "-fdata-sections" "-g" "-gdwarf-2" "-fno-omit-frame-pointer" "-mno-omit-leaf-frame-pointer" "-m64" "-std=c++17" "-w" "-o" "C:\\Users\\User\\Documents\\Codex\\2026-09-30\\files-pasted-by-the-user-you\\outputs\\AstraForge\\fuzz\\target\\debug\\build\\libfuzzer-sys-679a653e30309bfc\\out\\e5f0d71fb86e9d6b-FuzzerExtFunctionsWindows.o" "-c" "libfuzzer\\FuzzerExtFunctionsWindows.cpp"cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+error: failed to run custom build command for `libfuzzer-sys v0.4.13`
+
+Caused by:
+  process didn't exit successfully: `C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\fuzz\target\debug\build\libfuzzer-sys-9b57071a5b100938\build-script-build` (exit code: 1)
+  --- stdout
+  cargo:rerun-if-env-changed=CUSTOM_LIBFUZZER_PATH
+  cargo:rerun-if-changed=libfuzzer\FuzzerCrossOver.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerDataFlowTrace.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerDriver.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtFunctionsDlsym.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtFunctionsWeak.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtFunctionsWindows.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtraCounters.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtraCountersDarwin.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerExtraCountersWindows.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerFork.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerInterceptors.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerIO.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerIOPosix.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerIOWindows.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerLoop.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerMain.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerMerge.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerMutate.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerSHA1.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerTracePC.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtil.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtilDarwin.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtilFuchsia.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtilLinux.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtilPosix.cpp
+  cargo:rerun-if-changed=libfuzzer\FuzzerUtilWindows.cpp
+  cargo:rerun-if-env-changed=CC_FORCE_DISABLE
+  CC_FORCE_DISABLE = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:18:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:21:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:28:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   28 | EXT_FUNC(__lsan_enable, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:29:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   29 | EXT_FUNC(__lsan_disable, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:30:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:31:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:32:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:36:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:37:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:38:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:40:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:42:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:45:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:46:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:47:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:48:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:49:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:41:11: error: expected constructor, destructor, or type conversion before '(' token
+  cargo:warning=   41 |   __pragma(comment(linker, "/alternatename:" WIN_SYM_PREFIX STRINGIFY(         \
+  cargo:warning=      |           ^
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:50:3: note: in expansion of macro 'EXTERNAL_FUNC'
+  cargo:warning=   50 |   EXTERNAL_FUNC(NAME, NAME##Def) RETURN_TYPE NAME FUNC_SIG
+  cargo:warning=      |   ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:50:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def: In constructor 'fuzzer::ExternalFunctions::ExternalFunctions()':
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+  cargo:warning=   17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:10: error: '::LLVMFuzzerInitialize' has not been declared; did you mean 'LLVMFuzzerInitializeDef'?
+  cargo:warning=   17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:34: error: '__builtin_function_start' was not declared in this scope; did you mean '__builtin_va_start'?
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:43: note: in expansion of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                           ^~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:17:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   17 | EXT_FUNC(LLVMFuzzerInitialize, int, (int *argc, char ***argv), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+  cargo:warning=   18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:18:10: error: '::LLVMFuzzerCustomMutator' has not been declared; did you mean 'LLVMFuzzerCustomMutatorDef'?
+  cargo:warning=   18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:18:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   18 | EXT_FUNC(LLVMFuzzerCustomMutator, size_t,
+  cargo:warning=      | ^~~~~~~~
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+  cargo:warning=   21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:21:10: error: '::LLVMFuzzerCustomCrossOver' has not been declared; did you mean 'LLVMFuzzerCustomCrossOverDef'?
+  cargo:warning=   21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:21:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   21 | EXT_FUNC(LLVMFuzzerCustomCrossOver, size_t,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+  cargo:warning=   28 | EXT_FUNC(__lsan_enable, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:28:10: error: '::__lsan_enable' has not been declared; did you mean '__lsan_enableDef'?
+  cargo:warning=   28 | EXT_FUNC(__lsan_enable, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:43: note: in expansion of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                           ^~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:28:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   28 | EXT_FUNC(__lsan_enable, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+  cargo:warning=   29 | EXT_FUNC(__lsan_disable, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:29:10: error: '::__lsan_disable' has not been declared; did you mean '__lsan_disableDef'?
+  cargo:warning=   29 | EXT_FUNC(__lsan_disable, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:29:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   29 | EXT_FUNC(__lsan_disable, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+  cargo:warning=   30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:30:10: error: '::__lsan_do_recoverable_leak_check' has not been declared; did you mean '__lsan_do_recoverable_leak_checkDef'?
+  cargo:warning=   30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:30:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   30 | EXT_FUNC(__lsan_do_recoverable_leak_check, int, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+  cargo:warning=   31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:31:10: error: '::__sanitizer_acquire_crash_state' has not been declared; did you mean '__sanitizer_acquire_crash_stateDef'?
+  cargo:warning=   31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:31:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   31 | EXT_FUNC(__sanitizer_acquire_crash_state, int, (), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+  cargo:warning=   32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:32:10: error: '::__sanitizer_install_malloc_and_free_hooks' has not been declared; did you mean '__sanitizer_install_malloc_and_free_hooksDef'?
+  cargo:warning=   32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:32:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   32 | EXT_FUNC(__sanitizer_install_malloc_and_free_hooks, int,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+  cargo:warning=   36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:36:10: error: '::__sanitizer_log_write' has not been declared; did you mean '__sanitizer_log_writeDef'?
+  cargo:warning=   36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:36:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   36 | EXT_FUNC(__sanitizer_log_write, void, (const char *buf, size_t len), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+  cargo:warning=   37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:37:10: error: '::__sanitizer_purge_allocator' has not been declared; did you mean '__sanitizer_purge_allocatorDef'?
+  cargo:warning=   37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:37:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   37 | EXT_FUNC(__sanitizer_purge_allocator, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+  cargo:warning=   38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:38:10: error: '::__sanitizer_print_memory_profile' has not been declared; did you mean '__sanitizer_print_memory_profileDef'?
+  cargo:warning=   38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:38:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   38 | EXT_FUNC(__sanitizer_print_memory_profile, void, (size_t, size_t), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+  cargo:warning=   39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+  cargo:warning=   39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+  cargo:warning=   40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+  cargo:warning=   40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:40:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+  cargo:warning=   42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+  cargo:warning=   42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:42:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+  cargo:warning=   45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+  cargo:warning=   45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:45:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+  cargo:warning=   46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+  cargo:warning=   46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:46:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+  cargo:warning=   47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+  cargo:warning=   47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:47:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+  cargo:warning=   48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+  cargo:warning=   48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:48:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+  cargo:warning=   49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+  cargo:warning=   49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:49:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+  cargo:warning=   50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+  cargo:warning=   72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+  cargo:warning=      |                                    ^~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+  cargo:warning=   50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+  cargo:warning=   28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+  cargo:warning=      |                                                           ^~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:50:1: note: in expansion of macro 'EXT_FUNC'
+  cargo:warning=   50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+  cargo:warning=      | ^~~~~~~~
+  cargo:warning=libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:39:10: error: '::__sanitizer_print_stack_trace' has not been declared; did you mean '__sanitizer_print_stack_traceDef'?
+     39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:39:1: note: in expansion of macro 'EXT_FUNC'
+     39 | EXT_FUNC(__sanitizer_print_stack_trace, void, (), true);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+     40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:40:10: error: '::__sanitizer_symbolize_pc' has not been declared; did you mean '__sanitizer_symbolize_pcDef'?
+     40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:40:1: note: in expansion of macro 'EXT_FUNC'
+     40 | EXT_FUNC(__sanitizer_symbolize_pc, void,
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+     42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:42:10: error: '::__sanitizer_get_module_and_offset_for_pc' has not been declared; did you mean '__sanitizer_get_module_and_offset_for_pcDef'?
+     42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:42:1: note: in expansion of macro 'EXT_FUNC'
+     42 | EXT_FUNC(__sanitizer_get_module_and_offset_for_pc, int,
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+     45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:45:10: error: '::__sanitizer_set_death_callback' has not been declared; did you mean '__sanitizer_set_death_callbackDef'?
+     45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:45:1: note: in expansion of macro 'EXT_FUNC'
+     45 | EXT_FUNC(__sanitizer_set_death_callback, void, (void (*)(void)), true);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+     46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:46:10: error: '::__sanitizer_set_report_fd' has not been declared; did you mean '__sanitizer_set_report_fdDef'?
+     46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:46:1: note: in expansion of macro 'EXT_FUNC'
+     46 | EXT_FUNC(__sanitizer_set_report_fd, void, (void*), false);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+     47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:47:10: error: '::__msan_scoped_disable_interceptor_checks' has not been declared; did you mean '__msan_scoped_disable_interceptor_checksDef'?
+     47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:47:1: note: in expansion of macro 'EXT_FUNC'
+     47 | EXT_FUNC(__msan_scoped_disable_interceptor_checks, void, (), false);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+     48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:48:10: error: '::__msan_scoped_enable_interceptor_checks' has not been declared; did you mean '__msan_scoped_enable_interceptor_checksDef'?
+     48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:48:1: note: in expansion of macro 'EXT_FUNC'
+     48 | EXT_FUNC(__msan_scoped_enable_interceptor_checks, void, (), false);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+     49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+        |          ^~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:49:10: error: '::__msan_unpoison' has not been declared; did you mean '__msan_unpoisonDef'?
+     49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+        |          ^~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:49:1: note: in expansion of macro 'EXT_FUNC'
+     49 | EXT_FUNC(__msan_unpoison, void, (const volatile void *, size_t size), false);
+        | ^~~~~~~~
+  libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+     50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:72:36: note: in definition of macro 'EXT_FUNC'
+     72 |   this->NAME = GetFnPtr<decltype(::NAME)>(GET_FUNCTION_ADDRESS(::NAME),        \
+        |                                    ^~~~
+  libfuzzer\FuzzerExtFunctions.def:50:10: error: '::__msan_unpoison_param' has not been declared; did you mean '__msan_unpoison_paramDef'?
+     50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+        |          ^~~~~~~~~~~~~~~~~~~~~
+  libfuzzer\FuzzerExtFunctionsWindows.cpp:28:59: note: in definition of macro 'GET_FUNCTION_ADDRESS'
+     28 | #define GET_FUNCTION_ADDRESS(fn) __builtin_function_start(fn)
+        |                                                           ^~
+  libfuzzer\FuzzerExtFunctions.def:50:1: note: in expansion of macro 'EXT_FUNC'
+     50 | EXT_FUNC(__msan_unpoison_param, void, (size_t n), false);
+        | ^~~~~~~~
+
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit code: 1): "g++.exe" "-O0" "-ffunction-sections" "-fdata-sections" "-g" "-gdwarf-2" "-fno-omit-frame-pointer" "-mno-omit-leaf-frame-pointer" "-m64" "-std=c++17" "-w" "-o" "C:\\Users\\User\\Documents\\Codex\\2026-09-30\\files-pasted-by-the-user-you\\outputs\\AstraForge\\fuzz\\target\\debug\\build\\libfuzzer-sys-679a653e30309bfc\\out\\e5f0d71fb86e9d6b-FuzzerExtFunctionsWindows.o" "-c" "libfuzzer\\FuzzerExtFunctionsWindows.cpp"cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64-pc-windows-gnu
+  CXX_x86_64-pc-windows-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_pc_windows_gnu
+  CXX_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_pc_windows_gnu
+  CXXFLAGS_x86_64_pc_windows_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-pc-windows-gnu
+  CXXFLAGS_x86_64-pc-windows-gnu = None
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+  exit code: 0
+
+  --- stderr
+
+
+  error occurred in cc-rs: command did not execute successfully (status code exit code: 1): "g++.exe" "-O0" "-ffunction-sections" "-fdata-sections" "-g" "-gdwarf-2" "-fno-omit-frame-pointer" "-mno-omit-leaf-frame-pointer" "-m64" "-std=c++17" "-w" "-o" "C:\\Users\\User\\Documents\\Codex\\2026-09-30\\files-pasted-by-the-user-you\\outputs\\AstraForge\\fuzz\\target\\debug\\build\\libfuzzer-sys-679a653e30309bfc\\out\\e5f0d71fb86e9d6b-FuzzerExtFunctionsWindows.o" "-c" "libfuzzer\\FuzzerExtFunctionsWindows.cpp"
+
+
+warning: build failed, waiting for other jobs to finish...

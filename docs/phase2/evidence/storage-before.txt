@@ -1,0 +1,37 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.50s
+     Running tests\storage_adversarial.rs (target\debug\deps\storage_adversarial-efd5461ec980b7c1.exe)
+
+running 11 tests
+test patch_crash_helper ... ignored, Invoked in real subprocesses by patch_process_crashes_recover_committed_journals
+proptest: FileFailurePersistence::SourceParallel set, but failed to find lib.rs or main.rs
+
+thread 'rejecting_a_future_database_preserves_its_journal_mode' (22636) panicked at crates\core\tests\storage_adversarial.rs:75:5:
+assertion `left == right` failed: rejecting an unsupported database must not alter its persistent mode
+  left: "wal"
+ right: "delete"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test rejecting_a_future_database_preserves_its_journal_mode ... FAILED
+test accepted_arbitrary_unicode_paths_stay_relative ... ok
+test simultaneous_optimistic_saves_never_lose_a_successful_update ... ok
+
+thread 'windows_distinct_unicode_paths_can_share_a_patch_but_ascii_aliases_cannot' (28548) panicked at crates\core\tests\storage_adversarial.rs:84:25:
+distinct NTFS paths: AppError { code: "PATCH_DUPLICATE", message: "A patch cannot contain the same path more than once", category: "operation", recoverable: true, cause: None, context: Null }
+test rollback_preserves_external_change_and_retains_recovery_until_resolved ... ok
+test windows_distinct_unicode_paths_can_share_a_patch_but_ascii_aliases_cannot ... FAILED
+test files_from_one_to_five_hundred_mebibytes_are_bounded_before_reading ... ok
+test simultaneous_duplicate_patch_applications_have_one_winner ... ok
+test concurrent_database_transactions_rollback_failures_without_orphans ... ok
+test patch_sql_failures_preserve_recoverable_journals_and_file_contents ... ok
+test patch_process_crashes_recover_committed_journals ... ok
+
+failures:
+
+failures:
+    rejecting_a_future_database_preserves_its_journal_mode
+    windows_distinct_unicode_paths_can_share_a_patch_but_ascii_aliases_cannot
+
+test result: FAILED. 8 passed; 2 failed; 1 ignored; 0 measured; 0 filtered out; finished in 3.68s
+
+error: test failed, to rerun pass `-p astraforge-core --test storage_adversarial`

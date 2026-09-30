@@ -1,0 +1,5 @@
+id: first
+data: {"choices":[{"delta":{"content":"hello 🌍"},"finish_reason":"stop"}]}
+
+data: [DONE]
+

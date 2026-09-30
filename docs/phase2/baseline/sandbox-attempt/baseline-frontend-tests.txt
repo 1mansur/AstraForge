@@ -1,0 +1,28 @@
+$ vitest run
+X [ERROR] Cannot read directory "../../../../../..": Access is denied.
+
+X [ERROR] Could not resolve "C:\\Users\\User\\Documents\\Codex\\2026-09-30\\files-pasted-by-the-user-you\\outputs\\AstraForge\\vite.config.ts"
+
+failed to load config from C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\vite.config.ts
+
+⎯⎯⎯⎯⎯⎯⎯ Startup Error ⎯⎯⎯⎯⎯⎯⎯⎯
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../../../../..": Access is denied.
+error: Could not resolve "C:\\Users\\User\\Documents\\Codex\\2026-09-30\\files-pasted-by-the-user-you\\outputs\\AstraForge\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:1467:15)
+    at C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:926:25
+    at runOnEndCallbacks (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:1307:45)
+    at buildResponseToResult (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:924:7)
+    at C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:951:16
+    at responseCallbacks.<computed> (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\node_modules\.pnpm\esbuild@0.25.12\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter]
+}
+
+
+
+[ELIFECYCLE] Test failed. See above for more details.

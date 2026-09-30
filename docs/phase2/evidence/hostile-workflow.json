@@ -1,0 +1,10 @@
+{
+  "actualFailedTests": 1,
+  "cancellationMs": 17,
+  "elapsedMs": 38968,
+  "indexedFiles": 1005,
+  "nativeUi": false,
+  "patchesProposed": 3,
+  "providerRequests": 6,
+  "scenario": "hostile_engine_workflow"
+}

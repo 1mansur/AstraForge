@@ -1,0 +1,29 @@
+warn: could not canonicalize path C:\Users\User
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 28.81s
+     Running tests\provider_adversarial.rs (target\debug\deps\provider_adversarial-ab9fbeee3a66a2ee.exe)
+
+running 6 tests
+test incomplete_stream_cannot_complete_an_agent_action ... ok
+test length_truncation_is_not_success_even_with_done_marker ... ok
+test embedding_batch_rejects_mixed_dimensions ... ok
+test duplicated_sse_event_ids_do_not_duplicate_generated_content ... ok
+test http_failures_and_malformed_frames_are_bounded_and_redacted ... ok
+test cancelled_stalled_stream_releases_transport_promptly ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests\service_adversarial.rs (target\debug\deps\service_adversarial-ba9c80e16aebda47.exe)
+
+running 4 tests
+test operation_log_records_failures_without_file_content_and_recovers_interrupted_records ... ok
+test recovery_conflict_allows_inspection_and_blocks_mutations_until_resolved ... ok
+test desktop_contract_requires_version_and_matching_repository_before_mutation ... ok
+test watcher_events_are_versioned_scoped_and_ordered_across_repository_switches ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.63s
+

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { commandSpec, languageFor, parseArguments } from './commands';
+import { commandSpec, formatArguments, languageFor, parseArguments, parseCommand } from './commands';
 describe('direct process argument parsing', () => {
   it('preserves Windows paths and quoted empty and spaced arguments', () => { expect(parseArguments('test "C:\\project files\\suite.ts" "" --watch=false')).toEqual(['test', 'C:\\project files\\suite.ts', '', '--watch=false']); });
   it('passes shell operators as literal arguments', () => { expect(parseArguments('status && erase file')).toEqual(['status', '&&', 'erase', 'file']); });
@@ -7,4 +7,7 @@ describe('direct process argument parsing', () => {
   it('constructs unapproved commands and validates environment names', () => { expect(commandSpec('python', '-m pytest', 'tests', 'MODE=test\nX=a=b', true)).toEqual({ program: 'python', args: ['-m', 'pytest'], cwd: 'tests', env: { MODE: 'test', X: 'a=b' }, approved: false, isTest: true }); expect(() => commandSpec('python', '', '', 'BAD NAME=value', false)).toThrow('Invalid environment'); });
   it('rejects empty executable and malformed environment entries', () => { expect(() => commandSpec(' ', '', '', '', false)).toThrow('executable'); expect(() => commandSpec('git', '', '', 'SECRET', false)).toThrow('NAME=value'); });
   it('resolves Monaco languages without guessing unknown binary formats', () => { expect(languageFor('src/service.tsx')).toBe('typescript'); expect(languageFor('archive.blob')).toBe('plaintext'); });
+  it('roundtrips empty, quoted, Unicode and spaced Windows arguments through settings', () => { const args = ['', 'C:\\project files\\test.ts', '"literal quote"', "it's intact", 'both\'"quotes', '雪', 'line\nbreak']; expect(parseArguments(formatArguments(args))).toEqual(args); });
+  it('preserves arbitrary deterministic argument arrays without shell expansion', () => { let seed = 81447; const next = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed; }; const alphabet = ['a', ' ', '\\', '"', "'", '\t', '\n', '雪', '&', '$']; for (let iteration = 0; iteration < 500; iteration++) { const args = Array.from({ length: next() % 8 }, () => Array.from({ length: next() % 30 }, () => alphabet[next() % alphabet.length] ?? '').join('')); expect(parseArguments(formatArguments(args))).toEqual(args); } });
+  it('parses quoted executable paths for the build command without treating shell operators specially', () => { expect(parseCommand('"C:\\Program Files\\tool.exe" "a b" && echo')).toMatchObject({ program: 'C:\\Program Files\\tool.exe', args: ['a b', '&&', 'echo'], approved: false }); });
 });

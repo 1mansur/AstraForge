@@ -116,6 +116,36 @@ fn validate_root(path: &Path) -> Result<()> {
     }
     Ok(())
 }
+fn repository_boundary(path: &Path) -> Result<PathBuf> {
+    let selected = std::fs::canonicalize(path)?;
+    if !selected.is_dir() {
+        return Err(AppError::new(
+            "NOT_GIT_REPOSITORY",
+            "Choose a directory inside a Git working tree",
+        ));
+    }
+    for ancestor in selected.ancestors() {
+        let marker = ancestor.join(".git");
+        match std::fs::symlink_metadata(&marker) {
+            Ok(metadata) => {
+                reject_link(&marker)?;
+                if !metadata.is_dir() && !metadata.is_file() {
+                    return Err(AppError::new(
+                        "NOT_GIT_REPOSITORY",
+                        "The Git working tree marker is not a regular file or directory",
+                    ));
+                }
+                return Ok(ancestor.to_path_buf());
+            }
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => return Err(error.into()),
+        }
+    }
+    Err(AppError::new(
+        "NOT_GIT_REPOSITORY",
+        "Choose a Git working tree with a .git directory or worktree file; bare and custom discovery layouts are unsupported",
+    ))
+}
 impl Workspace {
     pub fn open(path: &str, database: &Database) -> Result<Self> {
         if path.is_empty() || path.chars().any(|character| character.is_control()) {
@@ -131,7 +161,11 @@ impl Workspace {
             std::env::current_dir()?.join(supplied)
         };
         validate_root(&supplied)?;
-        let mut command = Command::new(crate::process::resolve_program("git", &supplied)?);
+        let boundary = repository_boundary(&supplied)?;
+        let program = crate::process::resolve_program("git", &boundary)?;
+        crate::process::validate_automatic_executable(&program)?;
+        let mut command = Command::new(program);
+        crate::process::minimal_environment(&mut command);
         command
             .args([
                 "-c",
@@ -163,6 +197,12 @@ impl Workspace {
             .map_err(|_| AppError::new("PATH_ENCODING", "Git returned a path that is not UTF-8"))?
             .trim_end_matches(['\r', '\n']);
         let root = std::fs::canonicalize(root_text)?;
+        if root != boundary {
+            return Err(AppError::new(
+                "PATH_REPOSITORY_REDIRECT",
+                "Git reported a root outside the selected working tree; remove the core.worktree redirect or choose the actual working tree",
+            ));
+        }
         validate_root(&root)?;
         let directory = Arc::new(Dir::open_ambient_dir(&root, cap_std::ambient_authority())?);
         let root_string = root.to_str().ok_or_else(|| {

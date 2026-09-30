@@ -1,0 +1,18 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 22.20s
+     Running tests\protocol_properties.rs (target\debug\deps\protocol_properties-f71fbe61a240de22.exe)
+
+running 5 tests
+test shared_desktop_envelope_fixtures_match_rust_boundary ... ok
+seed=0x227dd64b generated_conflicting_identifier_cases=500
+test reused_event_identifiers_cannot_replace_already_emitted_content ... ok
+seed=0x4cf1e25b generated_rejected_envelope_cases=1000
+test generated_invalid_envelopes_never_reach_repository_dispatch ... ok
+seed=0x852d77c1 generated_malformed_byte_cases=2000 max_random_bytes=2048
+test bounded_arbitrary_bytes_fail_consistently_across_chunk_boundaries ... ok
+seed=0x41f2a619 generated_valid_utf8_cases=1000 chunkings_per_case=2
+test fragmented_utf8_streams_preserve_completion_and_usage ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+

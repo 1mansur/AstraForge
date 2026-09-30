@@ -1,0 +1,15 @@
+# Final hostile service workflow
+The automated `hostile_engine_workflow_recovers_consistently` test uses the real Engine, SQLite database, capability filesystem, AST indexer, Git CLI, command manager, patch engine and AI HTTP/SSE transport. Its model responses come from a scripted local HTTP server; they are not a live remote model or a production substitute.
+The fixture contains 1,000 TypeScript modules plus repository files. With indexing active, it renames and deletes source files externally, changes another file, and issues search, Git-status and AI requests concurrently. It then obtains a patch through the local provider, externally changes the target, verifies stale application is rejected without overwriting that change, rejects the proposal, requests and applies a fresh proposal, and explicitly approves a real test subprocess. The test actually fails against the edited source.
+The agent records that failure, proposes a third bounded repair, and retains the required-verification flag. The test rejects the repair and continues to a deliberately stalled provider stream, then cancels the active agent. It verifies that the HTTP connection closes and the known test-process PID is no longer live. After dropping and reopening Engine against the same database, it inspects the retained cancelled session and reconciles the index.
+Final assertions check every indexed hash against disk; renamed/deleted paths; orphan symbols, references and dependency sources; SQLite integrity and foreign keys; absence of patch journals, running command rows and running request rows; the three expected patch states; the real Git diff; and the known child-process PID again. Database reopening also proves that the completed background work released ownership.
+| Measured result | Value |
+| --- | ---: |
+| Final indexed files | 1,005 |
+| Actual HTTP provider requests | 6 |
+| Proposed patches | 3 |
+| Real failed test commands | 1 |
+| Cancellation to observed socket closure | 17 ms |
+| Scenario elapsed time, including fixture/Git setup | 38,968 ms |
+The test passed in the debug test build while other build and benchmark activity shared the host. These are observations from one hostile integration execution, not performance guarantees. The exact JSON and console output are in [hostile-workflow.json](evidence/hostile-workflow.json) and [hostile-workflow.txt](evidence/hostile-workflow.txt). Targeted Clippy also passed with warnings denied; its [log](evidence/hostile-clippy.txt) retains the host's Rustup home-path canonicalization warning.
+This is backend service integration. It does not exercise a native WebView, Monaco, visual interaction, remote provider compatibility or abrupt whole-application termination. Separate storage tests terminate actual child processes at patch transaction boundaries; this scenario performs a controlled Engine restart after cancellation. The process-liveness check covers the real subprocess created by this fixture, not arbitrary system processes.

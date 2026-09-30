@@ -1,0 +1,26 @@
+[
+  {
+    "command": "cargo.exe test -p astraforge-core --offline",
+    "name": "rust-tests",
+    "startedAt": "2026-09-30T20:15:45.6739251+05:00",
+    "durationMs": 110150.67,
+    "exitCode": 0,
+    "log": "baseline-rust-tests.txt"
+  },
+  {
+    "command": "cargo.exe clippy -p astraforge-core --all-targets --offline -- -D warnings",
+    "name": "rust-clippy",
+    "startedAt": "2026-09-30T20:17:35.8529188+05:00",
+    "durationMs": 4679.004,
+    "exitCode": 0,
+    "log": "baseline-rust-clippy.txt"
+  },
+  {
+    "command": "cargo.exe fmt --all -- --check",
+    "name": "rust-format",
+    "startedAt": "2026-09-30T20:17:40.5336840+05:00",
+    "durationMs": 1265.908,
+    "exitCode": 0,
+    "log": "baseline-rust-format.txt"
+  }
+]

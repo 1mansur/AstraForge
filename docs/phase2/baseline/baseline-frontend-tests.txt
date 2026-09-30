@@ -1,0 +1,14 @@
+$ vitest run
+
+ RUN  v3.2.7 C:/Users/User/Documents/Codex/2026-09-30/files-pasted-by-the-user-you/outputs/AstraForge
+
+ ✓ src/state/workbench.test.ts (12 tests) 151ms
+ ✓ src/services/shortcuts.test.ts (3 tests) 10ms
+ ✓ src/ui/workbench.test.tsx (11 tests) 625ms
+ ✓ src/services/commands.test.ts (6 tests) 7ms
+
+ Test Files  4 passed (4)
+      Tests  32 passed (32)
+   Start at  20:19:28
+   Duration  39.02s (transform 2.49s, setup 22.65s, collect 4.29s, tests 793ms, environment 42.81s, prepare 2.25s)
+

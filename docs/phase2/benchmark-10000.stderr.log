@@ -1,0 +1,11 @@
+Generated 10000 mixed source files in 30487.8 ms
+Indexed 10000 files in 14552.9 ms
+Watcher batch 1 starting: paths=9, full=false
+Watcher batch 1 finished: 320.623 ms, parsed=9, cancelled=false
+Watcher batch 2 starting: paths=42, full=false
+Watcher batch 2 finished: 274.657 ms, parsed=41, cancelled=false
+Watcher batch 3 starting: paths=49, full=false
+Watcher producer finished 100 writes in 1008.127 ms
+Watcher batch 3 finished: 251.405 ms, parsed=48, cancelled=false
+Watcher batch 4 starting: paths=3, full=false
+Watcher batch 4 finished: 219.204 ms, parsed=2, cancelled=false

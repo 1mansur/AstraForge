@@ -45,7 +45,6 @@ impl Database {
         };
         let mut connection = Connection::open(path)?;
         connection.busy_timeout(Duration::from_secs(5))?;
-        connection.execute_batch("PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; PRAGMA trusted_schema=OFF;")?;
         let version: i64 = connection.query_row("PRAGMA user_version", [], |row| row.get(0))?;
         if version > 1 {
             return Err(AppError::new(
@@ -53,6 +52,7 @@ impl Database {
                 "The database requires a newer AstraForge version",
             ));
         }
+        connection.execute_batch("PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; PRAGMA trusted_schema=OFF;")?;
         if version == 0 {
             let transaction = connection.transaction()?;
             transaction.execute_batch(SCHEMA)?;
