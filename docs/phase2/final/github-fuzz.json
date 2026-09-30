@@ -1,0 +1,120 @@
+{
+  "capturedAt": "2026-09-30T17:34:59.6522707+00:00",
+  "repository": "1mansur/AstraForge",
+  "runId": 36751655457,
+  "url": "https://github.com/1mansur/AstraForge/actions/runs/36751655457",
+  "headSha": "ee2b94d709630369c9578ef630e5f3b5e863db8c",
+  "conclusion": "success",
+  "createdAt": "2026-09-30T17:28:43Z",
+  "updatedAt": "2026-09-30T17:34:15Z",
+  "targetTimeBudgetSeconds": 30,
+  "rssLimitMiB": 2048,
+  "seed": 20260930,
+  "scope": "Four short instrumented libFuzzer runs on Ubuntu; not a sustained campaign or proof of absence of vulnerabilities",
+  "jobs": [
+    {
+      "id": 110011534686,
+      "url": "https://github.com/1mansur/AstraForge/actions/runs/36751655457/job/110011534686",
+      "runner": "GitHub Actions 1000000000",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "startedAt": "2026-09-30T17:28:46Z",
+      "completedAt": "2026-09-30T17:34:14Z",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:28:46Z",
+          "completed_at": "2026-09-30T17:28:47Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:28:47Z",
+          "completed_at": "2026-09-30T17:28:48Z"
+        },
+        {
+          "name": "Cache fuzz dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:28:48Z",
+          "completed_at": "2026-09-30T17:28:49Z"
+        },
+        {
+          "name": "Install nightly fuzz tooling",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:28:49Z",
+          "completed_at": "2026-09-30T17:29:16Z"
+        },
+        {
+          "name": "Prepare seed corpora",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:29:16Z",
+          "completed_at": "2026-09-30T17:29:16Z"
+        },
+        {
+          "name": "Fuzz protocol and session input",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:29:16Z",
+          "completed_at": "2026-09-30T17:32:30Z"
+        },
+        {
+          "name": "Fuzz capability path normalization",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:32:30Z",
+          "completed_at": "2026-09-30T17:33:03Z"
+        },
+        {
+          "name": "Fuzz command classification",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:33:03Z",
+          "completed_at": "2026-09-30T17:33:35Z"
+        },
+        {
+          "name": "Fuzz streaming decoder",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:33:35Z",
+          "completed_at": "2026-09-30T17:34:07Z"
+        },
+        {
+          "name": "Preserve fuzz failures",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-09-30T17:34:07Z",
+          "completed_at": "2026-09-30T17:34:07Z"
+        },
+        {
+          "name": "Post Cache fuzz dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:34:07Z",
+          "completed_at": "2026-09-30T17:34:12Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:34:12Z",
+          "completed_at": "2026-09-30T17:34:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-09-30T17:34:12Z",
+          "completed_at": "2026-09-30T17:34:12Z"
+        }
+      ]
+    }
+  ]
+}

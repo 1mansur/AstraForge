@@ -1,8 +1,8 @@
 {
   "product": "AstraForge",
   "version": "0.2.0",
-  "generatedAt": "2026-09-30T22:27:17.7962058+05:00",
-  "deliveryTier": "Adversarially tested local development build; not a production-readiness certification",
+  "generatedAt": "2026-09-30T22:35:53.2024578+05:00",
+  "deliveryTier": "Adversarially tested development prerelease; not a production-readiness certification",
   "baseline": {
     "commit": "5e8d89382507c0473a1948790eb6a3244c1472d7",
     "rustPassed": 59,
@@ -39,7 +39,7 @@
     "generatedProtocolCases": 4500,
     "instrumentedFuzz": {
       "local": "Attempted; upstream libfuzzer-sys Windows C++ build failed with the available GNU toolchain",
-      "linux": "Pending the configured GitHub Actions run after publication",
+      "linux": "Passed: four short instrumented libFuzzer targets on Ubuntu, 30-second budget per target",
       "configuredTargets": [
         "protocol",
         "paths",
@@ -47,7 +47,10 @@
         "stream"
       ],
       "workflow": "../.github/workflows/hardening.yml",
-      "failureEvidence": "phase2/evidence/fuzz-build-attempt.txt"
+      "failureEvidence": "phase2/evidence/fuzz-build-attempt.txt",
+      "runUrl": "https://github.com/1mansur/AstraForge/actions/runs/36751655457",
+      "verifiedCommit": "ee2b94d709630369c9578ef630e5f3b5e863db8c",
+      "evidence": "phase2/final/github-fuzz.json"
     },
     "commandRecords": [
       "phase2/final/rust.json",
@@ -312,17 +315,23 @@
     "checksums": "SHA256SUMS-0.2.0.txt"
   },
   "publication": {
-    "status": "Public publication authorized by the user; Phase 2 branch prepared for upload",
     "repository": "https://github.com/1mansur/AstraForge",
     "visibility": "public",
     "branch": "phase-2-hardening",
-    "phase2Committed": false,
-    "phase2Pushed": false
+    "targetBranch": "main",
+    "pullRequest": "https://github.com/1mansur/AstraForge/pull/1",
+    "verifiedCodeCommit": "ee2b94d709630369c9578ef630e5f3b5e863db8c",
+    "phase2Committed": true,
+    "phase2Pushed": true,
+    "releaseTag": "v0.2.0",
+    "releaseUrl": "https://github.com/1mansur/AstraForge/releases/tag/v0.2.0",
+    "releaseApproved": true,
+    "prerelease": true
   },
   "remainingLimits": [
     "Full native GUI workflow and installer install/upgrade/uninstall not exercised",
     "No authenticated remote AI endpoint exercised",
-    "The complete agent-state fault matrix and sustained instrumented fuzzing remain unverified",
+    "The complete agent-state fault matrix and long-duration fuzz campaigns remain unverified",
     "Native Windows watcher buffer loss may require an explicit full reindex",
     "Approved scripts have normal account privileges; no OS execution sandbox",
     "Unsigned installer; local persisted contents are not encrypted"
