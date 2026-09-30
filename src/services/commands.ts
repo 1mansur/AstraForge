@@ -1,4 +1,6 @@
 import type { CommandSpec } from '../domain/types';
+export function formatArguments(args: string[]): string { return args.map(arg => `'${arg.replaceAll("'", "'\"'\"'")}'`).join(' '); }
+export function parseCommand(input: string): CommandSpec { const [program, ...args] = parseArguments(input); if (!program) throw new Error('Enter an executable to run.'); return { program, args, cwd: null, env: {}, approved: false, isTest: false }; }
 export function parseArguments(input: string): string[] {
   let current = '';
   let quote = '';

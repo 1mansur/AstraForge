@@ -1,0 +1,33 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling tokio v1.53.1
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling tokio-rustls v0.26.6
+   Compiling tower-http v0.6.11
+   Compiling hyper-util v0.1.21
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 48.69s
+     Running tests\service_adversarial.rs (target\debug\deps\service_adversarial-b5883b5083fc08fd.exe)
+
+running 2 tests
+
+thread 'queued_search_cancellation_survives_database_admission_wait' (11564) panicked at crates\core\tests\service_adversarial.rs:279:9:
+a queued search ran despite acknowledged cancellation: Ok(Array [Object {"column": Number(4), "content": String("function original"), "line": Number(1), "path": String("main.rs"), "symbol": String("original")}])
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test queued_search_cancellation_survives_database_admission_wait ... FAILED
+
+thread 'queued_index_cancellation_survives_database_admission_wait' (24588) panicked at crates\core\tests\service_adversarial.rs:273:9:
+a queued index started despite acknowledged cancellation: Ok(Object {"cancelled": Bool(false), "dependencies": Number(0), "durationMs": Number(3), "files": Number(0), "symbols": Number(0)})
+test queued_index_cancellation_survives_database_admission_wait ... FAILED
+
+failures:
+
+failures:
+    queued_index_cancellation_survives_database_admission_wait
+    queued_search_cancellation_survives_database_admission_wait
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.98s
+
+error: test failed, to rerun pass `-p astraforge-core --test service_adversarial`

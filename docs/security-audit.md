@@ -1,4 +1,6 @@
-# Security audit
+# Phase 1 security audit (historical)
+
+This records the first release candidate before Phase 2. Current behavior and residual risks are in the [security model](security.md), [Phase 2 engineering report](engineering-report.md) and its linked subsystem audits. Phase 2 replaces the blocking provider transport, adds watcher cancellation/generation guards, closes a late cancellation-save race and binds desktop command/session ownership. The old findings and measurements below are retained as historical evidence rather than current validation results.
 
 This is an implementation review and regression-test report for the first AstraForge release candidate. It is not a claim of complete penetration testing or operating-system isolation. The review covered Rust agent orchestration, provider transport, repository tools, filesystem boundaries, patch recovery, persistence, watcher integration, and vector freshness. Windows GNU tests were run on the development host; Unix-specific behavior still requires its own CI run.
 

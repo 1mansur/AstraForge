@@ -1,0 +1,23 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.34s
+     Running tests\provider_adversarial.rs (target\debug\deps\provider_adversarial-05b5e17254f75e51.exe)
+
+running 1 test
+test cancelled_stalled_stream_releases_transport_promptly ... FAILED
+
+failures:
+
+---- cancelled_stalled_stream_releases_transport_promptly stdout ----
+
+thread 'cancelled_stalled_stream_releases_transport_promptly' (31968) panicked at crates\core\tests\provider_adversarial.rs:86:5:
+Cancellation waited for the stalled socket instead of releasing it
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    cancelled_stalled_stream_releases_transport_promptly
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 1.12s
+
+error: test failed, to rerun pass `-p astraforge-core --test provider_adversarial`

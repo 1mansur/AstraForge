@@ -7,10 +7,12 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::HashMap;
+use std::panic::{catch_unwind, AssertUnwindSafe};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 use uuid::Uuid;
+const MAX_SESSION_BYTES: i64 = 32 * 1024 * 1024;
 #[derive(Clone, Debug, Serialize, Deserialize, JsonSchema)]
 #[serde(
     tag = "name",
@@ -138,6 +140,20 @@ pub struct AgentManager {
     running: Mutex<HashMap<String, Runtime>>,
     transitions: Mutex<()>,
 }
+struct RuntimeCleanup {
+    manager: Arc<AgentManager>,
+    id: String,
+}
+impl Drop for RuntimeCleanup {
+    fn drop(&mut self) {
+        match self.manager.running.lock() {
+            Ok(mut running) => {
+                running.remove(&self.id);
+            }
+            Err(_) => eprintln!("Agent runtime cleanup lock unavailable"),
+        }
+    }
+}
 pub fn timestamp() -> u64 {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -151,23 +167,48 @@ impl AgentManager {
     pub fn new(db: Arc<Database>) -> Result<Self> {
         db.with(|connection| {
             connection.execute_batch(
-                "CREATE TABLE IF NOT EXISTS agent_imports(id TEXT PRIMARY KEY,data TEXT NOT NULL);",
+                "CREATE TABLE IF NOT EXISTS agent_imports(id TEXT PRIMARY KEY,data TEXT NOT NULL); CREATE TABLE IF NOT EXISTS agent_quarantine(id TEXT PRIMARY KEY,repository_id TEXT NOT NULL,data TEXT NOT NULL,reason TEXT NOT NULL,quarantined_at INTEGER NOT NULL);",
             )?;
             Ok(())
         })?;
         db.with(|connection| {
             connection.execute_batch("CREATE TABLE IF NOT EXISTS agent_sessions(id TEXT PRIMARY KEY,repository_id TEXT NOT NULL,created_at INTEGER NOT NULL,data TEXT NOT NULL); CREATE TABLE IF NOT EXISTS tool_calls(id TEXT PRIMARY KEY,session_id TEXT NOT NULL,timestamp INTEGER NOT NULL,arguments TEXT NOT NULL,result TEXT NOT NULL,duration_ms INTEGER NOT NULL,status TEXT NOT NULL); CREATE TABLE IF NOT EXISTS repository_memory(repository_id TEXT NOT NULL,fact TEXT NOT NULL,created_at INTEGER NOT NULL,PRIMARY KEY(repository_id,fact)); CREATE TABLE IF NOT EXISTS diagnostics(id INTEGER PRIMARY KEY,at INTEGER NOT NULL,category TEXT NOT NULL,duration_ms INTEGER NOT NULL,message TEXT NOT NULL);")?;
-            let interrupted = {
-                let mut query = connection.prepare("SELECT data FROM agent_sessions")?;
-                let rows = query.query_map([], |row| row.get::<_,String>(0))?.collect::<std::result::Result<Vec<_>,_>>()?;
-                rows
-            };
-            for data in interrupted {
-                let mut session: AgentSession = serde_json::from_str(&data)?;
-                if session.status == "running" {
-                    session.status = "interrupted".into();
-                    session.summary = "Application stopped during execution. Review the trace before continuing.".into();
-                    connection.execute("UPDATE agent_sessions SET data=?1 WHERE id=?2",params![serde_json::to_string(&session)?,session.id])?;
+            let mut cursor: Option<String> = None;
+            loop {
+                let query = if cursor.is_some() { "SELECT id,repository_id,length(CAST(data AS BLOB)) FROM agent_sessions WHERE id>?1 ORDER BY id LIMIT 1" } else { "SELECT id,repository_id,length(CAST(data AS BLOB)) FROM agent_sessions WHERE ?1 IS NULL ORDER BY id LIMIT 1" };
+                let row = connection.query_row(query, params![cursor], |row| Ok((row.get::<_,String>(0)?,row.get::<_,String>(1)?,row.get::<_,i64>(2)?))).optional()?;
+                let Some((id, repository, bytes)) = row else { break; };
+                cursor = Some(id.clone());
+                let decoded = if bytes > MAX_SESSION_BYTES {
+                    Err("session_size_limit")
+                } else {
+                    let data = connection.query_row("SELECT data FROM agent_sessions WHERE id=?1", [&id], |row| row.get::<_,String>(0));
+                    match data {
+                        Ok(data) => serde_json::from_str::<AgentSession>(&data).map_err(|_| "invalid_session_json"),
+                        Err(rusqlite::Error::InvalidColumnType(_,_,_) | rusqlite::Error::FromSqlConversionFailure(_,_,_)) => Err("invalid_session_encoding"),
+                        Err(error) => return Err(error.into()),
+                    }
+                };
+                let decoded = decoded.and_then(|session| {
+                    if session.id != id || session.repository_id != repository { return Err("session_identity_mismatch"); }
+                    if !matches!(session.mode.as_str(), "task" | "review") || !matches!(session.status.as_str(), "running" | "interrupted" | "waiting_approval" | "completed" | "failed" | "cancelled" | "imported") || session.nodes.len() > 1000 || session.edges.len() > 2000 { return Err("session_state_invalid"); }
+                    Ok(session)
+                });
+                match decoded {
+                    Ok(mut session) if session.status == "running" => {
+                        session.status = "interrupted".into();
+                        session.summary = "Application stopped during execution. Review the trace before continuing.".into();
+                        for node in &mut session.nodes { if node.status == "running" { node.status = "interrupted".into(); } }
+                        connection.execute("UPDATE agent_sessions SET data=?1 WHERE id=?2",params![serde_json::to_string(&session)?,id])?;
+                    }
+                    Ok(_) => (),
+                    Err(reason) => {
+                        let transaction = connection.transaction()?;
+                        transaction.execute("INSERT OR REPLACE INTO agent_quarantine(id,repository_id,data,reason,quarantined_at) SELECT id,repository_id,data,?2,?3 FROM agent_sessions WHERE id=?1",params![id,reason,timestamp()])?;
+                        transaction.execute("DELETE FROM agent_sessions WHERE id=?1",[&id])?;
+                        transaction.execute("INSERT INTO diagnostics(at,category,duration_ms,message) VALUES(?1,'agent_recovery',0,?2)",params![timestamp(),json!({"sessionId":id,"reason":reason,"action":"quarantined"}).to_string()])?;
+                        transaction.commit()?;
+                    }
                 }
             }
             Ok(())
@@ -179,7 +220,13 @@ impl AgentManager {
         })
     }
     fn save(&self, session: &AgentSession) -> Result<()> {
-        self.db.with(|connection| { connection.execute("INSERT OR REPLACE INTO agent_sessions(id,repository_id,created_at,data) VALUES(?1,?2,?3,?4)",params![session.id,session.repository_id,session.created_at,serde_json::to_string(session)?])?; Ok(()) })
+        self.db.with(|connection| {
+            let changed = connection.execute("INSERT INTO agent_sessions(id,repository_id,created_at,data) VALUES(?1,?2,?3,?4) ON CONFLICT(id) DO UPDATE SET repository_id=excluded.repository_id,created_at=excluded.created_at,data=excluded.data WHERE json_extract(agent_sessions.data,'$.status') <> 'cancelled' OR ?5='cancelled'",params![session.id,session.repository_id,session.created_at,serde_json::to_string(session)?,session.status])?;
+            if changed == 0 {
+                return Err(AppError::new("cancelled", "The agent session was stopped"));
+            }
+            Ok(())
+        })
     }
     pub fn get(&self, id: &str) -> Result<AgentSession> {
         self.db.with(|connection| {
@@ -394,21 +441,26 @@ impl AgentManager {
                 cancel: cancel.clone(),
             },
         );
+        drop(running);
         let manager = self.clone();
-        std::thread::spawn(move || {
+        let mut failed_session = session.clone();
+        let spawned = std::thread::Builder::new().name("astraforge-agent".into()).spawn(move || {
+            let _cleanup = RuntimeCleanup { manager: manager.clone(), id: session.id.clone() };
             let mut session = session;
-            let outcome = manager.run(
+            let outcome = catch_unwind(AssertUnwindSafe(|| manager.run(
                 &mut session,
                 provider.as_ref(),
                 host.as_ref(),
                 &cancel,
                 limits,
                 approved,
-            );
+            ))).unwrap_or_else(|_| Err(AppError::new("agent_worker_panic", "An agent worker stopped unexpectedly; review the recorded session before continuing")));
             let _transition = match manager.transitions.lock() {
                 Ok(guard) => guard,
                 Err(_) => {
-                    eprintln!("Agent finalization lock unavailable");
+                    session.status = "failed".into();
+                    session.summary = "Agent finalization lock unavailable; restart the application".into();
+                    if let Err(error) = manager.save(&session) { eprintln!("Agent finalization persistence failed: {}",error.message); }
                     return;
                 }
             };
@@ -420,6 +472,7 @@ impl AgentManager {
                 }
                 .into();
                 session.summary = error.message.clone();
+                for node in &mut session.nodes { if node.status == "running" { node.status = session.status.clone(); } }
                 if let Err(persist) = manager.node(
                     &mut session,
                     "error",
@@ -438,14 +491,27 @@ impl AgentManager {
                 session.pending_tool = None;
                 session.pending_command = None;
                 session.pending_patch = None;
+                for node in &mut session.nodes { if node.status == "running" { node.status = "cancelled".into(); } }
                 if let Err(error) = manager.save(&session) {
                     eprintln!("Agent cancellation persistence failure: {}", error.message);
                 }
             }
-            if let Ok(mut running) = manager.running.lock() {
-                running.remove(&session.id);
-            }
+            match manager.running.lock() { Ok(mut running) => { running.remove(&session.id); }, Err(_) => eprintln!("Agent runtime finalization lock unavailable") }
         });
+        if let Err(error) = spawned {
+            self.running
+                .lock()
+                .map_err(|_| AppError::new("lock_poisoned", "Agent cleanup lock unavailable"))?
+                .remove(&failed_session.id);
+            failed_session.status = "failed".into();
+            failed_session.summary = "The operating system could not start the agent worker".into();
+            self.save(&failed_session)?;
+            return Err(
+                AppError::new("agent_spawn_failed", failed_session.summary).context(
+                    json!({"sessionId":failed_session.id,"cause":format!("{:?}",error.kind())}),
+                ),
+            );
+        }
         Ok(())
     }
     pub fn stop(&self, id: &str) -> Result<()> {
@@ -453,6 +519,19 @@ impl AgentManager {
             .transitions
             .lock()
             .map_err(|_| AppError::new("lock_poisoned", "Agent transition lock unavailable"))?;
+        let mut session = self.get(id)?;
+        if session.status == "cancelled" {
+            return Ok(());
+        }
+        if !matches!(
+            session.status.as_str(),
+            "running" | "waiting_approval" | "interrupted"
+        ) {
+            return Err(AppError::new(
+                "session_state",
+                "Only a running, waiting or interrupted session can be cancelled",
+            ));
+        }
         let running = self
             .running
             .lock()
@@ -460,13 +539,17 @@ impl AgentManager {
         if let Some(runtime) = running.get(id) {
             runtime.cancel.store(true, Ordering::SeqCst);
         }
-        let mut session = self.get(id)?;
         session.status = "cancelled".into();
         session.summary = "Stopped by user".into();
         session.pending_approval = None;
         session.pending_tool = None;
         session.pending_command = None;
         session.pending_patch = None;
+        for node in &mut session.nodes {
+            if node.status == "running" {
+                node.status = "cancelled".into();
+            }
+        }
         self.save(&session)
     }
     fn node(
@@ -830,6 +913,12 @@ impl AgentManager {
                 "Session graph exceeds limits",
             ));
         }
+        if !matches!(session.mode.as_str(), "task" | "review") {
+            return Err(AppError::new(
+                "import_session",
+                "Session mode is unsupported",
+            ));
+        }
         session.id = Uuid::new_v4().to_string();
         session.repository_id = repository.into();
         session.status = "imported".into();
@@ -837,12 +926,22 @@ impl AgentManager {
         session.pending_command = None;
         session.pending_patch = None;
         session.pending_approval = None;
-        self.save(&session)?;
         self.db.with(|connection| {
-            connection.execute(
+            let transaction = connection.transaction()?;
+            transaction.execute(
+                "INSERT INTO agent_sessions(id,repository_id,created_at,data) VALUES(?1,?2,?3,?4)",
+                params![
+                    session.id,
+                    session.repository_id,
+                    session.created_at,
+                    serde_json::to_string(&session)?
+                ],
+            )?;
+            transaction.execute(
                 "INSERT INTO agent_imports(id,data) VALUES(?1,?2)",
                 params![session.id, text],
             )?;
+            transaction.commit()?;
             Ok(())
         })?;
         Ok(session)

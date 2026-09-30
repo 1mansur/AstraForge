@@ -1,0 +1,75 @@
+
+ RUN  v3.2.7 C:/Users/User/Documents/Codex/2026-09-30/files-pasted-by-the-user-you/outputs/AstraForge
+
+{"profile":"diff-mount","lines":10000,"mountedRows":10000,"mountMs":348.91110000000003}
+ ❯ src/ui/responsiveness.test.tsx (1 test | 1 failed) 417ms
+   × bounds mounted diff rows independently of repository line count 416ms
+     → expected 10000 to be less than 100
+{"profile":"event-storm","events":1000,"immediateReads":1000,"immediateRequests":3000,"dispatchMs":6.609300000000076}
+ ❯ src/state/adversarial.test.ts (4 tests | 4 failed) 1117ms
+   × adversarial frontend scheduling > does not replace an edited buffer when duplicate file opens complete 25ms
+     → expected 'zero' to be 'unsaved user edit' // Object.is equality
+   × adversarial frontend scheduling > converges to the newest invalidation after overlapping disk reads 1073ms
+     → expected 'h1' to be 'h2' // Object.is equality
+   × adversarial frontend scheduling > does not populate a new repository with a previous repository diff 3ms
+     → expected 'private content from a' to be '' // Object.is equality
+   × adversarial frontend scheduling > coalesces an invalidation storm instead of starting an unbounded request queue 13ms
+     → expected 1000 to be less than or equal to 1
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/state/adversarial.test.ts > adversarial frontend scheduling > does not replace an edited buffer when duplicate file opens complete
+
+AssertionError: expected 'zero' to be 'unsaved user edit' // Object.is equality
+ Test Files  2 failed (2)
+      Tests  5 failed (5)
+   Start at  20:24:00
+   Duration  2.95s (transform 183ms, setup 805ms, collect 745ms, tests 1.53s, environment 1.50s, prepare 328ms)
+
+
+Expected: "unsaved user edit"
+Received: "zero"
+
+ ❯ src/state/adversarial.test.ts:13:56
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/state/adversarial.test.ts > adversarial frontend scheduling > converges to the newest invalidation after overlapping disk reads
+AssertionError: expected 'h1' to be 'h2' // Object.is equality
+
+Expected: "h2"
+Received: "h1"
+
+ ❯ src/state/adversarial.test.ts:18:439
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/state/adversarial.test.ts > adversarial frontend scheduling > does not populate a new repository with a previous repository diff
+AssertionError: expected 'private content from a' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ private content from a
+
+ ❯ src/state/adversarial.test.ts:23:96
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/state/adversarial.test.ts > adversarial frontend scheduling > coalesces an invalidation storm instead of starting an unbounded request queue
+AssertionError: expected 1000 to be less than or equal to 1
+ ❯ src/state/adversarial.test.ts:28:316
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/ui/responsiveness.test.tsx > bounds mounted diff rows independently of repository line count
+AssertionError: expected 10000 to be less than 100
+ ❯ src/ui/responsiveness.test.tsx:9:188
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

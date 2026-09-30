@@ -1,0 +1,23 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling rusqlite v0.32.1
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 32.09s
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-70b4a9bf61fce7a8.exe)
+
+running 1 test
+
+thread 'windows_dependency_targets_use_ordinal_case_and_actual_paths' (8288) panicked at crates\core\tests\hardening_engines.rs:855:384:
+assertion `left == right` failed
+  left: ["module:./TARGET", "module:./МИР"]
+ right: ["src/target.ts", "src/мир.ts"]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test windows_dependency_targets_use_ordinal_case_and_actual_paths ... FAILED
+
+failures:
+
+failures:
+    windows_dependency_targets_use_ordinal_case_and_actual_paths
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 18 filtered out; finished in 0.86s
+
+error: test failed, to rerun pass `-p astraforge-core --test hardening_engines`

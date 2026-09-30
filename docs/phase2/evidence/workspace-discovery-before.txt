@@ -1,0 +1,38 @@
+warn: could not canonicalize path C:\Users\User
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.88s
+     Running tests\storage_adversarial.rs (target\debug\deps\storage_adversarial-757b533b887d944f.exe)
+
+running 1 test
+
+thread 'workspace_discovery_rejects_wrappers_and_repository_path_binaries' (2932) panicked at crates\core\tests\storage_adversarial.rs:285:9:
+wrapper: 
+running 1 test
+test workspace_discovery_helper ... FAILED
+
+failures:
+
+failures:
+    workspace_discovery_helper
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.40s
+
+ 
+thread 'workspace_discovery_helper' (2520) panicked at crates\core\tests\storage_adversarial.rs:259:9:
+automatic discovery must reject a resolved batch wrapper
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test workspace_discovery_rejects_wrappers_and_repository_path_binaries ... FAILED
+
+failures:
+
+failures:
+    workspace_discovery_rejects_wrappers_and_repository_path_binaries
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.43s
+
+error: test failed, to rerun pass `-p astraforge-core --test storage_adversarial`

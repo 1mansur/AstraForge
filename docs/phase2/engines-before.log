@@ -1,0 +1,69 @@
+warn: could not canonicalize path C:\Users\User
+    Blocking waiting for file lock on build directory
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.78s
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-249eca282e165a67.exe)
+
+running 5 tests
+test subprocess_security_probe ... ignored, Isolated environment fixture invoked by security regression tests
+
+thread 'safe_git_cannot_resolve_to_batch_script' (29340) panicked at crates\core\tests\hardening_engines.rs:83:5:
+
+running 1 test
+test subprocess_security_probe ... FAILED
+
+failures:
+
+failures:
+    subprocess_security_probe
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 3.49s
+
+ 
+thread 'subprocess_security_probe' (24772) panicked at crates\core\tests\hardening_engines.rs:120:9:
+SAFE Git launched a substituted batch script
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test safe_git_cannot_resolve_to_batch_script ... FAILED
+
+thread 'embedding_cancellation_after_provider_return_does_not_commit' (11276) panicked at crates\core\tests\hardening_engines.rs:70:5:
+cancelled provider response was committed
+test embedding_cancellation_after_provider_return_does_not_commit ... FAILED
+
+thread 'dependency_targets_follow_creation_deletion_and_recreation' (29872) panicked at crates\core\tests\hardening_engines.rs:46:5:
+assertion `left == right` failed
+  left: "module:./target"
+ right: "src/target.ts"
+test dependency_targets_follow_creation_deletion_and_recreation ... FAILED
+
+thread 'git_filters_cannot_run_during_automatic_diff' (9552) panicked at crates\core\tests\hardening_engines.rs:77:5:
+
+running 1 test
+test subprocess_security_probe ... FAILED
+
+failures:
+
+failures:
+    subprocess_security_probe
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 4.00s
+
+ 
+thread 'subprocess_security_probe' (8568) panicked at crates\core\tests\hardening_engines.rs:103:9:
+automatic Git diff executed a configured clean filter
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+test git_filters_cannot_run_during_automatic_diff ... FAILED
+
+failures:
+
+failures:
+    dependency_targets_follow_creation_deletion_and_recreation
+    embedding_cancellation_after_provider_return_does_not_commit
+    git_filters_cannot_run_during_automatic_diff
+    safe_git_cannot_resolve_to_batch_script
+
+test result: FAILED. 0 passed; 4 failed; 1 ignored; 0 measured; 0 filtered out; finished in 4.04s
+
+error: test failed, to rerun pass `-p astraforge-core --test hardening_engines`

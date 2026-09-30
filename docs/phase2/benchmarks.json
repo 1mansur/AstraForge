@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 2,
+  "createdAtUtc": "2026-09-30T17:08:02.962Z",
+  "hardware": {
+    "capturedAtUtc": "2026-09-30T15:55:38.0762742Z",
+    "cpu": "Intel(R) Core(TM) 5 210H",
+    "architecture": "AMD64",
+    "logicalProcessors": 12,
+    "physicalMemoryBytes": 16780787712,
+    "availableMemoryBytesAtCapture": 6619095040,
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "cimQuery": "denied; registry and GlobalMemoryStatusEx used"
+  },
+  "profile": "release",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "executableSha256": "171ffa497aa48855d09d567c46a9542c354aa12f4108400b726f878353354bcf",
+  "sourceHashFiles": [
+    {
+      "path": "crates/core/examples/phase2_performance.rs",
+      "sha256": "1c6fba2129e37344a68f0ef935e835ae30fefeb29b8676f8af471b208a1a933b"
+    },
+    {
+      "path": "crates/core/src/index.rs",
+      "sha256": "029fa9810980da03bfacad6264f236868b65d157f4064b3e866d5fd4d6facf23"
+    },
+    {
+      "path": "crates/core/src/watcher.rs",
+      "sha256": "3b3e2094b0b13a571dd317e38447c168678220ceeb31610642e25f5599789797"
+    },
+    {
+      "path": "crates/core/src/vector.rs",
+      "sha256": "58e89033fac2cf4b7581be6708f25cb2b4e3de4d0a57880ef6166caef79be510"
+    },
+    {
+      "path": "crates/core/src/process.rs",
+      "sha256": "deb678b352333a64843f0ab7d99493e7af2a99705fac22f9989e3130a303599c"
+    },
+    {
+      "path": "crates/core/src/git.rs",
+      "sha256": "63e224113c7ba70379cd0e3b53265188f42ff2cbe90bdebe426f781bf31b6a38"
+    }
+  ],
+  "runTimes": [
+    {
+      "sourceFiles": 1000,
+      "startedAtUtc": "2026-09-30T17:01:34.2377396Z",
+      "completedAtUtc": "2026-09-30T17:01:43.2677588Z"
+    },
+    {
+      "sourceFiles": 10000,
+      "startedAtUtc": "2026-09-30T17:01:43.2941555Z",
+      "completedAtUtc": "2026-09-30T17:02:34.8782128Z"
+    },
+    {
+      "sourceFiles": 50000,
+      "startedAtUtc": "2026-09-30T17:02:34.8788823Z",
+      "completedAtUtc": "2026-09-30T17:06:59.4241596Z"
+    }
+  ],
+  "method": "Six language fixtures, malformed ASTs, Unicode/space paths, deep directories, ignored and oversized files; 20 warm query samples; OS process peak RSS; local deterministic 16-dimensional embedding fixture, no network/provider quality measurement; SQLite FULL WAL including WAL and shared-memory sizes",
+  "limitations": [
+    "One measured run per scale, new disposable repository per process, warm local filesystem and no concurrent project build/test jobs",
+    "Twenty query samples; reported median is the upper-middle sorted observation and p95 is the nineteenth of twenty",
+    "PeakWorkingSet64 covers the benchmark process, not desktop UI, subprocess totals, GPU, or entire machine",
+    "Embeddings are a deterministic local sixteen-dimensional fixture, not real network/provider performance or semantic relevance",
+    "Regex query returns early 50 hits; it does not characterize worst-case full corpus scans",
+    "Initial index and watcher times include real Git discovery and durable SQLite operations",
+    "The native Windows notify backend can miss unreported kernel buffer overflow; watcher checks cover the measured 100-write workload",
+    "Graph timing traverses one directory-group import chain, not a connected graph containing the entire repository"
+  ],
+  "runs": [
+    {
+      "cancelIndexMs": 113.1877,
+      "cancelSearchMs": 0.1686,
+      "cancelledIndexReported": true,
+      "databaseAfterIndex": {
+        "mainBytes": 7274496,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 11954656,
+        "walBytes": 4647392
+      },
+      "databaseFinal": {
+        "mainBytes": 7274496,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 11954656,
+        "walBytes": 4647392
+      },
+      "dependencies": 333,
+      "embeddedDocuments": 1002,
+      "embeddingDimensions": 16,
+      "embeddingFixtureMs": 46.368100000000005,
+      "fixtureGenerationMs": 415.04720000000003,
+      "ignoredSourceFiles": 1,
+      "incrementalParsedFiles": 1,
+      "incrementalUpdateMs": 289.5646,
+      "indexMs": 1358.5747000000001,
+      "indexedFiles": 1002,
+      "languages": [
+        "TypeScript",
+        "Python",
+        "Rust",
+        "JSON",
+        "Markdown",
+        "JavaScript"
+      ],
+      "largeTextBytes": 983040,
+      "malformedSourceFiles": 5,
+      "oversizedFiles": 1,
+      "peakResidentBytes": 18210816,
+      "processGeneratedBytes": 16777216,
+      "processMs": 107.58879999999999,
+      "processPolledBytes": 1179648,
+      "processTruncated": true,
+      "regexSearch": {
+        "medianMs": 0.6092,
+        "p95Ms": 1.0745,
+        "samples": 20
+      },
+      "residentAfterBytes": 15065088,
+      "residentBeforeBytes": 7282688,
+      "searchCancellationObserved": true,
+      "sourceFiles": 1000,
+      "startupMs": 694.7189000000001,
+      "symbolSearch": {
+        "medianMs": 0.2361,
+        "p95Ms": 0.3932,
+        "samples": 20
+      },
+      "symbols": 1334,
+      "textSearch": {
+        "medianMs": 0.09050000000000001,
+        "p95Ms": 0.1192,
+        "samples": 20
+      },
+      "transitiveGraph": {
+        "medianMs": 0.2414,
+        "p95Ms": 0.2584,
+        "samples": 20
+      },
+      "vectorSearch": {
+        "medianMs": 2.9742,
+        "p95Ms": 3.2983000000000002,
+        "samples": 20
+      },
+      "watcherCallbacks": 4,
+      "watcherChangedFiles": 100,
+      "watcherProducerMs": 1247.031,
+      "watcherStormMs": 1573.4519
+    },
+    {
+      "cancelIndexMs": 116.0613,
+      "cancelSearchMs": 0.0171,
+      "cancelledIndexReported": true,
+      "databaseAfterIndex": {
+        "mainBytes": 39038976,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 46549576,
+        "walBytes": 7477832
+      },
+      "databaseFinal": {
+        "mainBytes": 43032576,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 50543176,
+        "walBytes": 7477832
+      },
+      "dependencies": 3333,
+      "embeddedDocuments": 10002,
+      "embeddingDimensions": 16,
+      "embeddingFixtureMs": 487.90860000000004,
+      "fixtureGenerationMs": 30487.8334,
+      "ignoredSourceFiles": 1,
+      "incrementalParsedFiles": 1,
+      "incrementalUpdateMs": 278.559,
+      "indexMs": 14552.9267,
+      "indexedFiles": 10002,
+      "languages": [
+        "TypeScript",
+        "Python",
+        "Rust",
+        "JSON",
+        "Markdown",
+        "JavaScript"
+      ],
+      "largeTextBytes": 983040,
+      "malformedSourceFiles": 52,
+      "oversizedFiles": 1,
+      "peakResidentBytes": 19480576,
+      "processGeneratedBytes": 16777216,
+      "processMs": 130.91549999999998,
+      "processPolledBytes": 1179648,
+      "processTruncated": true,
+      "regexSearch": {
+        "medianMs": 0.65,
+        "p95Ms": 1.1478,
+        "samples": 20
+      },
+      "residentAfterBytes": 15663104,
+      "residentBeforeBytes": 8077312,
+      "searchCancellationObserved": true,
+      "sourceFiles": 10000,
+      "startupMs": 339.63739999999996,
+      "symbolSearch": {
+        "medianMs": 3.8783,
+        "p95Ms": 4.499099999999999,
+        "samples": 20
+      },
+      "symbols": 13334,
+      "textSearch": {
+        "medianMs": 0.1041,
+        "p95Ms": 0.3699,
+        "samples": 20
+      },
+      "transitiveGraph": {
+        "medianMs": 0.2592,
+        "p95Ms": 0.3606,
+        "samples": 20
+      },
+      "vectorSearch": {
+        "medianMs": 27.429499999999997,
+        "p95Ms": 29.988899999999997,
+        "samples": 20
+      },
+      "watcherCallbacks": 4,
+      "watcherChangedFiles": 100,
+      "watcherProducerMs": 1008.1271999999999,
+      "watcherStormMs": 1511.9606999999999
+    },
+    {
+      "cancelIndexMs": 109.4455,
+      "cancelSearchMs": 0.0418,
+      "cancelledIndexReported": true,
+      "databaseAfterIndex": {
+        "mainBytes": 175534080,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 184663840,
+        "walBytes": 9096992
+      },
+      "databaseFinal": {
+        "mainBytes": 202280960,
+        "sharedMemoryBytes": 32768,
+        "totalBytes": 211410720,
+        "walBytes": 9096992
+      },
+      "dependencies": 16667,
+      "embeddedDocuments": 50002,
+      "embeddingDimensions": 16,
+      "embeddingFixtureMs": 6840.8776,
+      "fixtureGenerationMs": 187596.1788,
+      "ignoredSourceFiles": 1,
+      "incrementalParsedFiles": 1,
+      "incrementalUpdateMs": 312.9157,
+      "indexMs": 54115.317500000005,
+      "indexedFiles": 50002,
+      "languages": [
+        "TypeScript",
+        "Python",
+        "Rust",
+        "JSON",
+        "Markdown",
+        "JavaScript"
+      ],
+      "largeTextBytes": 983040,
+      "malformedSourceFiles": 258,
+      "oversizedFiles": 1,
+      "peakResidentBytes": 31322112,
+      "processGeneratedBytes": 16777216,
+      "processMs": 101.9338,
+      "processPolledBytes": 1179648,
+      "processTruncated": true,
+      "regexSearch": {
+        "medianMs": 0.6703,
+        "p95Ms": 1.1035000000000001,
+        "samples": 20
+      },
+      "residentAfterBytes": 21495808,
+      "residentBeforeBytes": 11264000,
+      "searchCancellationObserved": true,
+      "sourceFiles": 50000,
+      "startupMs": 202.4469,
+      "symbolSearch": {
+        "medianMs": 19.5737,
+        "p95Ms": 25.6106,
+        "samples": 20
+      },
+      "symbols": 66666,
+      "textSearch": {
+        "medianMs": 0.4678,
+        "p95Ms": 0.6083,
+        "samples": 20
+      },
+      "transitiveGraph": {
+        "medianMs": 0.2532,
+        "p95Ms": 0.2825,
+        "samples": 20
+      },
+      "vectorSearch": {
+        "medianMs": 122.07339999999999,
+        "p95Ms": 190.914,
+        "samples": 20
+      },
+      "watcherCallbacks": 5,
+      "watcherChangedFiles": 100,
+      "watcherProducerMs": 1577.9071,
+      "watcherStormMs": 1935.1598999999999
+    }
+  ]
+}

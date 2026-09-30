@@ -1,0 +1,159 @@
+{
+  "sqliteVersion": "3.53.1",
+  "scope": "isolated in-memory SQLite query plan/microbenchmark; not application benchmark",
+  "runs": [
+    {
+      "repositoryFiles": 10000,
+      "changedScopes": 87,
+      "old": {
+        "elapsedMs": 126.458,
+        "approxVmSteps": 7831300,
+        "plan": [
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=?)"
+        ]
+      },
+      "indexedRange": {
+        "elapsedMs": 0.32,
+        "approxVmSteps": 2000,
+        "plan": [
+          "COMPOUND QUERY",
+          "LEFT-MOST SUBQUERY",
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)",
+          "UNION ALL",
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path>? AND path<?)"
+        ]
+      },
+      "alreadyMigratedDependencyCheck": {
+        "elapsedMs": 4.127,
+        "plan": [
+          "SEARCH f USING INDEX sqlite_autoindex_index_files_1 (repository_id=?)",
+          "CORRELATED SCALAR SUBQUERY 1",
+          "SEARCH d USING COVERING INDEX sqlite_autoindex_index_dependency_files_1 (repository_id=? AND path=?)"
+        ]
+      },
+      "candidateLookupBefore": {
+        "elapsedMs": 223.73,
+        "approxVmSteps": 3480900,
+        "plan": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX sqlite_autoindex_index_dependency_candidates_1 (repository_id=?)"
+        ]
+      },
+      "candidateLookupCovering": {
+        "elapsedMs": 0.426,
+        "approxVmSteps": 1300,
+        "plan": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX index_candidate_covering_path (repository_id=? AND path=?)"
+        ]
+      },
+      "cleanupPlans": {
+        "index_files": [
+          "SEARCH index_files USING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)"
+        ],
+        "index_symbols": [
+          "SEARCH index_symbols USING INDEX index_symbol_path (repository_id=? AND path=?)"
+        ],
+        "index_references": [
+          "SEARCH index_references USING INDEX index_reference_path (repository_id=? AND path=?)"
+        ],
+        "index_edges": [
+          "SEARCH index_edges USING INDEX sqlite_autoindex_index_edges_1 (repository_id=? AND source=?)"
+        ],
+        "index_imports": [
+          "SEARCH index_imports USING INDEX sqlite_autoindex_index_imports_1 (repository_id=? AND source=?)"
+        ],
+        "index_dependency_candidates": [
+          "SEARCH index_dependency_candidates USING INDEX sqlite_autoindex_index_dependency_candidates_1 (repository_id=? AND source=?)"
+        ],
+        "index_dependency_files": [
+          "SEARCH index_dependency_files USING INDEX sqlite_autoindex_index_dependency_files_1 (repository_id=? AND path=?)"
+        ],
+        "fts_delete_source": [
+          "SEARCH index_files USING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)"
+        ],
+        "affected_dependency_sources": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX index_candidate_covering_path (repository_id=? AND path=?)"
+        ]
+      }
+    },
+    {
+      "repositoryFiles": 50000,
+      "changedScopes": 87,
+      "old": {
+        "elapsedMs": 583.497,
+        "approxVmSteps": 39151300,
+        "plan": [
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=?)"
+        ]
+      },
+      "indexedRange": {
+        "elapsedMs": 0.461,
+        "approxVmSteps": 2000,
+        "plan": [
+          "COMPOUND QUERY",
+          "LEFT-MOST SUBQUERY",
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)",
+          "UNION ALL",
+          "SEARCH index_files USING COVERING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path>? AND path<?)"
+        ]
+      },
+      "alreadyMigratedDependencyCheck": {
+        "elapsedMs": 21.908,
+        "plan": [
+          "SEARCH f USING INDEX sqlite_autoindex_index_files_1 (repository_id=?)",
+          "CORRELATED SCALAR SUBQUERY 1",
+          "SEARCH d USING COVERING INDEX sqlite_autoindex_index_dependency_files_1 (repository_id=? AND path=?)"
+        ]
+      },
+      "candidateLookupBefore": {
+        "elapsedMs": 1397.263,
+        "approxVmSteps": 17400900,
+        "plan": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX sqlite_autoindex_index_dependency_candidates_1 (repository_id=?)"
+        ]
+      },
+      "candidateLookupCovering": {
+        "elapsedMs": 1.533,
+        "approxVmSteps": 1300,
+        "plan": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX index_candidate_covering_path (repository_id=? AND path=?)"
+        ]
+      },
+      "cleanupPlans": {
+        "index_files": [
+          "SEARCH index_files USING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)"
+        ],
+        "index_symbols": [
+          "SEARCH index_symbols USING INDEX index_symbol_path (repository_id=? AND path=?)"
+        ],
+        "index_references": [
+          "SEARCH index_references USING INDEX index_reference_path (repository_id=? AND path=?)"
+        ],
+        "index_edges": [
+          "SEARCH index_edges USING INDEX sqlite_autoindex_index_edges_1 (repository_id=? AND source=?)"
+        ],
+        "index_imports": [
+          "SEARCH index_imports USING INDEX sqlite_autoindex_index_imports_1 (repository_id=? AND source=?)"
+        ],
+        "index_dependency_candidates": [
+          "SEARCH index_dependency_candidates USING INDEX sqlite_autoindex_index_dependency_candidates_1 (repository_id=? AND source=?)"
+        ],
+        "index_dependency_files": [
+          "SEARCH index_dependency_files USING INDEX sqlite_autoindex_index_dependency_files_1 (repository_id=? AND path=?)"
+        ],
+        "fts_delete_source": [
+          "SEARCH index_files USING INDEX sqlite_autoindex_index_files_1 (repository_id=? AND path=?)"
+        ],
+        "affected_dependency_sources": [
+          "SEARCH index_dependency_candidates USING COVERING INDEX index_candidate_covering_path (repository_id=? AND path=?)"
+        ]
+      }
+    }
+  ],
+  "queries": {
+    "previousScope": "SELECT path FROM index_files WHERE repository_id=?1 AND (?2='' OR path=?2 OR substr(path,1,length(?2)+1)=?2||'/')",
+    "indexedScope": "SELECT path FROM index_files WHERE repository_id=?1 AND path=?2 UNION ALL SELECT path FROM index_files WHERE repository_id=?1 AND path>=?3 AND path<?4",
+    "affectedImporters": "SELECT source FROM index_dependency_candidates WHERE repository_id=?1 AND path=?2 COLLATE astra_path",
+    "coveringIndex": "CREATE INDEX index_candidate_covering_path ON index_dependency_candidates(repository_id,path COLLATE astra_path,source)",
+    "rangeBindings": "?1=repo; ?2=scope; ?3=scope+'/'; ?4=scope+'0'"
+  }
+}

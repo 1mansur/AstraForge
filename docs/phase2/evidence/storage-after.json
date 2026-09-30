@@ -1,0 +1,6 @@
+{
+  "Command": "cargo test -p astraforge-core --test storage_adversarial --offline -- --nocapture",
+  "ExitCode": 0,
+  "DurationMs": 18357.206,
+  "StartedAt": "2026-09-30T20:27:31.0191638+05:00"
+}

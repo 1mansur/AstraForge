@@ -1,0 +1,42 @@
+[
+  {
+    "command": "cargo.exe test -p astraforge-core --offline",
+    "name": "rust-tests",
+    "startedAt": "2026-09-30T21:58:18.1305717+05:00",
+    "durationMs": 159504.572,
+    "exitCode": 0,
+    "log": "rust-tests.txt"
+  },
+  {
+    "command": "cargo.exe clippy -p astraforge-core --all-targets --offline -- -D warnings",
+    "name": "rust-clippy",
+    "startedAt": "2026-09-30T22:00:57.7002581+05:00",
+    "durationMs": 3236.562,
+    "exitCode": 0,
+    "log": "rust-clippy.txt"
+  },
+  {
+    "command": "cargo.exe fmt --all -- --check",
+    "name": "rust-format",
+    "startedAt": "2026-09-30T22:01:00.9524762+05:00",
+    "durationMs": 1041.402,
+    "exitCode": 0,
+    "log": "rust-format.txt"
+  },
+  {
+    "command": "cargo.exe run -p astraforge-core --offline --example export_contracts -- docs",
+    "name": "export-contracts",
+    "startedAt": "2026-09-30T22:01:01.9990442+05:00",
+    "durationMs": 3700.07,
+    "exitCode": 0,
+    "log": "export-contracts.txt"
+  },
+  {
+    "command": "cargo.exe test -p astraforge-core --offline --test storage patch_benchmark_100_files -- --ignored --nocapture",
+    "name": "patch-performance",
+    "startedAt": "2026-09-30T22:01:05.7043157+05:00",
+    "durationMs": 1470.781,
+    "exitCode": 0,
+    "log": "patch-performance.txt"
+  }
+]

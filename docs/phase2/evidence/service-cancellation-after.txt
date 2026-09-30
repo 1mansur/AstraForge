@@ -1,0 +1,17 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.20s
+     Running tests\service_adversarial.rs (target\debug\deps\service_adversarial-b5883b5083fc08fd.exe)
+
+running 8 tests
+test operation_log_stop_helper ... ignored, Invoked as a real process by process_stop_survives_operation_log_failure
+test process_stop_survives_operation_log_failure ... ok
+test operation_log_records_failures_without_file_content_and_recovers_interrupted_records ... ok
+test desktop_contract_requires_version_and_matching_repository_before_mutation ... ok
+test queued_index_cancellation_survives_database_admission_wait ... ok
+test queued_search_cancellation_survives_database_admission_wait ... ok
+test recovery_conflict_allows_inspection_and_blocks_mutations_until_resolved ... ok
+test watcher_events_are_versioned_scoped_and_ordered_across_repository_switches ... ok
+
+test result: ok. 7 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.80s
+

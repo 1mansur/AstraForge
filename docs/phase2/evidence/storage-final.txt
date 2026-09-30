@@ -1,0 +1,26 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.72s
+     Running tests\storage_adversarial.rs (target\debug\deps\storage_adversarial-757b533b887d944f.exe)
+
+running 17 tests
+test patch_crash_helper ... ignored, Invoked in real subprocesses by patch_process_crashes_recover_committed_journals
+test workspace_discovery_helper ... ignored, Invoked in isolated processes by workspace_discovery_rejects_wrappers_and_repository_path_binaries
+test rejecting_a_future_database_preserves_its_journal_mode ... ok
+test workspace_scope_rejects_bare_layouts ... ok
+test accepted_arbitrary_unicode_paths_stay_relative ... ok
+test simultaneous_optimistic_saves_never_lose_a_successful_update ... ok
+test rollback_preserves_external_change_and_retains_recovery_until_resolved ... ok
+test simultaneous_duplicate_patch_applications_have_one_winner ... ok
+test windows_distinct_unicode_paths_can_share_a_patch_but_ascii_aliases_cannot ... ok
+test files_from_one_to_five_hundred_mebibytes_are_bounded_before_reading ... ok
+test concurrent_database_transactions_rollback_failures_without_orphans ... ok
+test workspace_scope_rejects_git_redirect_to_ancestor ... ok
+test workspace_scope_rejects_git_redirect_to_sibling ... ok
+test workspace_discovery_rejects_wrappers_and_repository_path_binaries ... ok
+test patch_sql_failures_preserve_recoverable_journals_and_file_contents ... ok
+test workspace_scope_accepts_repository_subdirectories_and_linked_worktrees ... ok
+test patch_process_crashes_recover_committed_journals ... ok
+
+test result: ok. 15 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 3.44s
+

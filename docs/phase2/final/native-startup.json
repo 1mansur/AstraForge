@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-09-30T22:13:56.4259380+05:00",
+  "executableSha256": "bf4875f1deef392411ea72520b47e161715194f15c75ffc795d361cf1c33992f",
+  "processStayedAlive": true,
+  "observationSeconds": 8,
+  "hostPeakWorkingSetBytes": 31780864,
+  "hostWorkingSetBytes": 30035968,
+  "webviewChildren": [
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 10268
+    }
+  ],
+  "childInventoryUnavailable": false,
+  "databaseInitialized": true,
+  "initialDesktopRequests": {
+    "observedOperations": [
+      {
+        "method": "repositories",
+        "status": "completed",
+        "count": 1,
+        "firstStartedAt": 1790788437252
+      },
+      {
+        "method": "settings",
+        "status": "completed",
+        "count": 1,
+        "firstStartedAt": 1790788437266
+      }
+    ],
+    "firstCompletedOperationObservedMs": 865
+  },
+  "initialDesktopIpcVerified": true,
+  "forcedStopRequired": false,
+  "standardError": null,
+  "standardOutput": null,
+  "scope": "Packaged process startup, initial renderer-to-Rust IPC when observed, and graceful close; no manual native UI workflow or live remote AI. Memory is the Rust host process only, excluding WebView/GPU children."
+}

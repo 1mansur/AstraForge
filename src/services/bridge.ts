@@ -3,7 +3,7 @@ import { listen } from '@tauri-apps/api/event';
 import type { AppError, Methods } from '../domain/types';
 export interface Bridge {
   available: boolean;
-  request<K extends keyof Methods>(method: K, params: Methods[K]['input']): Promise<Methods[K]['output']>;
+  request<K extends keyof Methods>(method: K, params: Methods[K]['input'], repositoryId?: string | null): Promise<Methods[K]['output']>;
   subscribe(event: 'workspace_changed' | 'diagnostic', handler: (payload: unknown) => void): Promise<() => void>;
 }
 export function normalizeError(error: unknown): AppError {
@@ -14,9 +14,9 @@ export function normalizeError(error: unknown): AppError {
 }
 export const desktopBridge: Bridge = {
   available: isTauri(),
-  async request(method, params) {
+  async request(method, params, repositoryId = null) {
     if (!isTauri()) throw normalizeError({ code: 'DESKTOP_REQUIRED', message: 'Launch the AstraForge desktop application to access local repositories.' });
-    try { return await invoke('request', { request: { method, params } }); } catch (error) { throw normalizeError(error); }
+    try { return await invoke('request', { envelope: { version: 1, repositoryId, request: { method, params } } }); } catch (error) { throw normalizeError(error); }
   },
   async subscribe(event, handler) {
     if (!isTauri()) return () => undefined;

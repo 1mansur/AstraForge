@@ -1,0 +1,12 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.26s
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-63614c4cceb47fc7.exe)
+
+running 3 tests
+test safe_git_cannot_resolve_to_batch_script ... ok
+test git_worktree_stays_bound_after_configuration_changes ... ok
+test git_filters_cannot_run_during_automatic_diff ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 15 filtered out; finished in 1.34s
+

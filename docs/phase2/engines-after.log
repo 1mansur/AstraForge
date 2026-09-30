@@ -1,0 +1,38 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.28s
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-70b4a9bf61fce7a8.exe)
+
+running 25 tests
+dense Markdown 50000 headings: 241.627 ms
+test external_search_token_remembers_cancellation_before_dispatch ... ok
+test candidate_covering_index_migrates_without_rebuilding_on_reopen ... ok
+dense Markdown 50001 heading cap: 249.423 ms
+test dense_markdown_locations_and_complexity_are_bounded ... ok
+test embedding_cancellation_after_provider_return_does_not_commit ... ok
+test inconsistent_embedding_dimensions_roll_back_the_batch ... ok
+test process_stress_helper ... ignored, Isolated subprocess fixture invoked by lifecycle regression tests
+test ignored_atomic_write_events_do_not_force_full_rescans ... ok
+test process_stdin_backpressure_is_bounded_and_stoppable ... ok
+test git_worktree_stays_bound_after_configuration_changes ... ok
+test full_index_refreshes_legacy_ast_positions_without_content_changes ... ok
+test subprocess_security_probe ... ignored, Isolated environment fixture invoked by security regression tests
+test safe_git_cannot_resolve_to_batch_script ... ok
+test git_filters_cannot_run_during_automatic_diff ... ok
+test simultaneous_stdout_stderr_remain_bounded ... ok
+test watcher_delivers_supported_paths_and_cancels_its_callback ... ok
+test unicode_positions_use_utf16_columns ... ok
+test queued_search_cancellation_applies_to_every_mode ... ok
+test dependency_targets_follow_creation_deletion_and_recreation ... ok
+Atomic write notification paths: {"nested/deep/0.ts", "nested/deep/1.ts", "nested/deep/10.ts", "nested/deep/11.ts", "nested/deep/12.ts", "nested/deep/13.ts", "nested/deep/14.ts", "nested/deep/15.ts", "nested/deep/16.ts", "nested/deep/17.ts", "nested/deep/18.ts", "nested/deep/19.ts", "nested/deep/2.ts", "nested/deep/20.ts", "nested/deep/21.ts", "nested/deep/22.ts", "nested/deep/23.ts", "nested/deep/24.ts", "nested/deep/25.ts", "nested/deep/26.ts", "nested/deep/27.ts", "nested/deep/28.ts", "nested/deep/29.ts", "nested/deep/3.ts", "nested/deep/30.ts", "nested/deep/31.ts", "nested/deep/32.ts", "nested/deep/33.ts", "nested/deep/34.ts", "nested/deep/35.ts", "nested/deep/36.ts", "nested/deep/37.ts", "nested/deep/38.ts", "nested/deep/39.ts", "nested/deep/4.ts", "nested/deep/40.ts", "nested/deep/41.ts", "nested/deep/42.ts", "nested/deep/43.ts", "nested/deep/44.ts", "nested/deep/45.ts", "nested/deep/46.ts", "nested/deep/47.ts", "nested/deep/48.ts", "nested/deep/49.ts", "nested/deep/5.ts", "nested/deep/50.ts", "nested/deep/51.ts", "nested/deep/52.ts", "nested/deep/53.ts", "nested/deep/54.ts", "nested/deep/55.ts", "nested/deep/56.ts", "nested/deep/57.ts", "nested/deep/58.ts", "nested/deep/59.ts", "nested/deep/6.ts", "nested/deep/60.ts", "nested/deep/61.ts", "nested/deep/62.ts", "nested/deep/63.ts", "nested/deep/64.ts", "nested/deep/65.ts", "nested/deep/66.ts", "nested/deep/67.ts", "nested/deep/68.ts", "nested/deep/69.ts", "nested/deep/7.ts", "nested/deep/70.ts", "nested/deep/71.ts", "nested/deep/72.ts", "nested/deep/73.ts", "nested/deep/74.ts", "nested/deep/75.ts", "nested/deep/76.ts", "nested/deep/77.ts", "nested/deep/78.ts", "nested/deep/79.ts", "nested/deep/8.ts", "nested/deep/80.ts", "nested/deep/81.ts", "nested/deep/82.ts", "nested/deep/83.ts", "nested/deep/84.ts", "nested/deep/85.ts", "nested/deep/86.ts", "nested/deep/87.ts", "nested/deep/88.ts", "nested/deep/89.ts", "nested/deep/9.ts", "nested/deep/90.ts", "nested/deep/91.ts", "nested/deep/92.ts", "nested/deep/93.ts", "nested/deep/94.ts", "nested/deep/95.ts", "nested/deep/96.ts", "nested/deep/97.ts", "nested/deep/98.ts", "nested/deep/99.ts"}
+test atomic_file_updates_do_not_rescan_unchanged_parent_directories ... ok
+test stale_embedding_response_cannot_overwrite_a_newer_document ... ok
+test incremental_directory_ranges_preserve_adjacent_and_unicode_paths ... ok
+test windows_dependency_targets_use_ordinal_case_and_actual_paths ... ok
+Incremental 100 scopes among 50000 persisted paths/candidates used approximately 757000 SQLite VM steps
+test incremental_file_scopes_do_not_scan_every_repository_row ... ok
+test process_capacity_and_rapid_exits_release_slots ... ok
+test deterministic_mutations_match_a_clean_index ... ok
+
+test result: ok. 23 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 25.62s
+

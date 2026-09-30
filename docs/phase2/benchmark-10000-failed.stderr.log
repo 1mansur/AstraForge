@@ -1,0 +1,3 @@
+Generated 10000 mixed source files in 34132.8 ms
+Indexed 10000 files in 43920.0 ms
+Error: AppError { code: "BENCH_WATCHER", message: "Watcher storm failed to converge within thirty seconds", category: "operation", recoverable: true, cause: None, context: Null }

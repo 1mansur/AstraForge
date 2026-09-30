@@ -1,6 +1,6 @@
 export type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 export interface AppError { code: string; message: string; category: string; recoverable: boolean; cause?: string | null; context: Json }
-export interface Repository { id: string; root: string; name: string }
+export interface Repository { id: string; root: string; name: string; recoveryRequired?: AppError | null }
 export interface FileEntry { path: string; name: string; kind: 'file' | 'directory'; size: number }
 export interface FileContent { path: string; content: string; hash: string; encoding: string }
 export interface EditorDocument extends FileContent { draft: string; conflict: boolean; line?: number }

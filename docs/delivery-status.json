@@ -1,87 +1,330 @@
 {
   "product": "AstraForge",
-  "version": "0.1.0",
-  "generatedAt": "2026-09-30T16:34:57.472139+05:00",
-  "deliveryTier": "Working initial implementation; not production-complete",
-  "target": "Windows x86_64",
-  "artifacts": {
-    "installer": {
-      "file": "https://github.com/1mansur/AstraForge/releases/download/v0.1.0/AstraForge_0.1.0_x64-setup.exe",
-      "bytes": 14338700,
-      "sha256": "405f35adff51bc45fd4537e1ecd8005e80f3ab34a8c1e8beeee5ac79387bf40e",
-      "signed": false
-    },
-    "sourceArchive": "https://github.com/1mansur/AstraForge/releases/download/v0.1.0/AstraForge-0.1.0-source.zip",
-    "executableValidatedSha256": "03144cd38340a7c5ede9687f2b2d4750549e822fb368a0ecd79cab18bed2378c"
+  "version": "0.2.0",
+  "generatedAt": "2026-09-30T22:27:17.7962058+05:00",
+  "deliveryTier": "Adversarially tested local development build; not a production-readiness certification",
+  "baseline": {
+    "commit": "5e8d89382507c0473a1948790eb6a3244c1472d7",
+    "rustPassed": 59,
+    "frontendPassed": 32,
+    "report": "phase2/baseline/engineering-report-phase1.md"
   },
   "validation": {
     "rust": {
-      "passed": 59,
+      "passed": 132,
       "failed": 0,
-      "intentionallyIgnored": 3,
-      "ignoredReason": "Two subprocess-only helpers and one separately executed performance test",
-      "log": "validation/rust-tests.txt"
+      "intentionallyIgnored": 10,
+      "ignoredMeaning": "Nine subprocess helpers invoked by parent tests and one separately executed performance test"
     },
     "frontend": {
-      "passed": 32,
+      "passed": 74,
       "failed": 0,
-      "log": "validation/frontend-validation.txt"
+      "files": 9
     },
     "rustClippy": "passed with warnings denied",
     "rustFormatting": "passed",
-    "typescript": "passed with dependency declaration checking enabled",
+    "typescript": "passed",
     "eslint": "passed",
-    "sourceStyle": "passed: no comments or blank source lines; no explicit TypeScript any or suppression directives",
-    "webProductionBuild": "passed; unsuppressed large Monaco chunk warning",
-    "windowsNativeBuild": "passed: optimized GNU release",
-    "windowsInstallerPackaging": "passed: NSIS x64",
-    "nativeProcessStartup": {
-      "observedAt": "2026-09-30T16:34:27.5721457+05:00",
-      "executableSha256": "03144cd38340a7c5ede9687f2b2d4750549e822fb368a0ecd79cab18bed2378c",
-      "observationSeconds": 8,
-      "processStayedAlive": true,
-      "earlyExitCode": null,
-      "childProcesses": [
-        {
-          "Name": "msedgewebview2.exe",
-          "ProcessId": 32088
-        }
-      ],
-      "databaseInitialized": true,
-      "forcedStopRequired": false,
-      "standardError": null,
-      "standardOutput": null,
-      "scope": "Process startup and database initialization only; native UI interactions and live AI provider were not exercised."
+    "sourceStyle": "passed",
+    "webProductionBuild": "passed; lazy Monaco chunk warning retained",
+    "windowsPackage": "pnpm package passed",
+    "nativeStartup": {
+      "passed": true,
+      "initialRendererIpcVerified": true,
+      "firstCompletedOperationObservedMs": 865,
+      "hostPeakWorkingSetBytes": 31780864,
+      "gracefulClose": true,
+      "record": "phase2/final/native-startup.json"
     },
-    "nativeUiEndToEnd": "not completed",
-    "liveAuthenticatedAiProvider": "not exercised",
-    "sustainedFuzzing": "not run; targets supplied",
-    "installerInstallUpgradeUninstall": "not exercised"
+    "generatedProtocolCases": 4500,
+    "instrumentedFuzz": {
+      "local": "Attempted; upstream libfuzzer-sys Windows C++ build failed with the available GNU toolchain",
+      "linux": "Pending the configured GitHub Actions run after publication",
+      "configuredTargets": [
+        "protocol",
+        "paths",
+        "commands",
+        "stream"
+      ],
+      "workflow": "../.github/workflows/hardening.yml",
+      "failureEvidence": "phase2/evidence/fuzz-build-attempt.txt"
+    },
+    "commandRecords": [
+      "phase2/final/rust.json",
+      "phase2/final/frontend.json",
+      "phase2/final/package.json"
+    ]
   },
   "performance": {
-    "report": "performance.md",
-    "raw": "benchmarks.json",
-    "fixtureFiles": [
+    "report": "phase2/performance.md",
+    "scales": [
       1000,
       10000,
       50000
     ],
-    "interpretation": "Synthetic development-host baseline with concurrent build activity; working-set snapshots are not peak memory."
+    "memoryScope": "OS process peak for isolated backend benchmarks, including fixture generation, excluding desktop WebView/GPU and child processes",
+    "results": [
+      {
+        "cancelIndexMs": 113.1877,
+        "cancelSearchMs": 0.1686,
+        "cancelledIndexReported": true,
+        "databaseAfterIndex": {
+          "mainBytes": 7274496,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 11954656,
+          "walBytes": 4647392
+        },
+        "databaseFinal": {
+          "mainBytes": 7274496,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 11954656,
+          "walBytes": 4647392
+        },
+        "dependencies": 333,
+        "embeddedDocuments": 1002,
+        "embeddingDimensions": 16,
+        "embeddingFixtureMs": 46.368100000000005,
+        "fixtureGenerationMs": 415.04720000000003,
+        "ignoredSourceFiles": 1,
+        "incrementalParsedFiles": 1,
+        "incrementalUpdateMs": 289.5646,
+        "indexMs": 1358.5747000000001,
+        "indexedFiles": 1002,
+        "languages": [
+          "TypeScript",
+          "Python",
+          "Rust",
+          "JSON",
+          "Markdown",
+          "JavaScript"
+        ],
+        "largeTextBytes": 983040,
+        "malformedSourceFiles": 5,
+        "oversizedFiles": 1,
+        "peakResidentBytes": 18210816,
+        "processGeneratedBytes": 16777216,
+        "processMs": 107.58879999999999,
+        "processPolledBytes": 1179648,
+        "processTruncated": true,
+        "regexSearch": {
+          "medianMs": 0.6092,
+          "p95Ms": 1.0745,
+          "samples": 20
+        },
+        "residentAfterBytes": 15065088,
+        "residentBeforeBytes": 7282688,
+        "searchCancellationObserved": true,
+        "sourceFiles": 1000,
+        "startupMs": 694.7189000000001,
+        "symbolSearch": {
+          "medianMs": 0.2361,
+          "p95Ms": 0.3932,
+          "samples": 20
+        },
+        "symbols": 1334,
+        "textSearch": {
+          "medianMs": 0.09050000000000001,
+          "p95Ms": 0.1192,
+          "samples": 20
+        },
+        "transitiveGraph": {
+          "medianMs": 0.2414,
+          "p95Ms": 0.2584,
+          "samples": 20
+        },
+        "vectorSearch": {
+          "medianMs": 2.9742,
+          "p95Ms": 3.2983000000000002,
+          "samples": 20
+        },
+        "watcherCallbacks": 4,
+        "watcherChangedFiles": 100,
+        "watcherProducerMs": 1247.031,
+        "watcherStormMs": 1573.4519
+      },
+      {
+        "cancelIndexMs": 116.0613,
+        "cancelSearchMs": 0.0171,
+        "cancelledIndexReported": true,
+        "databaseAfterIndex": {
+          "mainBytes": 39038976,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 46549576,
+          "walBytes": 7477832
+        },
+        "databaseFinal": {
+          "mainBytes": 43032576,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 50543176,
+          "walBytes": 7477832
+        },
+        "dependencies": 3333,
+        "embeddedDocuments": 10002,
+        "embeddingDimensions": 16,
+        "embeddingFixtureMs": 487.90860000000004,
+        "fixtureGenerationMs": 30487.8334,
+        "ignoredSourceFiles": 1,
+        "incrementalParsedFiles": 1,
+        "incrementalUpdateMs": 278.559,
+        "indexMs": 14552.9267,
+        "indexedFiles": 10002,
+        "languages": [
+          "TypeScript",
+          "Python",
+          "Rust",
+          "JSON",
+          "Markdown",
+          "JavaScript"
+        ],
+        "largeTextBytes": 983040,
+        "malformedSourceFiles": 52,
+        "oversizedFiles": 1,
+        "peakResidentBytes": 19480576,
+        "processGeneratedBytes": 16777216,
+        "processMs": 130.91549999999998,
+        "processPolledBytes": 1179648,
+        "processTruncated": true,
+        "regexSearch": {
+          "medianMs": 0.65,
+          "p95Ms": 1.1478,
+          "samples": 20
+        },
+        "residentAfterBytes": 15663104,
+        "residentBeforeBytes": 8077312,
+        "searchCancellationObserved": true,
+        "sourceFiles": 10000,
+        "startupMs": 339.63739999999996,
+        "symbolSearch": {
+          "medianMs": 3.8783,
+          "p95Ms": 4.499099999999999,
+          "samples": 20
+        },
+        "symbols": 13334,
+        "textSearch": {
+          "medianMs": 0.1041,
+          "p95Ms": 0.3699,
+          "samples": 20
+        },
+        "transitiveGraph": {
+          "medianMs": 0.2592,
+          "p95Ms": 0.3606,
+          "samples": 20
+        },
+        "vectorSearch": {
+          "medianMs": 27.429499999999997,
+          "p95Ms": 29.988899999999997,
+          "samples": 20
+        },
+        "watcherCallbacks": 4,
+        "watcherChangedFiles": 100,
+        "watcherProducerMs": 1008.1271999999999,
+        "watcherStormMs": 1511.9606999999999
+      },
+      {
+        "cancelIndexMs": 109.4455,
+        "cancelSearchMs": 0.0418,
+        "cancelledIndexReported": true,
+        "databaseAfterIndex": {
+          "mainBytes": 175534080,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 184663840,
+          "walBytes": 9096992
+        },
+        "databaseFinal": {
+          "mainBytes": 202280960,
+          "sharedMemoryBytes": 32768,
+          "totalBytes": 211410720,
+          "walBytes": 9096992
+        },
+        "dependencies": 16667,
+        "embeddedDocuments": 50002,
+        "embeddingDimensions": 16,
+        "embeddingFixtureMs": 6840.8776,
+        "fixtureGenerationMs": 187596.1788,
+        "ignoredSourceFiles": 1,
+        "incrementalParsedFiles": 1,
+        "incrementalUpdateMs": 312.9157,
+        "indexMs": 54115.317500000005,
+        "indexedFiles": 50002,
+        "languages": [
+          "TypeScript",
+          "Python",
+          "Rust",
+          "JSON",
+          "Markdown",
+          "JavaScript"
+        ],
+        "largeTextBytes": 983040,
+        "malformedSourceFiles": 258,
+        "oversizedFiles": 1,
+        "peakResidentBytes": 31322112,
+        "processGeneratedBytes": 16777216,
+        "processMs": 101.9338,
+        "processPolledBytes": 1179648,
+        "processTruncated": true,
+        "regexSearch": {
+          "medianMs": 0.6703,
+          "p95Ms": 1.1035000000000001,
+          "samples": 20
+        },
+        "residentAfterBytes": 21495808,
+        "residentBeforeBytes": 11264000,
+        "searchCancellationObserved": true,
+        "sourceFiles": 50000,
+        "startupMs": 202.4469,
+        "symbolSearch": {
+          "medianMs": 19.5737,
+          "p95Ms": 25.6106,
+          "samples": 20
+        },
+        "symbols": 66666,
+        "textSearch": {
+          "medianMs": 0.4678,
+          "p95Ms": 0.6083,
+          "samples": 20
+        },
+        "transitiveGraph": {
+          "medianMs": 0.2532,
+          "p95Ms": 0.2825,
+          "samples": 20
+        },
+        "vectorSearch": {
+          "medianMs": 122.07339999999999,
+          "p95Ms": 190.914,
+          "samples": 20
+        },
+        "watcherCallbacks": 5,
+        "watcherChangedFiles": 100,
+        "watcherProducerMs": 1577.9071,
+        "watcherStormMs": 1935.1598999999999
+      }
+    ]
   },
-  "principalLimitations": [
-    "Pipe console rather than ConPTY",
-    "Command approval policy is not an OS sandbox",
-    "Syntactic references rather than compiler resolution",
-    "Configured tests rather than automatic affected-test selection",
-    "Semantic UI exposes the top 100 results",
-    "Provider cancellation can wait for a stalled request timeout",
-    "Local database and session exports are not encrypted",
-    "Unsigned installer and unverified full native UI/live-provider workflows"
-  ],
+  "artifacts": {
+    "installer": {
+      "file": "AstraForge_0.2.0_x64-setup.exe",
+      "bytes": 14391844,
+      "sha256": "da6ae4f25af8306d2fa30e7f7f2e645e6758f103180cf4dec6e0c6702f5346d5",
+      "authenticodeStatus": "NotSigned"
+    },
+    "executableSha256": "bf4875f1deef392411ea72520b47e161715194f15c75ffc795d361cf1c33992f",
+    "sourceArchive": "AstraForge-0.2.0-source.zip",
+    "checksums": "SHA256SUMS-0.2.0.txt"
+  },
   "publication": {
+    "status": "Public publication authorized by the user; Phase 2 branch prepared for upload",
     "repository": "https://github.com/1mansur/AstraForge",
-    "branch": "main",
-    "release": "https://github.com/1mansur/AstraForge/releases/tag/v0.1.0",
-    "visibility": "private"
-  }
+    "visibility": "public",
+    "branch": "phase-2-hardening",
+    "phase2Committed": false,
+    "phase2Pushed": false
+  },
+  "remainingLimits": [
+    "Full native GUI workflow and installer install/upgrade/uninstall not exercised",
+    "No authenticated remote AI endpoint exercised",
+    "The complete agent-state fault matrix and sustained instrumented fuzzing remain unverified",
+    "Native Windows watcher buffer loss may require an explicit full reindex",
+    "Approved scripts have normal account privileges; no OS execution sandbox",
+    "Unsigned installer; local persisted contents are not encrypted"
+  ]
 }

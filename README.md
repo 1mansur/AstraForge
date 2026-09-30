@@ -1,9 +1,9 @@
 # AstraForge
 A local-first engineering workbench built with Tauri 2, Rust, React, TypeScript, Monaco, SQLite, Tree-sitter and Git.
 
-This is an initial engineering implementation, not a claim that all production acceptance criteria have been met. Features operate on real repositories and processes. There is no simulated terminal, repository dataset, AI response or browser filesystem bridge in the shipped application.
+Version 0.2.0 continues the existing application with adversarial hardening of repository boundaries, editor concurrency, persistence, indexing, process lifecycles and AI transport. Features operate on real repositories and processes. There is no simulated terminal, repository dataset, AI response or browser filesystem bridge in the shipped application. The [engineering report](docs/engineering-report.md) distinguishes verified behavior from remaining production limitations.
 
-Windows installer, source archive and SHA-256 checksums are available in [GitHub Releases](https://github.com/1mansur/AstraForge/releases/tag/v0.1.0). The installer is unsigned.
+Publication status, local artifact names and hashes are recorded in [delivery metadata](docs/delivery-status.json). Published builds are listed in [GitHub Releases](https://github.com/1mansur/AstraForge/releases). Installers are unsigned.
 
 ## Run
 Install Node.js 22.12 or later, pnpm 11.19, Git, stable Rust with the Windows MSVC target, Visual Studio C++ Build Tools and WebView2. See the [official Tauri prerequisites](https://v2.tauri.app/start/prerequisites/).
@@ -63,6 +63,11 @@ Configure an embedding model only if you want repository snippets sent to that p
 - [Testing and validation](docs/testing.md)
 - [Performance measurements](docs/performance.md)
 - [Engineering audit and known limitations](docs/engineering-report.md)
+- [Phase 2 frontend concurrency and rendering audit](docs/phase2/frontend-audit.md)
+- [Phase 2 provider and desktop protocol audit](docs/phase2/provider-service-audit.md)
+- [Phase 2 storage and crash-recovery audit](docs/phase2/storage-audit.md)
+- [Phase 2 agent lifecycle audit](docs/phase2/agent-audit.md)
+- [Phase 2 indexing, Git and process audit](docs/phase2/engines-audit.md)
 - [Generated database schema](docs/schema.sql)
 - [Generated AI tool schema](docs/ai-tools.schema.json)
 

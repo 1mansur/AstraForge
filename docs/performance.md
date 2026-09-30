@@ -1,5 +1,7 @@
 # Performance measurements
 
+This document preserves the historical Phase 1 measurements and interpretation. Its tables and numbers describe the original uniform TypeScript fixture, not the current mixed-language harness. See [Phase 2 performance](phase2/performance.md) for the current methodology and results; the two fixtures are not a controlled before/after comparison.
+
 Measured on 2026-09-30 on Windows 10.0.26200, x86_64, using an optimized Rust build. These are actual executions against generated Git repositories and SQLite databases. The complete machine-readable results are in [benchmarks.json](benchmarks.json). CPU model and installed RAM were unavailable through this host's restricted system inventory. Other build activity was present during the run, so these measurements are a development baseline rather than controlled hardware comparisons.
 
 ## Repository operations

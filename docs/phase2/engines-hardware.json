@@ -1,0 +1,10 @@
+{
+  "capturedAtUtc": "2026-09-30T15:55:38.0762742Z",
+  "cpu": "Intel(R) Core(TM) 5 210H",
+  "architecture": "AMD64",
+  "logicalProcessors": 12,
+  "physicalMemoryBytes": 16780787712,
+  "availableMemoryBytesAtCapture": 6619095040,
+  "os": "Microsoft Windows NT 10.0.26200.0",
+  "cimQuery": "denied; registry and GlobalMemoryStatusEx used"
+}

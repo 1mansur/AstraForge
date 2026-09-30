@@ -1,0 +1,52 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.09s
+     Running tests\agent_adversarial.rs (target\debug\deps\agent_adversarial-a630ed39f4347f7e.exe)
+
+running 5 tests
+
+thread 'stop_does_not_rewrite_terminal_or_imported_sessions' (3640) panicked at crates\core\tests\agent_adversarial.rs:140:105:
+terminal transition rejected: ()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'startup_quarantines_bad_rows_and_recovers_other_sessions' (15220) panicked at crates\core\tests\agent_adversarial.rs:87:65:
+one corrupt row must not prevent startup: AppError { code: "INVALID_JSON", message: "The supplied or persisted JSON is invalid", category: "operation", recoverable: true, cause: None, context: Object {"column": Number(2), "line": Number(1)} }
+
+thread 'failed_archive_import_does_not_leave_an_orphan_session' (22144) panicked at crates\core\tests\agent_adversarial.rs:126:5:
+assertion failed: fixture.manager.list("repo").expect("session count after failed import").is_empty()
+test stop_does_not_rewrite_terminal_or_imported_sessions ... FAILED
+test startup_quarantines_bad_rows_and_recovers_other_sessions ... FAILED
+test failed_archive_import_does_not_leave_an_orphan_session ... FAILED
+
+thread '<unnamed>' (19620) panicked at crates\core\tests\agent_adversarial.rs:48:9:
+injected provider worker panic
+
+thread '<unnamed>' (28096) panicked at crates\core\tests\agent_adversarial.rs:48:9:
+injected provider worker panic
+
+thread '<unnamed>' (5244) panicked at crates\core\tests\agent_adversarial.rs:48:9:
+injected provider worker panic
+
+thread '<unnamed>' (21376) panicked at crates\core\tests\agent_adversarial.rs:48:9:
+injected provider worker panic
+
+thread 'oversized_and_identity_mismatched_sessions_are_quarantined' (13880) panicked at crates\core\tests\agent_adversarial.rs:107:65:
+bounded startup recovery: AppError { code: "INVALID_JSON", message: "The supplied or persisted JSON is invalid", category: "operation", recoverable: true, cause: None, context: Object {"column": Number(1), "line": Number(1)} }
+test oversized_and_identity_mismatched_sessions_are_quarantined ... FAILED
+
+thread 'worker_panics_fail_sessions_and_release_all_running_slots' (32668) panicked at crates\core\tests\agent_adversarial.rs:74:9:
+worker never reached terminal state: 39963a70-5fb1-423e-8e97-737a7782eae3
+test worker_panics_fail_sessions_and_release_all_running_slots ... FAILED
+
+failures:
+
+failures:
+    failed_archive_import_does_not_leave_an_orphan_session
+    oversized_and_identity_mismatched_sessions_are_quarantined
+    startup_quarantines_bad_rows_and_recovers_other_sessions
+    stop_does_not_rewrite_terminal_or_imported_sessions
+    worker_panics_fail_sessions_and_release_all_running_slots
+
+test result: FAILED. 0 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.05s
+
+error: test failed, to rerun pass `-p astraforge-core --test agent_adversarial`

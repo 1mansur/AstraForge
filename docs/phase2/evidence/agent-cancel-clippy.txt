@@ -1,0 +1,4 @@
+warn: could not canonicalize path C:\Users\User
+    Checking rusqlite v0.32.1
+    Checking astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 13.40s

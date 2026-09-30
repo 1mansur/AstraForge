@@ -1,0 +1,87 @@
+{
+  "product": "AstraForge",
+  "version": "0.1.0",
+  "generatedAt": "2026-09-30T16:34:57.472139+05:00",
+  "deliveryTier": "Working initial implementation; not production-complete",
+  "target": "Windows x86_64",
+  "artifacts": {
+    "installer": {
+      "file": "https://github.com/1mansur/AstraForge/releases/download/v0.1.0/AstraForge_0.1.0_x64-setup.exe",
+      "bytes": 14338700,
+      "sha256": "405f35adff51bc45fd4537e1ecd8005e80f3ab34a8c1e8beeee5ac79387bf40e",
+      "signed": false
+    },
+    "sourceArchive": "https://github.com/1mansur/AstraForge/releases/download/v0.1.0/AstraForge-0.1.0-source.zip",
+    "executableValidatedSha256": "03144cd38340a7c5ede9687f2b2d4750549e822fb368a0ecd79cab18bed2378c"
+  },
+  "validation": {
+    "rust": {
+      "passed": 59,
+      "failed": 0,
+      "intentionallyIgnored": 3,
+      "ignoredReason": "Two subprocess-only helpers and one separately executed performance test",
+      "log": "validation/rust-tests.txt"
+    },
+    "frontend": {
+      "passed": 32,
+      "failed": 0,
+      "log": "validation/frontend-validation.txt"
+    },
+    "rustClippy": "passed with warnings denied",
+    "rustFormatting": "passed",
+    "typescript": "passed with dependency declaration checking enabled",
+    "eslint": "passed",
+    "sourceStyle": "passed: no comments or blank source lines; no explicit TypeScript any or suppression directives",
+    "webProductionBuild": "passed; unsuppressed large Monaco chunk warning",
+    "windowsNativeBuild": "passed: optimized GNU release",
+    "windowsInstallerPackaging": "passed: NSIS x64",
+    "nativeProcessStartup": {
+      "observedAt": "2026-09-30T16:34:27.5721457+05:00",
+      "executableSha256": "03144cd38340a7c5ede9687f2b2d4750549e822fb368a0ecd79cab18bed2378c",
+      "observationSeconds": 8,
+      "processStayedAlive": true,
+      "earlyExitCode": null,
+      "childProcesses": [
+        {
+          "Name": "msedgewebview2.exe",
+          "ProcessId": 32088
+        }
+      ],
+      "databaseInitialized": true,
+      "forcedStopRequired": false,
+      "standardError": null,
+      "standardOutput": null,
+      "scope": "Process startup and database initialization only; native UI interactions and live AI provider were not exercised."
+    },
+    "nativeUiEndToEnd": "not completed",
+    "liveAuthenticatedAiProvider": "not exercised",
+    "sustainedFuzzing": "not run; targets supplied",
+    "installerInstallUpgradeUninstall": "not exercised"
+  },
+  "performance": {
+    "report": "performance.md",
+    "raw": "benchmarks.json",
+    "fixtureFiles": [
+      1000,
+      10000,
+      50000
+    ],
+    "interpretation": "Synthetic development-host baseline with concurrent build activity; working-set snapshots are not peak memory."
+  },
+  "principalLimitations": [
+    "Pipe console rather than ConPTY",
+    "Command approval policy is not an OS sandbox",
+    "Syntactic references rather than compiler resolution",
+    "Configured tests rather than automatic affected-test selection",
+    "Semantic UI exposes the top 100 results",
+    "Provider cancellation can wait for a stalled request timeout",
+    "Local database and session exports are not encrypted",
+    "Unsigned installer and unverified full native UI/live-provider workflows"
+  ],
+  "publication": {
+    "repository": "https://github.com/1mansur/AstraForge",
+    "branch": "main",
+    "release": "https://github.com/1mansur/AstraForge/releases/tag/v0.1.0",
+    "visibility": "private"
+  }
+}

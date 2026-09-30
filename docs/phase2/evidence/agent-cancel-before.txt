@@ -1,0 +1,20 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.20s
+     Running tests\agent_adversarial.rs (target\debug\deps\agent_adversarial-5d9abb7fbf973161.exe)
+
+running 1 test
+
+thread 'cancelled_session_never_transiently_resurrects_after_late_tool_result' (19200) panicked at crates\core\tests\agent_adversarial.rs:457:5:
+a stopped session was transiently resurrected: ["running", "cancelled", "cancelled"]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test cancelled_session_never_transiently_resurrects_after_late_tool_result ... FAILED
+
+failures:
+
+failures:
+    cancelled_session_never_transiently_resurrects_after_late_tool_result
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.08s
+
+error: test failed, to rerun pass `-p astraforge-core --test agent_adversarial`

@@ -1,0 +1,20 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.2.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.44s
+     Running tests\hardening_engines.rs (target\debug\deps\hardening_engines-70b4a9bf61fce7a8.exe)
+
+running 1 test
+
+thread 'ignored_atomic_write_events_do_not_force_full_rescans' (21836) panicked at crates\core\tests\hardening_engines.rs:939:17:
+The final real file event was lost: [false, true]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test ignored_atomic_write_events_do_not_force_full_rescans ... FAILED
+
+failures:
+
+failures:
+    ignored_atomic_write_events_do_not_force_full_rescans
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 20 filtered out; finished in 4.24s
+
+error: test failed, to rerun pass `-p astraforge-core --test hardening_engines`

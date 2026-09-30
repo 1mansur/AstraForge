@@ -1,0 +1,9 @@
+Generated 50000 mixed source files in 216122.3 ms
+Indexed 50000 files in 132997.7 ms
+Watcher batch 1 starting: paths=2, full=false
+Watcher batch 1 finished: 1354.181 ms, parsed=2, cancelled=false
+Watcher batch 2 starting: paths=87, full=false
+Watcher producer finished 100 writes in 1693.534 ms
+Watcher deadline: callbacks=2, missing=11, first=["group000 Юникод space/deep/nested/file000089.js", "group000 Юникод space/deep/nested/file000090.ts", "group000 Юникод space/deep/nested/file000091.py"]
+Watcher batch 2 finished: 31152.174 ms, parsed=87, cancelled=true
+Error: AppError { code: "BENCH_WATCHER", message: "Watcher storm failed to converge within thirty seconds", category: "operation", recoverable: true, cause: None, context: Null }

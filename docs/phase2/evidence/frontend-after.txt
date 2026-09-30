@@ -1,0 +1,22 @@
+
+ RUN  v3.2.7 C:/Users/User/Documents/Codex/2026-09-30/files-pasted-by-the-user-you/outputs/AstraForge
+
+{"profile":"diff-mount","lines":10000,"mountedRows":36,"mountMs":88.50960000000032}
+ ✓ src/ui/responsiveness.test.tsx (4 tests) 406ms
+ ✓ src/ui/workbench.test.tsx (12 tests) 1123ms
+   ✓ desktop boundary > shows an honest browser-only state and never fabricates repositories  407ms
+{"profile":"event-storm","events":1000,"immediateReads":1,"immediateRequests":3,"dispatchMs":2.529700000000048}
+ ✓ src/state/adversarial.test.ts (13 tests) 254ms
+ ✓ src/state/workbench.test.ts (12 tests) 144ms
+{"profile":"fragmented-output","polls":500,"receivedChunks":500000,"retainedChunks":2048,"processingMs":82.57359999999994}
+ ✓ src/services/output.test.ts (3 tests) 92ms
+ ✓ src/services/commands.test.ts (9 tests) 42ms
+ ✓ src/services/events.test.ts (15 tests) 41ms
+ ✓ src/services/bridge.test.ts (3 tests) 10ms
+ ✓ src/services/shortcuts.test.ts (3 tests) 6ms
+
+ Test Files  9 passed (9)
+      Tests  74 passed (74)
+   Start at  20:49:32
+   Duration  13.03s (transform 1.01s, setup 4.92s, collect 2.14s, tests 2.12s, environment 10.11s, prepare 1.71s)
+

@@ -1,0 +1,67 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.13s
+     Running tests\agent_adversarial.rs (target\debug\deps\agent_adversarial-a630ed39f4347f7e.exe)
+
+running 5 tests
+test failed_archive_import_does_not_leave_an_orphan_session ... ok
+test startup_quarantines_bad_rows_and_recovers_other_sessions ... ok
+test stop_does_not_rewrite_terminal_or_imported_sessions ... ok
+
+thread 'astraforge-agent' (29220) panicked at crates\core\tests\agent_adversarial.rs:80:9:
+injected provider worker panic
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'astraforge-agent' (34556) panicked at crates\core\tests\agent_adversarial.rs:80:9:
+injected provider worker panic
+
+thread 'astraforge-agent' (30072) panicked at crates\core\tests\agent_adversarial.rs:80:9:
+injected provider worker panic
+
+thread 'astraforge-agent' (14616) panicked at crates\core\tests\agent_adversarial.rs:80:9:
+injected provider worker panic
+
+thread 'astraforge-agent' (7500) panicked at crates\core\tests\agent_adversarial.rs:100:9:
+assertion `left != right` failed: injected context worker panic
+  left: "context"
+ right: "context"
+
+thread 'astraforge-agent' (3024) panicked at crates\core\tests\agent_adversarial.rs:100:9:
+assertion `left != right` failed: injected context worker panic
+  left: "context"
+ right: "context"
+
+thread 'astraforge-agent' (24832) panicked at crates\core\tests\agent_adversarial.rs:100:9:
+assertion `left != right` failed: injected context worker panic
+  left: "context"
+ right: "context"
+
+thread 'astraforge-agent' (11400) panicked at crates\core\tests\agent_adversarial.rs:100:9:
+assertion `left != right` failed: injected context worker panic
+  left: "context"
+ right: "context"
+
+thread 'astraforge-agent' (32512) panicked at crates\core\tests\agent_adversarial.rs:109:9:
+assertion `left != right` failed: injected tool worker panic
+  left: "tool"
+ right: "tool"
+
+thread 'astraforge-agent' (4460) panicked at crates\core\tests\agent_adversarial.rs:109:9:
+assertion `left != right` failed: injected tool worker panic
+  left: "tool"
+ right: "tool"
+
+thread 'astraforge-agent' (35720) panicked at crates\core\tests\agent_adversarial.rs:109:9:
+assertion `left != right` failed: injected tool worker panic
+  left: "tool"
+ right: "tool"
+
+thread 'astraforge-agent' (20916) panicked at crates\core\tests\agent_adversarial.rs:109:9:
+assertion `left != right` failed: injected tool worker panic
+  left: "tool"
+ right: "tool"
+test worker_panics_fail_sessions_and_release_all_running_slots ... ok
+test oversized_and_identity_mismatched_sessions_are_quarantined ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.67s
+

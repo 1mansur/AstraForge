@@ -1,0 +1,39 @@
+{
+  "scopedRequest": {
+    "version": 1,
+    "repositoryId": "repo-a",
+    "request": {
+      "method": "read_file",
+      "params": {
+        "path": "src/main.rs"
+      }
+    }
+  },
+  "globalRequest": {
+    "version": 1,
+    "repositoryId": null,
+    "request": {
+      "method": "repositories",
+      "params": {}
+    }
+  },
+  "workspaceEvent": {
+    "version": 1,
+    "repositoryId": "repo-a",
+    "sequence": 1,
+    "payload": {
+      "paths": [
+        "src/main.rs"
+      ],
+      "rescan": false
+    }
+  },
+  "diagnosticEvent": {
+    "version": 1,
+    "repositoryId": null,
+    "sequence": 2,
+    "payload": {
+      "message": "Fixture diagnostic"
+    }
+  }
+}

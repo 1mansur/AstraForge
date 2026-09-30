@@ -1,0 +1,49 @@
+warn: could not canonicalize path C:\Users\User
+    Blocking waiting for file lock on build directory
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.44s
+     Running tests\provider_adversarial.rs (outputs\AstraForge\target\debug\deps\provider_adversarial-05b5e17254f75e51.exe)
+
+running 6 tests
+test cancelled_stalled_stream_releases_transport_promptly ... ok
+test embedding_batch_rejects_mixed_dimensions ... FAILED
+test duplicated_sse_event_ids_do_not_duplicate_generated_content ... FAILED
+test length_truncation_is_not_success_even_with_done_marker ... FAILED
+test incomplete_stream_cannot_complete_an_agent_action ... FAILED
+test http_failures_and_malformed_frames_are_bounded_and_redacted ... ok
+
+failures:
+
+---- embedding_batch_rejects_mixed_dimensions stdout ----
+
+thread 'embedding_batch_rejects_mixed_dimensions' (31728) panicked at crates\core\tests\provider_adversarial.rs:109:5:
+assertion failed: result.is_err()
+
+---- duplicated_sse_event_ids_do_not_duplicate_generated_content stdout ----
+
+thread 'duplicated_sse_event_ids_do_not_duplicate_generated_content' (35324) panicked at crates\core\tests\provider_adversarial.rs:52:5:
+assertion `left == right` failed
+  left: "hellohello"
+ right: "hello"
+
+---- length_truncation_is_not_success_even_with_done_marker stdout ----
+
+thread 'length_truncation_is_not_success_even_with_done_marker' (9108) panicked at crates\core\tests\provider_adversarial.rs:60:5:
+assertion failed: result.is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- incomplete_stream_cannot_complete_an_agent_action stdout ----
+
+thread 'incomplete_stream_cannot_complete_an_agent_action' (17644) panicked at crates\core\tests\provider_adversarial.rs:44:5:
+EOF without a completion marker must not authorize a completed action
+
+
+failures:
+    duplicated_sse_event_ids_do_not_duplicate_generated_content
+    embedding_batch_rejects_mixed_dimensions
+    incomplete_stream_cannot_complete_an_agent_action
+    length_truncation_is_not_success_even_with_done_marker
+
+test result: FAILED. 2 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+error: test failed, to rerun pass `-p astraforge-core --test provider_adversarial`

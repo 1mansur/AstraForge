@@ -12,3 +12,5 @@ src-tauri/gen/
 *.db
 *.db-wal
 *.db-shm
+fuzz/artifacts/
+fuzz/corpus/

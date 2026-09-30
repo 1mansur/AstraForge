@@ -1,0 +1,40 @@
+warn: could not canonicalize path C:\Users\User
+   Compiling astraforge-core v0.1.0 (C:\Users\User\Documents\Codex\2026-09-30\files-pasted-by-the-user-you\outputs\AstraForge\crates\core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 35.83s
+     Running tests\agent_adversarial.rs (target\debug\deps\agent_adversarial-a630ed39f4347f7e.exe)
+
+running 6 tests
+test failed_archive_import_does_not_leave_an_orphan_session ... ok
+test stop_does_not_rewrite_terminal_or_imported_sessions ... ok
+test startup_quarantines_bad_rows_and_recovers_other_sessions ... ok
+test quarantine_preserves_the_original_row_if_diagnostic_persistence_fails ... ok
+test worker_panics_fail_sessions_and_release_all_running_slots ... ok
+test oversized_and_identity_mismatched_sessions_are_quarantined ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.56s
+
+     Running tests\archive.rs (target\debug\deps\archive-6afc23a110ca0030.exe)
+
+running 1 test
+test session_exports_actual_artifacts_and_import_retains_them_without_execution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+
+     Running tests\orchestration.rs (target\debug\deps\orchestration-a037aa83cb022a3d.exe)
+
+running 12 tests
+test cancellation_reaches_provider_and_persists_final_state ... ok
+test bounded_steps_and_trace_edges_are_persisted ... ok
+test restart_marks_interrupted_sessions_and_imports_are_nonexecutable ... ok
+test tool_failures_are_logged_and_returned_as_context_for_repair ... ok
+test commands_wait_for_explicit_approval_and_log_both_attempts ... ok
+test agent_capacity_rejection_does_not_persist_a_phantom_running_session ... ok
+test malformed_actions_and_forged_approval_fields_never_execute ... ok
+test a_rejected_patch_does_not_require_verification ... ok
+test approving_a_test_uses_the_frozen_invocation_after_settings_change ... ok
+test patch_resume_requires_a_recorded_user_decision ... ok
+test failed_verification_cannot_finish_and_successful_retry_clears_the_gate ... ok
+test review_mode_blocks_all_mutating_tools_before_host_execution ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+

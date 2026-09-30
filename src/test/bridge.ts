@@ -4,10 +4,12 @@ type Handlers = { [K in keyof Methods]?: (input: Methods[K]['input']) => Methods
 export class TestBridge implements Bridge {
   available = true;
   calls: { method: keyof Methods; params: unknown }[] = [];
+  bindings: (string | null)[] = [];
   events = new Map<string, (payload: unknown) => void>();
   constructor(readonly handlers: Handlers = {}) { this.handlers = { cancel_search: () => null, ...handlers }; }
-  async request<K extends keyof Methods>(method: K, params: Methods[K]['input']): Promise<Methods[K]['output']> {
+  async request<K extends keyof Methods>(method: K, params: Methods[K]['input'], repositoryId: string | null = null): Promise<Methods[K]['output']> {
     this.calls.push({ method, params });
+    this.bindings.push(repositoryId);
     const handler = this.handlers[method] as ((input: Methods[K]['input']) => Methods[K]['output'] | Promise<Methods[K]['output']>) | undefined;
     if (!handler) throw new Error(`Unexpected test request: ${method}`);
     return handler(params);
